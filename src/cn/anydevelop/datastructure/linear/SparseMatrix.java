@@ -5,7 +5,7 @@
 	2. 稀疏矩阵第二行开始记录有效数据，例如[1][0]记录有效数据的行数，[1][1]记录有效数据的列数，[1][2]记录有效数据数值。
 	3. 重复第第二步。
 */
-package cn.anydevelop.datastructure;
+package cn.anydevelop.datastructure.linear;
 
 public class SparseMatrix {
     public static void main(String[] args){
