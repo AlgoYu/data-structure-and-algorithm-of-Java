@@ -1,3 +1,11 @@
+/*
+循环链表：循环链表是链表的最后一个数据节点的指针指向第一个节点的闭环数据结构
+主要思想：
+	1. 创建一个数据结构，有数据域和指针域。
+	2. 数据域用来存储数据，指针域用来指向下一个数据。
+	3. 使用指针域的前后指针完成链表的增、删、改、查。
+	4. 最后一个数据节点的指针指向第一个数据节点。
+*/
 package cn.anydevelop.datastructure.linear;
 
 import java.util.Random;
@@ -42,16 +50,19 @@ public class CircularLinkedList {
     private int length;
     private CircularLinkedListNode next;
 
+    // 初始化链表
     public CircularLinkedList() {
         this.length = 0;
         this.next = new CircularLinkedListNode(0,0);
         this.next.setNext(this.next);
     }
 
+    // 得到长度
     public int getLength() {
         return length;
     }
 
+    // 增加加点
     public void addNode(CircularLinkedListNode node){
         if(this.getNode(node.getId())!=null){
             System.out.println("The node already exists");
@@ -66,6 +77,7 @@ public class CircularLinkedList {
         this.length++;
     }
 
+    // 增加顺序节点
     public void addOrderNode(CircularLinkedListNode node){
         if(this.getNode(node.getId())!=null){
             System.out.println("The node already exists");
@@ -80,6 +92,7 @@ public class CircularLinkedList {
         this.length++;
     }
 
+    // 删除节点
     public void deleteNode(int id){
         CircularLinkedListNode temp = this.next;
         while (temp.getNext()!=this.next && temp.getNext().getId() != id){
@@ -91,6 +104,7 @@ public class CircularLinkedList {
         }
     }
 
+    // 修改节点
     public void modifyNode(CircularLinkedListNode node){
         CircularLinkedListNode temp = this.next;
         while (temp.getNext()!=this.next && temp.getNext().getId() != node.getId()){
@@ -103,6 +117,7 @@ public class CircularLinkedList {
         }
     }
 
+    // 查找节点
     public CircularLinkedListNode getNode(int id){
         CircularLinkedListNode temp = this.next;
         while (temp.getNext()!=this.next && temp.getNext().getId() != id){
@@ -114,6 +129,7 @@ public class CircularLinkedList {
         return null;
     }
 
+    // 打印链表
     public void printLinkedList(){
         if(this.length == 0){
             System.out.println("LinkedList is empty!");
