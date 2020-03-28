@@ -9,47 +9,45 @@
 */
 package cn.anydevelop.algorithm.other;
 
-import java.util.Random;
-import java.util.Scanner;
-
-class People {
-    private int id;
-    private int data;
-    private People next;
-
-    public People(int id, int data) {
-        this.id = id;
-        this.data = data;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-
-    public People getNext() {
-        return next;
-    }
-
-    public void setNext(People next) {
-        this.next = next;
-    }
-}
 
 public class Josephus {
     private int length;
     private People next;
+
+    public class People {
+        private int id;
+        private int data;
+        private People next;
+
+        public People(int id, int data) {
+            this.id = id;
+            this.data = data;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getData() {
+            return data;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+
+        public People getNext() {
+            return next;
+        }
+
+        public void setNext(People next) {
+            this.next = next;
+        }
+    }
 
     // 增加加点
     public void addNode(People node){
@@ -116,31 +114,5 @@ public class Josephus {
         }
         System.out.println();
         System.out.println("存活:["+current.getId()+"]="+current.getData());
-    }
-
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        Josephus josephusCircular = new Josephus();
-        boolean loop = true;
-        while (loop){
-            System.out.println("输入1为打印链表");
-            System.out.println("输入2为加入链表节点");
-            System.out.println("输入3为打印约瑟夫圆形");
-            System.out.println("输入4为退出");
-            int input = scanner.nextInt();
-            Random random = new Random();
-            switch (input){
-                case 1:
-                    josephusCircular.printLinkedList();
-                    break;
-                case 2:
-                    josephusCircular.addNode(new People(scanner.nextInt(),random.nextInt()));
-                    break;
-                case 3:
-                    josephusCircular.printJosephusCircular(scanner.nextInt(),scanner.nextInt());
-                case 4:
-                    loop = false;
-            }
-        }
     }
 }

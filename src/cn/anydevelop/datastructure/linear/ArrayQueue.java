@@ -8,8 +8,6 @@
 */
 package cn.anydevelop.datastructure.linear;
 
-import java.util.Scanner;
-
 public class ArrayQueue {
     // 队列
     private int[] queue;
@@ -48,7 +46,7 @@ public class ArrayQueue {
     // 队列头部数据出队列
     public int outQueue(){
         if(this.isEmpty()){
-            throw new RuntimeException("Can't add queue because queue is full");
+            throw new RuntimeException("Can't add queue because queue is empty");
         }
         return this.queue[++this.front];
     }
@@ -67,36 +65,6 @@ public class ArrayQueue {
             System.out.println("Current have not data");
         }else{
             System.out.println(this.queue[this.front+1]);
-        }
-    }
-
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        ArrayQueue arrayQueue = new ArrayQueue(5);
-        boolean loop = true;
-        while (loop){
-            System.out.println("输入1为打印队列");
-            System.out.println("输入2为加入数据");
-            System.out.println("输入3为取出数据");
-            System.out.println("输入4为显示当前队列头部");
-            System.out.println("输入5为退出");
-            int input = scanner.nextInt();
-            switch (input){
-                case 1:
-                    arrayQueue.printQueue();
-                    break;
-                case 2:
-                    arrayQueue.addQueue(scanner.nextInt());
-                    break;
-                case 3:
-                    System.out.println(arrayQueue.outQueue());
-                    break;
-                case 4:
-                    arrayQueue.printCurrentQueueHead();
-                    break;
-                case 5:
-                    loop = false;
-            }
         }
     }
 }

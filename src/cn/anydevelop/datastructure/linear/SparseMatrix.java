@@ -8,20 +8,6 @@
 package cn.anydevelop.datastructure.linear;
 
 public class SparseMatrix {
-    public static void main(String[] args){
-        int[][] sourceMatrix = new int[10][10];
-        sourceMatrix[3][4] = 3;
-        sourceMatrix[2][5] = 5;
-        sourceMatrix[8][9] = 10;
-        System.out.println("打印原始矩阵");
-        printMatrix(sourceMatrix);
-        int[][] sparseMatrix = convertToSparseMatrix(sourceMatrix);
-        System.out.println("打印稀疏矩阵");
-        printMatrix(sparseMatrix);
-        System.out.println("打印从稀疏矩阵中恢复的原始矩阵");
-        printMatrix(restoreMatrixFromSparseMatrix(sparseMatrix));
-    }
-
     /* 把原始矩阵转换为稀疏矩阵 */
     public static int[][] convertToSparseMatrix(int[][] sourceMatrix){
         // validData记录矩阵的有效数据个数

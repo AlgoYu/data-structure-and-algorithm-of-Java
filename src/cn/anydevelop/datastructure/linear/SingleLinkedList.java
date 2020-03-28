@@ -7,48 +7,45 @@
 */
 package cn.anydevelop.datastructure.linear;
 
-import java.util.Random;
-import java.util.Scanner;
-
-// 链表结点
-class SingleLinkedListNode{
-    private int id;
-    private int data;
-    private SingleLinkedListNode next;
-
-    public SingleLinkedListNode(int id, int data) {
-        this.id = id;
-        this.data = data;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
-
-    public SingleLinkedListNode getNext() {
-        return next;
-    }
-
-    public void setNext(SingleLinkedListNode next) {
-        this.next = next;
-    }
-}
-
 public class SingleLinkedList {
     private int length;
     private SingleLinkedListNode next;
+
+    // 链表结点
+    public class SingleLinkedListNode{
+        private int id;
+        private int data;
+        private SingleLinkedListNode next;
+
+        public SingleLinkedListNode(int id, int data) {
+            this.id = id;
+            this.data = data;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getData() {
+            return data;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+
+        public SingleLinkedListNode getNext() {
+            return next;
+        }
+
+        public void setNext(SingleLinkedListNode next) {
+            this.next = next;
+        }
+    }
 
     // 在构造函数中初始化链表
     public SingleLinkedList() {
@@ -157,50 +154,5 @@ public class SingleLinkedList {
             System.out.print("["+temp.getId()+"]="+temp.getData()+" ");
         }
         System.out.println();
-    }
-
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        SingleLinkedList singleLinkedList = new SingleLinkedList();
-        boolean loop = true;
-        while (loop){
-            System.out.println("输入1为打印链表");
-            System.out.println("输入2为加入链表节点");
-            System.out.println("输入3为加入链表有序节点");
-            System.out.println("输入4为删除链表节点");
-            System.out.println("输入5为修改链表节点");
-            System.out.println("输入6为查找节点");
-            System.out.println("输入7为打印链表长度");
-            System.out.println("输入8为退出");
-            int input = scanner.nextInt();
-            Random random = new Random();
-            switch (input){
-                case 1:
-                    singleLinkedList.printLinkedList();
-                    break;
-                case 2:
-                    singleLinkedList.addNode(new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
-                    break;
-                case 3:
-                    singleLinkedList.addOrderNode(new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
-                    break;
-                case 4:
-                    singleLinkedList.deleteNode(scanner.nextInt());
-                    break;
-                case 5:
-                    singleLinkedList.modifyNode(new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
-                    break;
-                case 6:
-                    int id = scanner.nextInt();
-                    SingleLinkedListNode node = singleLinkedList.getNode(id);
-                    System.out.println(node==null?"没有找到这个节点":"id="+node.getId()+" data="+node.getData());
-                    break;
-                case 7:
-                    System.out.println(singleLinkedList.getLength());
-                    break;
-                case 8:
-                    loop = false;
-            }
-        }
     }
 }

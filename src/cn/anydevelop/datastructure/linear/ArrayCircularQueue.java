@@ -9,8 +9,6 @@
 */
 package cn.anydevelop.datastructure.linear;
 
-import java.util.Scanner;
-
 public class ArrayCircularQueue {
     // 队列
     private int[] queue;
@@ -65,6 +63,10 @@ public class ArrayCircularQueue {
 
     // 打印队列
     public void printQueue(){
+        if(this.isEmpty()){
+            System.out.println("Current not have data");
+            return;
+        }
         for (int i = this.front;i < this.front+getCurrentQueueLength();i++){
             System.out.print(this.queue[i%this.size]+" ");
         }
@@ -77,36 +79,6 @@ public class ArrayCircularQueue {
             System.out.println("Current not have data");
         }else{
             System.out.println(this.queue[this.front]);
-        }
-    }
-
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        ArrayCircularQueue arrayCircularQueue = new ArrayCircularQueue(5);
-        boolean loop = true;
-        while (loop){
-            System.out.println("输入1为打印队列");
-            System.out.println("输入2为加入数据");
-            System.out.println("输入3为取出数据");
-            System.out.println("输入4为显示当前队列头部");
-            System.out.println("输入5为退出");
-            int input = scanner.nextInt();
-            switch (input){
-                case 1:
-                    arrayCircularQueue.printQueue();
-                    break;
-                case 2:
-                    arrayCircularQueue.addQueue(scanner.nextInt());
-                    break;
-                case 3:
-                    System.out.println(arrayCircularQueue.outQueue());
-                    break;
-                case 4:
-                    arrayCircularQueue.printCurrentQueueHead();
-                    break;
-                case 5:
-                    loop = false;
-            }
         }
     }
 }

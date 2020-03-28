@@ -7,8 +7,6 @@
 */
 package cn.anydevelop.datastructure.linear;
 
-import java.util.Scanner;
-
 public class ArrayStack {
     private int[] stack;
     private int size;
@@ -51,6 +49,14 @@ public class ArrayStack {
         return data;
     }
 
+    // 返回当前栈顶但不出栈
+    public int peek(){
+        if(this.isEmpty()){
+            throw new RuntimeException("Stack is empty.");
+        }
+        return this.stack[this.top];
+    }
+
     // 打印栈
     public void printStack(){
         if(this.isEmpty()){
@@ -61,31 +67,5 @@ public class ArrayStack {
             System.out.print(this.stack[i]+" ");
         }
         System.out.println();
-    }
-    
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-        ArrayStack arrayStack = new ArrayStack(5);
-        boolean loop = true;
-        while (loop){
-            System.out.println("输入1为打印栈");
-            System.out.println("输入2为数据入栈");
-            System.out.println("输入3为数据出栈");
-            System.out.println("输入4为退出");
-            int input = scanner.nextInt();
-            switch (input){
-                case 1:
-                    arrayStack.printStack();
-                    break;
-                case 2:
-                    arrayStack.push(scanner.nextInt());
-                    break;
-                case 3:
-                    System.out.println(arrayStack.pop());
-                    break;
-                case 4:
-                    loop = false;
-            }
-        }
     }
 }
