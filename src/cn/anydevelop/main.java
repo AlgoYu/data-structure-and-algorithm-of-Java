@@ -2,6 +2,7 @@ package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.Calculator;
 import cn.anydevelop.algorithm.other.Josephus;
+import cn.anydevelop.algorithm.other.ReversePolishCalculator;
 import cn.anydevelop.datastructure.linear.*;
 
 import java.util.Random;
@@ -25,8 +26,10 @@ public class main {
         //josephusTest();
         // 栈测试
         //arrayStackTest();
-        // 无括号表达式计算器测试
-        calculatorTest();
+        // 中缀表达式计算器测试
+        //calculatorTest();
+        // 后缀（逆波兰）表达式计算器测试
+        reversePolishCalculatorTest();
     }
 
     // 稀疏矩阵测试
@@ -298,8 +301,13 @@ public class main {
         }
     }
 
-    // 无括号表达式计算器测试
+    // 中缀表达式计算器测试
     public static void calculatorTest(){
         System.out.println(new Calculator().calculateExpression("3+5-2*4/4"));
+    }
+
+    // 后缀（逆波兰）表达式计算器测试
+    public static void reversePolishCalculatorTest(){
+        System.out.println(new ReversePolishCalculator().calculateReversePolishExpression("8 2 - 2 / 3 *"));
     }
 }
