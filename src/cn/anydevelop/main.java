@@ -1,6 +1,7 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.Calculator;
+import cn.anydevelop.algorithm.other.ExpressionConverter;
 import cn.anydevelop.algorithm.other.Josephus;
 import cn.anydevelop.algorithm.other.ReversePolishCalculator;
 import cn.anydevelop.datastructure.linear.*;
@@ -29,7 +30,9 @@ public class main {
         // 中缀表达式计算器测试
         //calculatorTest();
         // 后缀（逆波兰）表达式计算器测试
-        reversePolishCalculatorTest();
+        //reversePolishCalculatorTest();
+        // 中缀表达式转后缀表达式
+        expressionConverterTest();
     }
 
     // 稀疏矩阵测试
@@ -308,6 +311,12 @@ public class main {
 
     // 后缀（逆波兰）表达式计算器测试
     public static void reversePolishCalculatorTest(){
-        System.out.println(new ReversePolishCalculator().calculateReversePolishExpression("8 2 - 2 / 3 *"));
+        System.out.println(new ReversePolishCalculator().calculateReversePolishExpression("72 2 - 2 / 5 / 2 *"));
+    }
+
+    // 中缀表达式转后缀表达式
+    public static void expressionConverterTest(){
+        // 1 + ( ( 2 + 3 ) * 4 ) - 5
+        System.out.println(new ExpressionConverter().conversionExpression("3 + 3 * ( 4 + 1 ) / 10"));
     }
 }
