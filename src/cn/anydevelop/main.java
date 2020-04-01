@@ -31,7 +31,9 @@ public class main {
         // 中缀表达式转后缀表达式
         //expressionConverterTest();
         // 阶乘和打印测试
-        recursiveTest();
+        //recursiveTest();
+        // 迷宫测试
+        labyrinthTest();
     }
 
     // 稀疏矩阵测试
@@ -323,5 +325,35 @@ public class main {
     public static void recursiveTest(){
         System.out.println(Recursive.factorial(15));
         Recursive.printAllNumOf(15);
+    }
+
+    // 迷宫测试
+    public static void labyrinthTest(){
+        int[][] map = new int[8][9];
+        Labyrinth labyrinth = new Labyrinth();
+        for (int i = 0; i < map[0].length; i++){
+            map[0][i] = 1;
+            map[7][i] = 1;
+        }
+        for (int i = 0; i < map.length;i++){
+            map[i][0] = 1;
+            map[i][8] = 1;
+        }
+        map[3][1] = 1;
+        map[3][2] = 1;
+        map[3][3] = 1;
+        map[3][4] = 1;
+        /*map[3][5] = 1;
+        map[3][6] = 1;
+        map[3][7] = 1;*/
+        System.out.println("走迷宫前：");
+        labyrinth.printLabyrinth(map);
+        System.out.println("走迷宫后：");
+        if(labyrinth.detectRoad(map,1,1,6,7)){
+            labyrinth.printLabyrinth(map);
+        }else{
+            labyrinth.printLabyrinth(map);
+            System.out.println("迷宫是死路!");
+        }
     }
 }
