@@ -1,9 +1,6 @@
 package cn.anydevelop;
 
-import cn.anydevelop.algorithm.other.Calculator;
-import cn.anydevelop.algorithm.other.ExpressionConverter;
-import cn.anydevelop.algorithm.other.Josephus;
-import cn.anydevelop.algorithm.other.ReversePolishCalculator;
+import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.datastructure.linear.*;
 
 import java.util.Random;
@@ -32,7 +29,9 @@ public class main {
         // 后缀（逆波兰）表达式计算器测试
         //reversePolishCalculatorTest();
         // 中缀表达式转后缀表达式
-        expressionConverterTest();
+        //expressionConverterTest();
+        // 阶乘和打印测试
+        recursiveTest();
     }
 
     // 稀疏矩阵测试
@@ -318,5 +317,11 @@ public class main {
     public static void expressionConverterTest(){
         // 1 + ( ( 2 + 3 ) * 4 ) - 5
         System.out.println(new ExpressionConverter().conversionExpression("3 + 3 * ( 4 + 1 ) / 10"));
+    }
+
+    // 阶乘和打印测试
+    public static void recursiveTest(){
+        System.out.println(Recursive.factorial(15));
+        Recursive.printAllNumOf(15);
     }
 }
