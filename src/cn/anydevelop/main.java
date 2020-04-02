@@ -33,7 +33,9 @@ public class main {
         // 阶乘和打印测试
         //recursiveTest();
         // 迷宫测试
-        labyrinthTest();
+        //labyrinthTest();
+        // 八皇后测试
+        eightQueensTest();
     }
 
     // 稀疏矩阵测试
@@ -355,5 +357,10 @@ public class main {
             labyrinth.printLabyrinth(map);
             System.out.println("迷宫是死路!");
         }
+    }
+
+    // 八皇后测试
+    public static void eightQueensTest(){
+        new EightQueens(8,8).putQueen(0);
     }
 }
