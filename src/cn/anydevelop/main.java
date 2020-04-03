@@ -1,8 +1,10 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
+import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.datastructure.linear.*;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,7 +37,9 @@ public class main {
         // 迷宫测试
         //labyrinthTest();
         // 八皇后测试
-        eightQueensTest();
+        //eightQueensTest();
+        // 冒泡排序测试
+        bubbleSortTest();
     }
 
     // 稀疏矩阵测试
@@ -361,6 +365,23 @@ public class main {
 
     // 八皇后测试
     public static void eightQueensTest(){
-        new EightQueens(8,8).putQueen(0);
+        new EightQueen(8,8).putQueen(0);
+    }
+
+    // 冒泡排序测试
+    public static void bubbleSortTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        BubbleSort bubbleSort = new BubbleSort();
+        /*System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("冒泡排序后：");
+        System.out.println(Arrays.toString(bubbleSort.bubbleSort(array)));*/
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("优化冒泡排序后：");
+        System.out.println(Arrays.toString(bubbleSort.bubbleSortOptimize(array)));
     }
 }

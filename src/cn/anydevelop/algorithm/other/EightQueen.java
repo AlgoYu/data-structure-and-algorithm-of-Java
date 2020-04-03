@@ -7,14 +7,14 @@
 */
 package cn.anydevelop.algorithm.other;
 
-public class EightQueens {
+public class EightQueen {
     private int max;
     private int size;
     private int[] queens;
     private int count;
 
     // 初始化棋盘大小和皇后数量
-    public EightQueens(int max,int size) {
+    public EightQueen(int max, int size) {
         this.max = max;
         this.size = size;
         this.count = 0;
