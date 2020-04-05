@@ -1,6 +1,7 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
+import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.datastructure.linear.*;
@@ -42,7 +43,9 @@ public class main {
         // 冒泡排序测试
         //bubbleSortTest();
         // 选择排序测试
-        selectionSortTest();
+        //selectionSortTest();
+        // 插入排序测试
+        insertionSortTest();
     }
 
     // 稀疏矩阵测试
@@ -399,5 +402,18 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("选择排序后：");
         System.out.println(Arrays.toString(selectionSort.selectionSort(array)));
+    }
+
+    // 插入排序测试
+    public static void insertionSortTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        InsertionSort insertionSort = new InsertionSort();
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("插入排序后：");
+        System.out.println(Arrays.toString(insertionSort.insertionSort(array)));
     }
 }
