@@ -429,7 +429,9 @@ public class main {
         ShellSort shellSort = new ShellSort();
         System.out.println("排序前：");
         System.out.println(Arrays.toString(array));
-        System.out.println("希尔排序后：");
-        System.out.println(Arrays.toString(shellSort.shellSort(array)));
+       /* System.out.println("希尔交换排序后：");
+        System.out.println(Arrays.toString(shellSort.shellSwapSort(array)));*/
+        System.out.println("希尔移位排序后：");
+        System.out.println(Arrays.toString(shellSort.shellMoveSort(array)));
     }
 }
