@@ -5,6 +5,7 @@ import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
+import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.linear.*;
 
 import java.util.Arrays;
@@ -48,7 +49,9 @@ public class main {
         // 插入排序测试
         //insertionSortTest();
         // 希尔排序测试
-        shellSortTest();
+        //shellSortTest();
+        // 快速排序测试
+        quickSortTest();
     }
 
     // 稀疏矩阵测试
@@ -433,5 +436,19 @@ public class main {
         System.out.println(Arrays.toString(shellSort.shellSwapSort(array)));*/
         System.out.println("希尔移位排序后：");
         System.out.println(Arrays.toString(shellSort.shellMoveSort(array)));
+    }
+
+    // 快速排序测试
+    public static void quickSortTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        QuickSort quickSort = new QuickSort();
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("快速排序后：");
+        quickSort.quickSort(array,0,array.length-1);
+        System.out.println(Arrays.toString(array));
     }
 }
