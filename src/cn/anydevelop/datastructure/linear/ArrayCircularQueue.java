@@ -64,7 +64,7 @@ public class ArrayCircularQueue {
     // 打印队列
     public void printQueue(){
         if(this.isEmpty()){
-            System.out.println("Current not have data");
+            System.out.println("Current have not data");
             return;
         }
         for (int i = this.front;i < this.front+getCurrentQueueLength();i++){
@@ -76,7 +76,7 @@ public class ArrayCircularQueue {
     // 打印当前队列头部
     public void printCurrentQueueHead(){
         if(this.isEmpty()){
-            System.out.println("Current not have data");
+            System.out.println("Current have not data");
         }else{
             System.out.println(this.queue[this.front]);
         }

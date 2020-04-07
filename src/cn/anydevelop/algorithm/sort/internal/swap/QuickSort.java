@@ -17,11 +17,11 @@ public class QuickSort {
         int base = array[(left+right)/2] ;
         int temp;
         while (l < r){
-            // 从左往右寻找大于基数的值
+            // 从左往右寻找大于等于基数的值
             while (l <= right && array[l] < base){
                 l++;
             }
-            // 从右往左寻找小于基数的值
+            // 从右往左寻找小于等于基数的值
             while (r >= left && array[r] > base){
                 r--;
             }
@@ -41,7 +41,7 @@ public class QuickSort {
                 r--;
             }
         }
-        // 避免相等递归造成的死循环
+        // 避免相等递归造成的栈溢出
         if(l ==  r){
             l++;
             r--;
