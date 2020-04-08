@@ -3,6 +3,7 @@ package cn.anydevelop;
 import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
+import cn.anydevelop.algorithm.sort.internal.merge.MergeSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
@@ -51,7 +52,9 @@ public class main {
         // 希尔排序测试
         //shellSortTest();
         // 快速排序测试
-        quickSortTest();
+        //quickSortTest();
+        // 归并排序测试
+        mergeSortTest();
     }
 
     // 稀疏矩阵测试
@@ -449,6 +452,20 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("快速排序后：");
         quickSort.quickSort(array,0,array.length-1);
+        System.out.println(Arrays.toString(array));
+    }
+
+    // 归并排序测试
+    public static void mergeSortTest(){
+        int[] array = new int[80000];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        MergeSort mergeSort = new MergeSort();
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("归并排序后：");
+        mergeSort.mergeSort(array,0,array.length-1,new int[array.length]);
         System.out.println(Arrays.toString(array));
     }
 }
