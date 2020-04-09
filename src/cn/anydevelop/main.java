@@ -4,6 +4,7 @@ import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
 import cn.anydevelop.algorithm.sort.internal.merge.MergeSort;
+import cn.anydevelop.algorithm.sort.internal.radix.RadixSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
@@ -54,7 +55,9 @@ public class main {
         // 快速排序测试
         //quickSortTest();
         // 归并排序测试
-        mergeSortTest();
+        //mergeSortTest();
+        // 基数排序测试
+        radixSortTest();
     }
 
     // 稀疏矩阵测试
@@ -457,7 +460,7 @@ public class main {
 
     // 归并排序测试
     public static void mergeSortTest(){
-        int[] array = new int[80000];
+        int[] array = new int[20];
         for (int i = 0; i < array.length; i++){
             array[i] = (int) (Math.random()*500);
         }
@@ -467,5 +470,18 @@ public class main {
         System.out.println("归并排序后：");
         mergeSort.mergeSort(array,0,array.length-1,new int[array.length]);
         System.out.println(Arrays.toString(array));
+    }
+
+    // 基数排序测试
+    public static void radixSortTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        RadixSort radixSort = new RadixSort();
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("基数排序后：");
+        System.out.println(Arrays.toString(radixSort.radixSort(array)));
     }
 }
