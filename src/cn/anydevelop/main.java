@@ -1,6 +1,7 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
+import cn.anydevelop.algorithm.search.SeqSearch;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
 import cn.anydevelop.algorithm.sort.internal.merge.MergeSort;
@@ -57,7 +58,9 @@ public class main {
         // 归并排序测试
         //mergeSortTest();
         // 基数排序测试
-        radixSortTest();
+        //radixSortTest();
+        // 顺序查找测试
+        seqSearchTest();
     }
 
     // 稀疏矩阵测试
@@ -483,5 +486,18 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("基数排序后：");
         System.out.println(Arrays.toString(radixSort.radixSort(array)));
+    }
+
+    // 线性查找测试
+    public static void seqSearchTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*10);
+        }
+        SeqSearch seqSearch = new SeqSearch();
+        System.out.println("数组：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("搜索5下标");
+        System.out.println(seqSearch.seqSearch(array,5));
     }
 }
