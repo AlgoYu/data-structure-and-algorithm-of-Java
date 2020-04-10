@@ -1,6 +1,7 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
+import cn.anydevelop.algorithm.search.BinarySearch;
 import cn.anydevelop.algorithm.search.SeqSearch;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
@@ -60,7 +61,8 @@ public class main {
         // 基数排序测试
         //radixSortTest();
         // 顺序查找测试
-        seqSearchTest();
+        //seqSearchTest();
+        binarySearchTest();
     }
 
     // 稀疏矩阵测试
@@ -497,7 +499,22 @@ public class main {
         SeqSearch seqSearch = new SeqSearch();
         System.out.println("数组：");
         System.out.println(Arrays.toString(array));
-        System.out.println("搜索5下标");
+        System.out.println("线性搜索5下标");
         System.out.println(seqSearch.seqSearch(array,5));
+    }
+
+    // 二分查找测试
+    public static void binarySearchTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*10);
+        }
+        BinarySearch binarySearch = new BinarySearch();
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSort(array,0,array.length-1);
+        System.out.println("数组：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("二分搜索5下标");
+        System.out.println(binarySearch.binarySearch(array,5,0,array.length-1));
     }
 }
