@@ -9,9 +9,9 @@ package cn.anydevelop.algorithm.search;
 
 public class SeqSearch {
     // 线性查找
-    public int seqSearch(int[] data,int value){
-        for (int i = 0; i<data.length; i++){
-            if(data[i] == value){
+    public int seqSearch(int[] array,int value){
+        for (int i = 0; i<array.length; i++){
+            if(array[i] == value){
                 return i;
             }
         }

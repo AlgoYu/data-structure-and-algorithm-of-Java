@@ -10,13 +10,13 @@ package cn.anydevelop.algorithm.search;
 
 public class BinarySearch {
     // 二分查找
-    public int binarySearch(int[] data,int value,int left,int right){
+    public int binarySearch(int[] array,int value,int left,int right){
         if(left <= right){
             int middle = (left + right)/2;
-            if(data[middle] > value){
-                return this.binarySearch(data,value,left,middle-1);
-            }else if(data[middle] < value){
-                return this.binarySearch(data,value,middle+1,right);
+            if(array[middle] > value){
+                return this.binarySearch(array,value,left,middle-1);
+            }else if(array[middle] < value){
+                return this.binarySearch(array,value,middle+1,right);
             }else{
                 return middle;
             }

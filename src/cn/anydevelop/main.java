@@ -2,6 +2,7 @@ package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.search.BinarySearch;
+import cn.anydevelop.algorithm.search.InterpolationSearch;
 import cn.anydevelop.algorithm.search.SeqSearch;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
@@ -62,7 +63,10 @@ public class main {
         //radixSortTest();
         // 顺序查找测试
         //seqSearchTest();
-        binarySearchTest();
+        // 二分查找测试
+        //binarySearchTest();
+        // 插值查找测试
+        interpolationSearchTest();
     }
 
     // 稀疏矩阵测试
@@ -516,5 +520,20 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("二分搜索5下标");
         System.out.println(binarySearch.binarySearch(array,5,0,array.length-1));
+    }
+
+    // 插值查找测试
+    public static void interpolationSearchTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*10);
+        }
+        InterpolationSearch interpolationSearch = new InterpolationSearch();
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSort(array,0,array.length-1);
+        System.out.println("数组：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("插值搜索5下标");
+        System.out.println(interpolationSearch.interpolationSearch(array,5,0,array.length-1));
     }
 }
