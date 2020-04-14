@@ -2,6 +2,7 @@ package cn.anydevelop;
 
 import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.search.BinarySearch;
+import cn.anydevelop.algorithm.search.FibonacciSearch;
 import cn.anydevelop.algorithm.search.InterpolationSearch;
 import cn.anydevelop.algorithm.search.SeqSearch;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
@@ -66,7 +67,9 @@ public class main {
         // 二分查找测试
         //binarySearchTest();
         // 插值查找测试
-        interpolationSearchTest();
+        //interpolationSearchTest();
+        // 斐波那契查找测试
+        fibonacciSearchTest();
     }
 
     // 稀疏矩阵测试
@@ -535,5 +538,20 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("插值搜索5下标");
         System.out.println(interpolationSearch.interpolationSearch(array,5,0,array.length-1));
+    }
+
+    // 斐波那契查找测试
+    public static void fibonacciSearchTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*10);
+        }
+        FibonacciSearch fibonacciSearch = new FibonacciSearch();
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSort(array,0,array.length-1);
+        System.out.println("数组：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("斐波那契搜索5下标");
+        System.out.println(fibonacciSearch.fibonacciSearch(array,5));
     }
 }
