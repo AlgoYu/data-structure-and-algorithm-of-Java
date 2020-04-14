@@ -69,7 +69,9 @@ public class main {
         // 插值查找测试
         //interpolationSearchTest();
         // 斐波那契查找测试
-        fibonacciSearchTest();
+        //fibonacciSearchTest();
+        // 散列表测试
+        hashTableTest();
     }
 
     // 稀疏矩阵测试
@@ -553,5 +555,48 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("斐波那契搜索5下标");
         System.out.println(fibonacciSearch.fibonacciSearch(array,5));
+    }
+
+    // 散列表测试
+    public static void hashTableTest(){
+        Scanner scanner = new Scanner(System.in);
+        HashTable hashTable = new HashTable(20);
+        boolean loop = true;
+        while (loop){
+            System.out.println("输入1为打印散列表");
+            System.out.println("输入2为加入散列节点");
+            System.out.println("输入3为加入散列有序节点");
+            System.out.println("输入4为删除散列节点");
+            System.out.println("输入5为修改散列节点");
+            System.out.println("输入6为查找散列节点");
+            System.out.println("输入7为退出");
+            int input = scanner.nextInt();
+            Random random = new Random();
+            switch (input){
+                case 1:
+                    hashTable.printHashTable();
+                    break;
+                case 2:
+                    hashTable.addNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    break;
+                case 3:
+                    hashTable.addOrderNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    break;
+                case 4:
+                    hashTable.deleteNode(scanner.nextInt());
+                    break;
+                case 5:
+                    hashTable.modifyNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    break;
+                case 6:
+                    int id = scanner.nextInt();
+                    HashTable.HashTableNode hashTableNode = hashTable.getNode(id);
+                    System.out.println(hashTableNode==null?"没有找到这个节点":"id="+hashTableNode.getId()+" data="+hashTableNode.getData());
+                    break;
+                case 7:
+                    loop = false;
+                    break;
+            }
+        }
     }
 }
