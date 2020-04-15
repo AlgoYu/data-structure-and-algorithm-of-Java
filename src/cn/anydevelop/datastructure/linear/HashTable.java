@@ -92,7 +92,7 @@ public class HashTable {
                 hashTableNode.setNext(temp);
                 this.hashTable[index] = hashTableNode;
             }else{
-                while (temp.getNext() != null && temp.getId() < hashTableNode.getId()){
+                while (temp.getNext() != null && temp.getNext().getId() < hashTableNode.getId()){
                     temp = temp.getNext();
                 }
                 hashTableNode.setNext(temp.getNext());

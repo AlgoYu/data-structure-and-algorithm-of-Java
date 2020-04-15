@@ -13,6 +13,7 @@ import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.linear.*;
+import cn.anydevelop.datastructure.tree.BinaryTree;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -71,7 +72,9 @@ public class main {
         // 斐波那契查找测试
         //fibonacciSearchTest();
         // 散列表测试
-        hashTableTest();
+        //hashTableTest();
+        // 二叉树前中后序遍历测试
+        binaryTreeTraversalTest();
     }
 
     // 稀疏矩阵测试
@@ -598,5 +601,28 @@ public class main {
                     break;
             }
         }
+    }
+
+    // 二叉树前中后序遍历测试
+    public static void binaryTreeTraversalTest(){
+        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        root.setLeft(node1);
+        node1.setLeft(node2);
+        node1.setRight(node4);
+        node2.setLeft(node3);
+        root.setRight(node5);
+        binaryTree.setRoot(root);
+        System.out.println("前序遍历");
+        binaryTree.preorderTraversal();
+        System.out.println("中序遍历");
+        binaryTree.inorderTraversal();
+        System.out.println("后序遍历");
+        binaryTree.postorderTraversal();
     }
 }
