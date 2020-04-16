@@ -74,7 +74,9 @@ public class main {
         // 散列表测试
         //hashTableTest();
         // 二叉树前中后序遍历测试
-        binaryTreeTraversalTest();
+        //binaryTreeTraversalTest();
+        // 二叉树前中后序搜索测试
+        binaryTreeSearchTest();
     }
 
     // 稀疏矩阵测试
@@ -624,5 +626,28 @@ public class main {
         binaryTree.inorderTraversal();
         System.out.println("后序遍历");
         binaryTree.postorderTraversal();
+    }
+
+    // 二叉树前中后序搜索测试
+    public static void binaryTreeSearchTest(){
+        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        root.setLeft(node1);
+        node1.setLeft(node2);
+        node1.setRight(node4);
+        node2.setLeft(node3);
+        root.setRight(node5);
+        binaryTree.setRoot(root);
+        System.out.println("前序搜索");
+        System.out.println(binaryTree.preorderSearch(5).getId());
+        System.out.println("中序搜索");
+        System.out.println(binaryTree.inorderSearch(5).getId());
+        System.out.println("后序搜索");
+        System.out.println(binaryTree.postorderSearch(5).getId());
     }
 }
