@@ -76,7 +76,9 @@ public class main {
         // 二叉树前中后序遍历测试
         //binaryTreeTraversalTest();
         // 二叉树前中后序搜索测试
-        binaryTreeSearchTest();
+        //binaryTreeSearchTest();
+        // 二叉树删除测试
+        binaryTreeDeleteTest();
     }
 
     // 稀疏矩阵测试
@@ -649,5 +651,28 @@ public class main {
         System.out.println(binaryTree.inorderSearch(5).getId());
         System.out.println("后序搜索");
         System.out.println(binaryTree.postorderSearch(5).getId());
+    }
+
+    // 二叉树前中后序搜索测试
+    public static void binaryTreeDeleteTest(){
+        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        root.setLeft(node1);
+        node1.setLeft(node2);
+        node1.setRight(node4);
+        node2.setLeft(node3);
+        root.setRight(node5);
+        binaryTree.setRoot(root);
+        System.out.println("前序遍历:");
+        binaryTree.preorderTraversal();
+        System.out.println("删除节点5");
+        binaryTree.deleteNode(5);
+        System.out.println("前序遍历:");
+        binaryTree.preorderTraversal();
     }
 }

@@ -2,7 +2,7 @@
 二叉树：二叉树是一种树形结构，每个节点最多只有两个子节点。
 主要思想：
 	1. 创建左右两个指针节点指针。
-	2. 使用左右节点指针完成前、中、后序遍历、搜索。
+	2. 使用左右节点指针完成前、中、后序遍历、搜索,删除。
 	3. 前序：父节点=>左子节点=>右子节点。
 	4. 中序：左子节点=>父节点=>右子节点。
 	5. 后序：左子节点=>右子节点=>父节点。
@@ -20,6 +20,17 @@ public class BinaryTree {
 
     public void setRoot(BinaryTreeNode root) {
         this.root = root;
+    }
+
+    // 删除节点
+    public void deleteNode(int id){
+        if(this.root==null){
+            System.out.println("This tree is empty!");
+        }else if(this.root.getId()==id){
+            this.root=null;
+        }else{
+            this.root.deleteNode(id);
+        }
     }
 
     // 前序遍历
@@ -115,6 +126,24 @@ public class BinaryTree {
 
         public void setRight(BinaryTreeNode right) {
             this.right = right;
+        }
+
+        // 删除节点
+        public void deleteNode(int id){
+            if(this.left!=null && this.left.getId() == id){
+                this.left = null;
+                return;
+            }
+            if(this.right!=null && this.right.getId() == id){
+                this.right = null;
+                return;
+            }
+            if(this.left!=null){
+                this.left.deleteNode(id);
+            }
+            if(this.right!=null){
+                this.right.deleteNode(id);
+            }
         }
 
         // 前序遍历
