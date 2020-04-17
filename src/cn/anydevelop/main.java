@@ -13,6 +13,7 @@ import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.linear.*;
+import cn.anydevelop.datastructure.tree.ArrayBinaryTree;
 import cn.anydevelop.datastructure.tree.BinaryTree;
 
 import java.util.Arrays;
@@ -78,7 +79,9 @@ public class main {
         // 二叉树前中后序搜索测试
         //binaryTreeSearchTest();
         // 二叉树删除测试
-        binaryTreeDeleteTest();
+        //binaryTreeDeleteTest();
+        // 顺序二叉树遍历测试
+        arrayBinaryTreeTraversalTest();
     }
 
     // 稀疏矩阵测试
@@ -674,5 +677,19 @@ public class main {
         binaryTree.deleteNode(5);
         System.out.println("前序遍历:");
         binaryTree.preorderTraversal();
+    }
+
+    // 顺序二叉树前中后序遍历测试
+    public static void arrayBinaryTreeTraversalTest(){
+        int[] tree = new int[]{1,2,3,4,5,6,7};
+        ArrayBinaryTree arrayBinaryTree = new ArrayBinaryTree(tree);
+        System.out.println("前序遍历:");
+        arrayBinaryTree.preorderTraversal(0);
+        System.out.println();
+        System.out.println("中序遍历:");
+        arrayBinaryTree.inorderTraversal(0);
+        System.out.println();
+        System.out.println("后序遍历:");
+        arrayBinaryTree.postorderTraversal(0);
     }
 }
