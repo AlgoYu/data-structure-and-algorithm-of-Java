@@ -52,18 +52,18 @@ public class ArrayBinaryTree {
     }
 
     // 后序遍历
-    public void postorderTraversal(int index){
+    public void postOrderTraversal(int index){
         if(this.binaryTree == null || this.binaryTree.length ==0){
             System.out.println("This tree is empty!");
             return;
         }
         // 向左遍历
         if(this.binaryTree.length > 2*index+1){
-            this.postorderTraversal(2*index+1);
+            this.postOrderTraversal(2*index+1);
         }
         // 向右遍历
         if(this.binaryTree.length > 2*index+2){
-            this.postorderTraversal(2*index+2);
+            this.postOrderTraversal(2*index+2);
         }
         System.out.print(this.binaryTree[index]+"=>");
     }

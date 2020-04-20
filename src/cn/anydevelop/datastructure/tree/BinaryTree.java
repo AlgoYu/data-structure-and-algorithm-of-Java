@@ -52,11 +52,11 @@ public class BinaryTree {
     }
 
     // 后序遍历
-    public void postorderTraversal(){
+    public void postOrderTraversal(){
         if(this.root==null){
             System.out.println("This tree is empty!");
         }else{
-            this.root.postorderTraversal();
+            this.root.postOrderTraversal();
         }
     }
 
@@ -77,11 +77,11 @@ public class BinaryTree {
     }
 
     // 后序搜索
-    public BinaryTreeNode postorderSearch(int id){
+    public BinaryTreeNode postOrderSearch(int id){
         if(this.root==null){
             throw new RuntimeException("This tree is empty!");
         }
-        return this.root.postorderSearch(id);
+        return this.root.postOrderSearch(id);
     }
 
     // 二叉树节点
@@ -169,12 +169,12 @@ public class BinaryTree {
         }
 
         // 后序遍历
-        public void postorderTraversal(){
+        public void postOrderTraversal(){
             if(this.left!=null){
-                this.left.postorderTraversal();
+                this.left.postOrderTraversal();
             }
             if(this.right!=null){
-                this.right.postorderTraversal();
+                this.right.postOrderTraversal();
             }
             System.out.print(this.id+"=>");
         }
@@ -216,16 +216,16 @@ public class BinaryTree {
         }
 
         // 后序搜索
-        public BinaryTreeNode postorderSearch(int id){
+        public BinaryTreeNode postOrderSearch(int id){
             BinaryTreeNode node = null;
             if(this.left!=null){
-                node = this.left.postorderSearch(id);
+                node = this.left.postOrderSearch(id);
             }
             if(node!=null){
                 return node;
             }
             if(this.right!=null){
-                node = this.right.postorderSearch(id);
+                node = this.right.postOrderSearch(id);
             }
             if(node!=null){
                 return node;

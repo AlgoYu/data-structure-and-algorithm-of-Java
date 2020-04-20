@@ -65,15 +65,15 @@ public class ThreadedBinaryTree {
         }
     }
     // 后序线索化
-    public void postorderThreaded(ThreadedBinaryTree.ThreadedBinaryTreeNode node){
+    public void postOrderThreaded(ThreadedBinaryTree.ThreadedBinaryTreeNode node){
         if(node==null){
             return;
         }
         if(!node.getLeftThreaded()){
-            this.postorderThreaded(node.getLeft());
+            this.postOrderThreaded(node.getLeft());
         }
         if(!node.getRightThreaded()){
-            this.postorderThreaded(node.getRight());
+            this.postOrderThreaded(node.getRight());
         }
         if(node.getLeft()==null){
             node.setLeft(this.pre);
@@ -97,6 +97,22 @@ public class ThreadedBinaryTree {
         }
     }
 
+    // 中序线索化遍历
+    public void inorderThreadedTraversal(){
+        ThreadedBinaryTreeNode temp = root;
+        while (temp!=null){
+            while (!temp.getLeftThreaded()){
+                temp = temp.getLeft();
+            }
+            System.out.print(temp.getId()+"=>");
+            while (temp.getRightThreaded()){
+                temp = temp.getRight();
+                System.out.print(temp.getId()+"=>");
+            }
+            temp = temp.getRight();
+        }
+    }
+
     // 前序遍历
     public void preorderTraversal(){
         if(this.root==null){
@@ -116,11 +132,11 @@ public class ThreadedBinaryTree {
     }
 
     // 后序遍历
-    public void postorderTraversal(){
+    public void postOrderTraversal(){
         if(this.root==null){
             System.out.println("This tree is empty!");
         }else{
-            this.root.postorderTraversal();
+            this.root.postOrderTraversal();
         }
     }
 
@@ -141,11 +157,11 @@ public class ThreadedBinaryTree {
     }
 
     // 后序搜索
-    public ThreadedBinaryTree.ThreadedBinaryTreeNode postorderSearch(int id){
+    public ThreadedBinaryTree.ThreadedBinaryTreeNode postOrderSearch(int id){
         if(this.root==null){
             throw new RuntimeException("This tree is empty!");
         }
-        return this.root.postorderSearch(id);
+        return this.root.postOrderSearch(id);
     }
 
     // 二叉树节点
@@ -251,12 +267,12 @@ public class ThreadedBinaryTree {
         }
 
         // 后序遍历
-        public void postorderTraversal(){
+        public void postOrderTraversal(){
             if(this.left!=null){
-                this.left.postorderTraversal();
+                this.left.postOrderTraversal();
             }
             if(this.right!=null){
-                this.right.postorderTraversal();
+                this.right.postOrderTraversal();
             }
             System.out.print(this.id+"=>");
         }
@@ -298,16 +314,16 @@ public class ThreadedBinaryTree {
         }
 
         // 后序搜索
-        public ThreadedBinaryTree.ThreadedBinaryTreeNode postorderSearch(int id){
+        public ThreadedBinaryTree.ThreadedBinaryTreeNode postOrderSearch(int id){
             ThreadedBinaryTree.ThreadedBinaryTreeNode node = null;
             if(this.left!=null){
-                node = this.left.postorderSearch(id);
+                node = this.left.postOrderSearch(id);
             }
             if(node!=null){
                 return node;
             }
             if(this.right!=null){
-                node = this.right.postorderSearch(id);
+                node = this.right.postOrderSearch(id);
             }
             if(node!=null){
                 return node;

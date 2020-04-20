@@ -84,7 +84,9 @@ public class main {
         // 顺序二叉树遍历测试
         //arrayBinaryTreeTraversalTest();
         // 线索化二叉树测试
-        threadedBinaryTreeTest();
+        //threadedBinaryTreeTest();
+        // 线索化二叉树遍历测试
+        threadedBinaryTreeTraversalTest();
     }
 
     // 稀疏矩阵测试
@@ -633,7 +635,7 @@ public class main {
         System.out.println("中序遍历");
         binaryTree.inorderTraversal();
         System.out.println("后序遍历");
-        binaryTree.postorderTraversal();
+        binaryTree.postOrderTraversal();
     }
 
     // 二叉树前中后序搜索测试
@@ -656,7 +658,7 @@ public class main {
         System.out.println("中序搜索");
         System.out.println(binaryTree.inorderSearch(5).getId());
         System.out.println("后序搜索");
-        System.out.println(binaryTree.postorderSearch(5).getId());
+        System.out.println(binaryTree.postOrderSearch(5).getId());
     }
 
     // 二叉树前中后序搜索测试
@@ -693,7 +695,7 @@ public class main {
         arrayBinaryTree.inorderTraversal(0);
         System.out.println();
         System.out.println("后序遍历:");
-        arrayBinaryTree.postorderTraversal(0);
+        arrayBinaryTree.postOrderTraversal(0);
     }
 
     // 线索化二叉树测试
@@ -731,13 +733,33 @@ public class main {
         System.out.println(node4.getRight().getId());
         System.out.println(node5.getLeft().getId());*/
         System.out.println("后序遍历:");
-        threadedBinaryTree.postorderTraversal();
+        threadedBinaryTree.postOrderTraversal();
         System.out.println();
         System.out.println("前序线索化：");
-        threadedBinaryTree.postorderThreaded(root);
+        threadedBinaryTree.postOrderThreaded(root);
         System.out.println(node3.getRight().getId());
         System.out.println(node2.getRight().getId());
         System.out.println(node4.getLeft().getId());
         System.out.println(node4.getRight().getId());
+    }
+
+    // 线索化二叉树遍历测试
+    public static void threadedBinaryTreeTraversalTest(){
+        ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
+        ThreadedBinaryTree.ThreadedBinaryTreeNode root = threadedBinaryTree.new ThreadedBinaryTreeNode(1,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node1 = threadedBinaryTree.new ThreadedBinaryTreeNode(2,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node2 = threadedBinaryTree.new ThreadedBinaryTreeNode(3,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node3 = threadedBinaryTree.new ThreadedBinaryTreeNode(4,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node4 = threadedBinaryTree.new ThreadedBinaryTreeNode(5,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node5 = threadedBinaryTree.new ThreadedBinaryTreeNode(6,123);
+        root.setLeft(node1);
+        node1.setLeft(node2);
+        node1.setRight(node4);
+        node2.setLeft(node3);
+        root.setRight(node5);
+        threadedBinaryTree.setRoot(root);
+        System.out.println("中序线索化遍历:");
+        threadedBinaryTree.inorderThreaded(root);
+        threadedBinaryTree.inorderThreadedTraversal();
     }
 }
