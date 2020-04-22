@@ -9,6 +9,7 @@ import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
 import cn.anydevelop.algorithm.sort.internal.merge.MergeSort;
 import cn.anydevelop.algorithm.sort.internal.radix.RadixSort;
+import cn.anydevelop.algorithm.sort.internal.selection.HeapSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
@@ -65,6 +66,8 @@ public class main {
         //mergeSortTest();
         // 基数排序测试
         //radixSortTest();
+        // 堆排序测试
+        heapSortTest();
         // 顺序查找测试
         //seqSearchTest();
         // 二分查找测试
@@ -86,7 +89,7 @@ public class main {
         // 线索化二叉树测试
         //threadedBinaryTreeTest();
         // 线索化二叉树遍历测试
-        threadedBinaryTreeTraversalTest();
+        //threadedBinaryTreeTraversalTest();
     }
 
     // 稀疏矩阵测试
@@ -512,6 +515,19 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("基数排序后：");
         System.out.println(Arrays.toString(radixSort.radixSort(array)));
+    }
+
+    // 堆排序测试
+    public static void heapSortTest(){
+        int[] array = new int[20];
+        for (int i = 0; i < array.length; i++){
+            array[i] = (int) (Math.random()*500);
+        }
+        HeapSort heapSort = new HeapSort();
+        System.out.println("排序前：");
+        System.out.println(Arrays.toString(array));
+        System.out.println("堆排序后：");
+        System.out.println(Arrays.toString(heapSort.heapSort(array)));
     }
 
     // 线性查找测试
