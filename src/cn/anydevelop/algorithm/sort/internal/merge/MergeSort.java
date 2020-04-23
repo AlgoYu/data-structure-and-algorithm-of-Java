@@ -14,11 +14,11 @@ public class MergeSort {
         if(left < right){
             int middle = (left+right)/2;
             // 向左递归
-            mergeSort(array,left,middle,temp);
+            this.mergeSort(array,left,middle,temp);
             // 向右递归
-            mergeSort(array,middle+1,right,temp);
+            this.mergeSort(array,middle+1,right,temp);
             // 合并
-            merge(array,left,middle,right,temp);
+            this.merge(array,left,middle,right,temp);
         }
     }
     // 合并方法

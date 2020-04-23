@@ -16,6 +16,7 @@ import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.linear.*;
 import cn.anydevelop.datastructure.tree.ArrayBinaryTree;
 import cn.anydevelop.datastructure.tree.BinaryTree;
+import cn.anydevelop.datastructure.tree.HuffmanTree;
 import cn.anydevelop.datastructure.tree.ThreadedBinaryTree;
 
 import java.util.Arrays;
@@ -67,7 +68,7 @@ public class main {
         // 基数排序测试
         //radixSortTest();
         // 堆排序测试
-        heapSortTest();
+        //heapSortTest();
         // 顺序查找测试
         //seqSearchTest();
         // 二分查找测试
@@ -90,6 +91,8 @@ public class main {
         //threadedBinaryTreeTest();
         // 线索化二叉树遍历测试
         //threadedBinaryTreeTraversalTest();
+        // 哈弗曼树测试
+        huffmanTreeTest();
     }
 
     // 稀疏矩阵测试
@@ -777,5 +780,13 @@ public class main {
         System.out.println("中序线索化遍历:");
         threadedBinaryTree.inorderThreaded(root);
         threadedBinaryTree.inorderThreadedTraversal();
+    }
+
+    // 哈弗曼树测试
+    public static void huffmanTreeTest(){
+        HuffmanTree huffmanTree = new HuffmanTree();
+        int[] array = {13,7,8,3,29,6,1};
+        huffmanTree.getHuffmanTree(array);
+        huffmanTree.preorderTraversal();
     }
 }
