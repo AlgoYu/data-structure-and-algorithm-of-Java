@@ -1,5 +1,6 @@
 package cn.anydevelop;
 
+import cn.anydevelop.algorithm.compression.HuffmanCoding;
 import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.search.BinarySearch;
 import cn.anydevelop.algorithm.search.FibonacciSearch;
@@ -92,7 +93,9 @@ public class main {
         // 线索化二叉树遍历测试
         //threadedBinaryTreeTraversalTest();
         // 哈弗曼树测试
-        huffmanTreeTest();
+        //huffmanTreeTest();
+        // 哈夫曼编码测试
+        huffmanCodingTest();
     }
 
     // 稀疏矩阵测试
@@ -788,5 +791,16 @@ public class main {
         int[] array = {13,7,8,3,29,6,1};
         huffmanTree.getHuffmanTree(array);
         huffmanTree.preorderTraversal();
+    }
+
+    // 哈夫曼编码测试
+    public static void huffmanCodingTest(){
+        String test = "i like like like java do you like a java";
+        HuffmanCoding huffmanCoding = new HuffmanCoding();
+        System.out.println("原始数据："+test);
+        byte[] huffmanCode = huffmanCoding.huffmanCompression(test.getBytes());
+        System.out.println("哈夫曼编码："+Arrays.toString(huffmanCode)+"长度:"+huffmanCode.length);
+        String source = new String(huffmanCoding.huffmanDecompression(huffmanCode));
+        System.out.println("恢复数据："+source);
     }
 }

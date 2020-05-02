@@ -12,6 +12,7 @@ package cn.anydevelop.datastructure.tree;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HuffmanTree {
     private HuffmanTreeNode root;
@@ -91,7 +92,7 @@ public class HuffmanTree {
 
     // 获取哈弗曼树
     public HuffmanTreeNode getHuffmanTree(int[] array){
-        ArrayList<HuffmanTreeNode> huffmanTreeNodes = new ArrayList<>();
+        List<HuffmanTreeNode> huffmanTreeNodes = new ArrayList<>();
         for (int data : array){
             huffmanTreeNodes.add(new HuffmanTreeNode(data,data));
         }
@@ -111,7 +112,7 @@ public class HuffmanTree {
     }
 
     // 排序
-    public void nodeSort(ArrayList<HuffmanTreeNode> huffmanTreeNodes){
+    public void nodeSort(List<HuffmanTreeNode> huffmanTreeNodes){
         HuffmanTreeNode temp;
         for (int i = 1; i < huffmanTreeNodes.size(); i++){
             int index = i-1;
