@@ -795,7 +795,7 @@ public class main {
 
     // 哈夫曼编码测试
     public static void huffmanCodingTest(){
-        String test = "i like like like java do you like a java";
+        String test = "would you want some?";
         HuffmanCoding huffmanCoding = new HuffmanCoding();
         System.out.println("原始数据："+test);
         byte[] huffmanCode = huffmanCoding.huffmanCompression(test.getBytes());

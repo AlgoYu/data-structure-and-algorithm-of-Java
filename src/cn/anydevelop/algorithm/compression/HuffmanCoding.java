@@ -75,11 +75,12 @@ public class HuffmanCoding {
         for (byte value : data){
             temp.append(this.huffmanCoding.get(value));
         }
-        byte[] huffmanCode = new byte[(temp.length()+7)/8];
+        byte[] huffmanCode = new byte[(temp.length()+15)/8];
         int index = 0;
         for (int i = 0; i < temp.length(); i+=8){
             if(i+8>temp.length()){
                 huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i),2);
+                huffmanCode[index+1] = (byte) temp.substring(i).length();
             }else{
                 huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i,i+8),2);
             }
@@ -119,7 +120,7 @@ public class HuffmanCoding {
         return nodes.get(0);
     }
 
-    // 获取节点
+    // 获取字节节点
     public List<HuffmanCodingNode> createNode(byte[] bytes){
         Map<Byte,Integer> count = new HashMap<>();
         List<HuffmanCodingNode> nodes = new ArrayList<>();
@@ -138,21 +139,26 @@ public class HuffmanCoding {
     }
 
     // 字节转换为字符串
-    public String byteConvertToString(byte data,boolean flag){
+    public String byteConvertToString(byte data,boolean flag,int count){
         int temp = data;
+        temp |= 256;
+        String str = Integer.toBinaryString(temp);
         if(flag){
-            temp |= 256;
-            String str = Integer.toBinaryString(temp);
             return str.substring(str.length()-8);
+        }else{
+            return str.substring(str.length()-count);
         }
-        return Integer.toBinaryString(temp);
     }
 
     // 哈夫曼解压
     public byte[] huffmanDecompression(byte[] bytes){
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < bytes.length; i++){
-            stringBuilder.append(this.byteConvertToString(bytes[i],i < bytes.length-1));
+        for (int i = 0; i < bytes.length-1; i++){
+            if(i == bytes.length-2){
+                stringBuilder.append(this.byteConvertToString(bytes[i],i < bytes.length-2,bytes[bytes.length-1]));
+                break;
+            }
+            stringBuilder.append(this.byteConvertToString(bytes[i],i < bytes.length-2,0));
         }
         Map<String,Byte> deHuffmanCoding = new HashMap<>();
         for (Map.Entry<Byte,String> map : this.huffmanCoding.entrySet()){
