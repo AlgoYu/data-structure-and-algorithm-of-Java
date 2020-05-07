@@ -9,6 +9,7 @@
 */
 package cn.anydevelop.algorithm.compression;
 
+import java.io.*;
 import java.util.*;
 
 public class HuffmanCoding {
@@ -183,6 +184,87 @@ public class HuffmanCoding {
             data[i] = byteList.get(i);
         }
         return data;
+    }
+
+    // 哈夫曼压缩文件
+    public void huffmanCompressionFile(String inputPath,String outputPath){
+        FileInputStream fileInputStream = null;
+        OutputStream outputStream = null;
+        ObjectOutputStream objectOutputStream = null;
+        try {
+            fileInputStream = new FileInputStream(inputPath);
+            byte[] data = new byte[fileInputStream.available()];
+            fileInputStream.read(data);
+            byte[] huffmanBytes = this.huffmanCompression(data);
+            File file = new File(outputPath);
+            if(!file.exists()){
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            outputStream = new FileOutputStream(outputPath);
+            objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(huffmanBytes);
+            objectOutputStream.writeObject(this.huffmanCoding);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+                if (objectOutputStream != null) {
+                    objectOutputStream.close();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 哈夫曼解压文件
+    public void huffmanDecompressionFile(String inputPath,String outputPath){
+        InputStream inputStream = null;
+        ObjectInputStream objectInputStream = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            inputStream = new FileInputStream(inputPath);
+            objectInputStream = new ObjectInputStream(inputStream);
+            byte[] huffmanBytes = (byte[]) objectInputStream.readObject();
+            this.huffmanCoding = (Map<Byte, String>) objectInputStream.readObject();
+            byte[] sourceBytes = this.huffmanDecompression(huffmanBytes);
+            File file = new File(outputPath);
+            if(!file.exists()){
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            fileOutputStream = new FileOutputStream(outputPath);
+            fileOutputStream.write(sourceBytes);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (objectInputStream != null) {
+                    objectInputStream.close();
+                }
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // 打印哈夫曼编码

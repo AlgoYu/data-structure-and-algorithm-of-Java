@@ -802,5 +802,12 @@ public class main {
         System.out.println("哈夫曼编码："+Arrays.toString(huffmanCode)+"长度:"+huffmanCode.length);
         String source = new String(huffmanCoding.huffmanDecompression(huffmanCode));
         System.out.println("恢复数据："+source);
+        String inputPath = "/Users/anydev/Downloads/1.jpg";
+        String outPath = "/Users/anydev/Downloads/huffman.zip";
+        System.out.println("哈夫曼压缩文件："+inputPath+" => "+outPath);
+        huffmanCoding.huffmanCompressionFile(inputPath,outPath);
+        String sourcePath = "/Users/anydev/Downloads/source.jpg";
+        System.out.println("哈夫曼解压文件："+outPath+" => "+ sourcePath);
+        huffmanCoding.huffmanDecompressionFile(outPath,sourcePath);
     }
 }
