@@ -15,10 +15,7 @@ import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.linear.*;
-import cn.anydevelop.datastructure.tree.ArrayBinaryTree;
-import cn.anydevelop.datastructure.tree.BinaryTree;
-import cn.anydevelop.datastructure.tree.HuffmanTree;
-import cn.anydevelop.datastructure.tree.ThreadedBinaryTree;
+import cn.anydevelop.datastructure.tree.*;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -95,7 +92,9 @@ public class main {
         // 哈弗曼树测试
         //huffmanTreeTest();
         // 哈夫曼编码测试
-        huffmanCodingTest();
+        //huffmanCodingTest();
+        // 二叉排序树测试
+        binarySortTreeTest();
     }
 
     // 稀疏矩阵测试
@@ -809,5 +808,28 @@ public class main {
         String sourcePath = "/Users/anydev/Downloads/source.jpg";
         System.out.println("哈夫曼解压文件："+outPath+" => "+ sourcePath);
         huffmanCoding.huffmanDecompressionFile(outPath,sourcePath);
+    }
+
+    // 二叉排序树测试
+    public static void binarySortTreeTest(){
+        BinarySortTree binarySortTree = new BinarySortTree();
+        int[] array = new int[]{3,5,9,1,2,7,6,9,4,11,15,23,31,-5,-1,-2,28,95,100,14};
+        for (int i = 0; i < array.length; i++){
+            binarySortTree.addNode(binarySortTree.new BinarySortTreeNode(array[i]));
+        }
+        System.out.println("中序遍历：");
+        binarySortTree.inorderTraversal();
+        System.out.println();
+        System.out.println("删除叶子节点：");
+        binarySortTree.deleteNode(-2);
+        binarySortTree.inorderTraversal();
+        System.out.println();
+        System.out.println("删除单子树节点：");
+        binarySortTree.deleteNode(-5);
+        binarySortTree.inorderTraversal();
+        System.out.println();
+        System.out.println("删除双子树节点：");
+        binarySortTree.deleteNode(3);
+        binarySortTree.inorderTraversal();
     }
 }

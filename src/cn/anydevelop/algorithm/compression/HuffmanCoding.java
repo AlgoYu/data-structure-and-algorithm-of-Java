@@ -68,7 +68,7 @@ public class HuffmanCoding {
         }
     }
 
-    // 哈夫曼压缩
+    // Huffman变长字节编码
     public byte[] huffmanCompression(byte[] data){
         HuffmanCodingNode huffmanTree = this.createHuffmanTree(data);
         this.createHuffmanCoding(huffmanTree,"",new StringBuilder());
@@ -151,7 +151,7 @@ public class HuffmanCoding {
         }
     }
 
-    // 哈夫曼解压
+    // Huffman变长字节解码
     public byte[] huffmanDecompression(byte[] bytes){
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < bytes.length-1; i++){
