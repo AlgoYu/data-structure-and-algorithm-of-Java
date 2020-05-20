@@ -180,7 +180,13 @@ public class BinarySortTree {
                     this.deleteNode(temp.value);
                     targetNode.setValue(temp.getValue());
                 }else{
-                    if(targetNode.getLeft()!=null){
+                    if(parentNode==null){
+                        if(targetNode.getLeft()!=null){
+                            this.root = targetNode.getLeft();
+                        }else{
+                            this.root = targetNode.getRight();
+                        }
+                    }else if(targetNode.getLeft()!=null){
                         if(parentNode.getLeft()==targetNode){
                             parentNode.setLeft(targetNode.getLeft());
                         }else{
