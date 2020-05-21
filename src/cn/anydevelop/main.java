@@ -94,7 +94,9 @@ public class main {
         // 哈夫曼编码测试
         //huffmanCodingTest();
         // 二叉排序树测试
-        binarySortTreeTest();
+        //binarySortTreeTest();
+        // ALV树测试
+        alvTreeTest();
     }
 
     // 稀疏矩阵测试
@@ -831,5 +833,20 @@ public class main {
         System.out.println("删除双子树节点：");
         binarySortTree.deleteNode(3);
         binarySortTree.inorderTraversal();
+    }
+
+    // ALV树测试
+    public static void alvTreeTest(){
+        ALVTree alvTree = new ALVTree();
+        int[] array = new int[]{10,11,7,6,8,9};
+        for (int i = 0; i < array.length; i++){
+            alvTree.addNode(alvTree.new ALVTreeNode(array[i]));
+        }
+        System.out.println("中序遍历：");
+        alvTree.inorderTraversal();
+        System.out.println("获取树的高度:");
+        System.out.println("左子树高度："+alvTree.getLeftHeight());
+        System.out.println("右子树高度："+alvTree.getRightHeight());
+        System.out.println("树的高度:"+alvTree.getHeight());
     }
 }
