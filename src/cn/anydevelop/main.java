@@ -14,6 +14,7 @@ import cn.anydevelop.algorithm.sort.internal.selection.HeapSort;
 import cn.anydevelop.algorithm.sort.internal.selection.SelectionSort;
 import cn.anydevelop.algorithm.sort.internal.swap.BubbleSort;
 import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
+import cn.anydevelop.datastructure.graphic.AdjacencyMatrix;
 import cn.anydevelop.datastructure.linear.*;
 import cn.anydevelop.datastructure.tree.*;
 
@@ -96,7 +97,9 @@ public class main {
         // 二叉排序树测试
         //binarySortTreeTest();
         // ALV树测试
-        alvTreeTest();
+        //alvTreeTest();
+        // 邻接矩阵图测试
+        adjacencyMatrixTest();
     }
 
     // 稀疏矩阵测试
@@ -848,5 +851,20 @@ public class main {
         System.out.println("左子树高度："+alvTree.getLeftHeight());
         System.out.println("右子树高度："+alvTree.getRightHeight());
         System.out.println("树的高度:"+alvTree.getHeight());
+    }
+
+    // 玲姐矩阵图测试
+    public static void adjacencyMatrixTest(){
+        String[] array = new String[]{"A","B","C","D","E"};
+        AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(array.length);
+        for (int i = 0; i < array.length; i++){
+            adjacencyMatrix.addNode(array[i]);
+        }
+        adjacencyMatrix.addEdge(0,1,1);
+        adjacencyMatrix.addEdge(0,2,1);
+        adjacencyMatrix.addEdge(1,2,1);
+        adjacencyMatrix.addEdge(1,3,1);
+        adjacencyMatrix.addEdge(1,4,1);
+        adjacencyMatrix.printGraphic();
     }
 }
