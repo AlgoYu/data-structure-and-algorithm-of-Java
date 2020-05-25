@@ -853,7 +853,7 @@ public class main {
         System.out.println("树的高度:"+alvTree.getHeight());
     }
 
-    // 玲姐矩阵图测试
+    // 邻接矩阵图测试
     public static void adjacencyMatrixTest(){
         String[] array = new String[]{"A","B","C","D","E"};
         AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(array.length);
@@ -866,5 +866,10 @@ public class main {
         adjacencyMatrix.addEdge(1,3,1);
         adjacencyMatrix.addEdge(1,4,1);
         adjacencyMatrix.printGraphic();
+        System.out.println("深度优先遍历：");
+        adjacencyMatrix.dFS();
+        System.out.println("\n广度优先遍历：");
+        adjacencyMatrix.cleanVisit();
+        adjacencyMatrix.bFS();
     }
 }
