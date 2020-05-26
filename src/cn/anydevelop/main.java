@@ -71,7 +71,7 @@ public class main {
         // 顺序查找测试
         //seqSearchTest();
         // 二分查找测试
-        //binarySearchTest();
+        binarySearchTest();
         // 插值查找测试
         //interpolationSearchTest();
         // 斐波那契查找测试
@@ -99,7 +99,7 @@ public class main {
         // ALV树测试
         //alvTreeTest();
         // 邻接矩阵图测试
-        adjacencyMatrixTest();
+        //adjacencyMatrixTest();
     }
 
     // 稀疏矩阵测试
@@ -566,6 +566,8 @@ public class main {
         System.out.println(Arrays.toString(array));
         System.out.println("二分搜索5下标");
         System.out.println(binarySearch.binarySearch(array,5,0,array.length-1));
+        System.out.println("二分非递归搜索5下标");
+        System.out.println(binarySearch.binarySearch(array,5));
     }
 
     // 插值查找测试

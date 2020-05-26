@@ -33,7 +33,7 @@ public class QuickSort {
             temp = array[l];
             array[l] = array[r];
             array[r] = temp;
-            // 避免交换的数据重复而造成死循环
+            // 避免交换的数据与基数相同而造成死循环
             if(array[l] == base){
                 l++;
             }
@@ -41,7 +41,7 @@ public class QuickSort {
                 r--;
             }
         }
-        // 避免相等递归造成的栈溢出
+        // 避免交换位置相等重复递归造成的栈溢出
         if(l ==  r){
             l++;
             r--;
