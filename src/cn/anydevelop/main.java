@@ -71,7 +71,7 @@ public class main {
         // 顺序查找测试
         //seqSearchTest();
         // 二分查找测试
-        binarySearchTest();
+        //binarySearchTest();
         // 插值查找测试
         //interpolationSearchTest();
         // 斐波那契查找测试
@@ -100,6 +100,8 @@ public class main {
         //alvTreeTest();
         // 邻接矩阵图测试
         //adjacencyMatrixTest();
+        // 汉诺塔测试
+        towerOfHanoiTest();
     }
 
     // 稀疏矩阵测试
@@ -873,5 +875,11 @@ public class main {
         System.out.println("\n广度优先遍历：");
         adjacencyMatrix.cleanVisit();
         adjacencyMatrix.bFS();
+    }
+
+    // 汉诺塔测试
+    public static void towerOfHanoiTest(){
+        TowerOfHanoi towerOfHanoi = new TowerOfHanoi();
+        towerOfHanoi.towerOfHanoi(3,'A','B','C');
     }
 }
