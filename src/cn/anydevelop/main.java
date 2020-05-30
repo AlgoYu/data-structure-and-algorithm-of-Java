@@ -101,7 +101,9 @@ public class main {
         // 邻接矩阵图测试
         //adjacencyMatrixTest();
         // 汉诺塔测试
-        towerOfHanoiTest();
+        //towerOfHanoiTest();
+        // 背包问题测试
+        knapsackProblemTest();
     }
 
     // 稀疏矩阵测试
@@ -881,5 +883,18 @@ public class main {
     public static void towerOfHanoiTest(){
         TowerOfHanoi towerOfHanoi = new TowerOfHanoi();
         towerOfHanoi.towerOfHanoi(3,'A','B','C');
+    }
+
+    // 背包问题测试
+    public static void knapsackProblemTest(){
+        int[][] article = new int[3][2];
+        article[0][0] = 1;
+        article[0][1] = 1500;
+        article[1][0] = 4;
+        article[1][1] = 3000;
+        article[2][0] = 3;
+        article[2][1] = 2000;
+        KnapsackProblem knapsackProblem = new KnapsackProblem();
+        knapsackProblem.knapsackProblem(article,4);
     }
 }
