@@ -103,7 +103,9 @@ public class main {
         // 汉诺塔测试
         //towerOfHanoiTest();
         // 背包问题测试
-        knapsackProblemTest();
+        //knapsackProblemTest();
+        // 暴力测试算法
+        bruteForceMatchTest();
     }
 
     // 稀疏矩阵测试
@@ -896,5 +898,13 @@ public class main {
         article[2][1] = 2000;
         KnapsackProblem knapsackProblem = new KnapsackProblem();
         knapsackProblem.knapsackProblem(article,4);
+    }
+
+    // 暴力匹配算法测试
+    public static void bruteForceMatchTest(){
+        String source = "I like Java";
+        String match = "Java";
+        BruteForceMatch bruteForceMatch = new BruteForceMatch();
+        System.out.println(bruteForceMatch.bruteForceMatch(source,match));
     }
 }
