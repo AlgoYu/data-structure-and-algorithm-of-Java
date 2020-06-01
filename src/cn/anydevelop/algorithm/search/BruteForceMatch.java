@@ -6,10 +6,10 @@
 	3. 如果最后记录s2下标的变量值等于s2长度，说明匹配成功。
 	4. 返回s1变量-s2变量的值则为第一次匹配的下标。
 */
-package cn.anydevelop.algorithm.other;
+package cn.anydevelop.algorithm.search;
 
 public class BruteForceMatch {
-    public int bruteForceMatch(String source,String match){
+    public static int bruteForceMatch(String source,String match){
         char[] sources = source.toCharArray();
         char[] matchs = match.toCharArray();
         int i = 0;

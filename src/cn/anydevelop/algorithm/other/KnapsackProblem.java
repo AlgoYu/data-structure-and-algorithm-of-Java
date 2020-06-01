@@ -11,7 +11,7 @@ package cn.anydevelop.algorithm.other;
 import java.util.Arrays;
 
 public class KnapsackProblem {
-    public void knapsackProblem(int[][] article, int capacity) {
+    public static void knapsackProblem(int[][] article, int capacity) {
         int[][] table = new int[article.length + 1][capacity + 1];
         int[][] count = new int[article.length + 1][capacity + 1];
         for (int i = 1; i < table.length; i++){

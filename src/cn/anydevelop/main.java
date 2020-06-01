@@ -2,10 +2,7 @@ package cn.anydevelop;
 
 import cn.anydevelop.algorithm.compression.HuffmanCoding;
 import cn.anydevelop.algorithm.other.*;
-import cn.anydevelop.algorithm.search.BinarySearch;
-import cn.anydevelop.algorithm.search.FibonacciSearch;
-import cn.anydevelop.algorithm.search.InterpolationSearch;
-import cn.anydevelop.algorithm.search.SeqSearch;
+import cn.anydevelop.algorithm.search.*;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
 import cn.anydevelop.algorithm.sort.internal.insertion.ShellSort;
 import cn.anydevelop.algorithm.sort.internal.merge.MergeSort;
@@ -104,8 +101,10 @@ public class main {
         //towerOfHanoiTest();
         // 背包问题测试
         //knapsackProblemTest();
-        // 暴力测试算法
-        bruteForceMatchTest();
+        // 暴力匹配测试
+        //bruteForceMatchTest();
+        // KMP搜索测试
+        kMPSearchTest();
     }
 
     // 稀疏矩阵测试
@@ -883,8 +882,7 @@ public class main {
 
     // 汉诺塔测试
     public static void towerOfHanoiTest(){
-        TowerOfHanoi towerOfHanoi = new TowerOfHanoi();
-        towerOfHanoi.towerOfHanoi(3,'A','B','C');
+        TowerOfHanoi.towerOfHanoi(3,'A','B','C');
     }
 
     // 背包问题测试
@@ -896,15 +894,20 @@ public class main {
         article[1][1] = 3000;
         article[2][0] = 3;
         article[2][1] = 2000;
-        KnapsackProblem knapsackProblem = new KnapsackProblem();
-        knapsackProblem.knapsackProblem(article,4);
+        KnapsackProblem.knapsackProblem(article,4);
     }
 
-    // 暴力匹配算法测试
+    // 暴力匹配测试
     public static void bruteForceMatchTest(){
         String source = "I like Java";
         String match = "Java";
-        BruteForceMatch bruteForceMatch = new BruteForceMatch();
-        System.out.println(bruteForceMatch.bruteForceMatch(source,match));
+        System.out.println(BruteForceMatch.bruteForceMatch(source,match));
+    }
+
+    // KMP搜索测试
+    public static void kMPSearchTest(){
+        String source = "I like Java";
+        String match = "Java";
+        System.out.println(KMPSearch.kMPSearch(source,match));
     }
 }

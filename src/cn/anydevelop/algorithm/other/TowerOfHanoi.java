@@ -8,13 +8,13 @@
 package cn.anydevelop.algorithm.other;
 
 public class TowerOfHanoi {
-    public void towerOfHanoi(int num,char a,char b,char c){
+    public static void towerOfHanoi(int num, char a, char b, char c){
         if(num==1){
             System.out.println(num+" "+a+" to "+c);
         }else{
-            this.towerOfHanoi(num-1,a,c,b);
+            TowerOfHanoi.towerOfHanoi(num-1,a,c,b);
             System.out.println(num+" "+a+" to "+c);
-            this.towerOfHanoi(num-1,b,a,c);
+            TowerOfHanoi.towerOfHanoi(num-1,b,a,c);
         }
     }
 }
