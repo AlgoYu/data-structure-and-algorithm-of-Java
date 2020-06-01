@@ -906,8 +906,8 @@ public class main {
 
     // KMP搜索测试
     public static void kMPSearchTest(){
-        String source = "I like Java";
-        String match = "Java";
+        String source = "AABCAAABBC";
+        String match = "AABB";
         System.out.println(KMPSearch.kMPSearch(source,match));
     }
 }
