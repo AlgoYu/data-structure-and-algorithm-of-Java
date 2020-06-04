@@ -14,10 +14,9 @@ import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.graphic.AdjacencyMatrix;
 import cn.anydevelop.datastructure.linear.*;
 import cn.anydevelop.datastructure.tree.*;
+import javafx.scene.layout.VBox;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class main {
     public static void main(String[] args) {
@@ -104,7 +103,9 @@ public class main {
         // 暴力匹配测试
         //bruteForceMatchTest();
         // KMP搜索测试
-        kMPSearchTest();
+        //kMPSearchTest();
+        // 覆盖地区测试
+        coverAreaTest();
     }
 
     // 稀疏矩阵测试
@@ -909,5 +910,39 @@ public class main {
         String source = "AABCAAABBC";
         String match = "AABB";
         System.out.println(KMPSearch.kMPSearch(source,match));
+    }
+
+    // 覆盖地区测试
+    public static void coverAreaTest(){
+        HashMap<String, HashSet<String>> channel = new HashMap<>();
+        HashSet<String> one = new HashSet<>();
+        one.add("北京");
+        one.add("上海");
+        one.add("深圳");
+        channel.put("chanel-1",one);
+        HashSet<String> two = new HashSet<>();
+        two.add("杭州");
+        two.add("深圳");
+        two.add("大连");
+        channel.put("chanel-2",two);
+        HashSet<String> three = new HashSet<>();
+        three.add("大连");
+        three.add("北京");
+        channel.put("chanel-3",three);
+        HashSet<String> four = new HashSet<>();
+        four.add("杭州");
+        four.add("东莞");
+        four.add("珠海");
+        channel.put("chanel-4",four);
+        List<String> allArea = new ArrayList<>();
+        allArea.add("北京");
+        allArea.add("上海");
+        allArea.add("深圳");
+        allArea.add("杭州");
+        allArea.add("大连");
+        allArea.add("珠海");
+        allArea.add("东莞");
+        List<String> select = CoverArea.coverArea(allArea, channel);
+        System.out.println(select.toString());
     }
 }
