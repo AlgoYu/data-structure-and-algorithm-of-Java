@@ -105,7 +105,9 @@ public class main {
         // KMP搜索测试
         //kMPSearchTest();
         // 覆盖地区测试
-        coverAreaTest();
+        //coverAreaTest();
+        // 修路问题测试
+        mendRoadTest();
     }
 
     // 稀疏矩阵测试
@@ -919,21 +921,21 @@ public class main {
         one.add("北京");
         one.add("上海");
         one.add("深圳");
-        channel.put("chanel-1",one);
+        channel.put("channel-1",one);
         HashSet<String> two = new HashSet<>();
         two.add("杭州");
         two.add("深圳");
         two.add("大连");
-        channel.put("chanel-2",two);
+        channel.put("channel-2",two);
         HashSet<String> three = new HashSet<>();
         three.add("大连");
         three.add("北京");
-        channel.put("chanel-3",three);
+        channel.put("channel-3",three);
         HashSet<String> four = new HashSet<>();
         four.add("杭州");
         four.add("东莞");
         four.add("珠海");
-        channel.put("chanel-4",four);
+        channel.put("channel-4",four);
         List<String> allArea = new ArrayList<>();
         allArea.add("北京");
         allArea.add("上海");
@@ -944,5 +946,24 @@ public class main {
         allArea.add("东莞");
         List<String> select = CoverArea.coverArea(allArea, channel);
         System.out.println(select.toString());
+    }
+
+    // 修路问题测试
+    public static void mendRoadTest(){
+        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+        int[][] matrix = new int[][]{
+                {10000,5,7,10000,10000,10000,2},
+                {5,10000,10000,9,10000,10000,3},
+                {7,10000,10000,10000,8,10000,10000},
+                {10000,9,10000,10000,10000,4,10000},
+                {10000,10000,8,10000,10000,5,4},
+                {10000,10000,10000,4,5,10000,6},
+                {2,3,10000,10000,4,5,10000},
+        };
+        MendRoad mendRoad = new MendRoad();
+        MendRoad.RGraph graph = mendRoad.createGraph(nodes.length, nodes, matrix);
+        graph.printGraph();
+        System.out.println("生成最小生成树");
+        mendRoad.minTree(graph,0);
     }
 }
