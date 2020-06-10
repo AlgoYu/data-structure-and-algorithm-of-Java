@@ -3,7 +3,7 @@
 主要思想：
 	1. 使用Prim算法，选择一个节点出发。
 	2. 把当前节点添加到已连通节点中。
-	3. 遍历已连通节点的所有邻接节点中还未被连通且权值最小的一个加入连通节点。
+	3. 遍历已连通节点的所有邻接节点，把还未被连通且权值最小的一个加入连通节点。
 	4. 循环以上步骤直至所有节点连通。
 */
 package cn.anydevelop.algorithm.other;
@@ -51,11 +51,11 @@ public class MendRoad {
     }
 
     /**
-     * 最小生成树
+     * prim
      * @param graph
      * @param node
      */
-    public void minTree(RGraph graph,int node){
+    public void prim(RGraph graph, int node){
         int[] visited = new int[graph.size];
         visited[node] = 1;
         int minValue = 10000;

@@ -14,7 +14,6 @@ import cn.anydevelop.algorithm.sort.internal.swap.QuickSort;
 import cn.anydevelop.datastructure.graphic.AdjacencyMatrix;
 import cn.anydevelop.datastructure.linear.*;
 import cn.anydevelop.datastructure.tree.*;
-import javafx.scene.layout.VBox;
 
 import java.util.*;
 
@@ -107,7 +106,9 @@ public class main {
         // 覆盖地区测试
         //coverAreaTest();
         // 修路问题测试
-        mendRoadTest();
+        //mendRoadTest();
+        // 公交站问题测试
+        BusStationTest();
     }
 
     // 稀疏矩阵测试
@@ -964,6 +965,25 @@ public class main {
         MendRoad.RGraph graph = mendRoad.createGraph(nodes.length, nodes, matrix);
         graph.printGraph();
         System.out.println("生成最小生成树");
-        mendRoad.minTree(graph,0);
+        mendRoad.prim(graph,0);
+    }
+
+    // 公交站问题测试
+    public static void BusStationTest(){
+        int unConnect = Integer.MAX_VALUE;
+        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+        int[][] matrix = new int[][]{
+                {0,12,unConnect,unConnect,unConnect,16,14},
+                {12,0,10,unConnect,unConnect,7,unConnect},
+                {unConnect,10,0,3,5,6,unConnect},
+                {unConnect,unConnect,3,0,4,unConnect,unConnect},
+                {unConnect,unConnect,5,4,0,2,8},
+                {16,7,6,unConnect,2,0,9},
+                {14,unConnect,unConnect,unConnect,8,9,0}
+        };
+        BusStation busStation = new BusStation();
+        BusStation.BGraph graph = busStation.createGraph(nodes, matrix);
+        graph.printGraph();
+        busStation.kruskal(graph);
     }
 }
