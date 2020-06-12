@@ -1,6 +1,7 @@
 package cn.anydevelop;
 
 import cn.anydevelop.algorithm.compression.HuffmanCoding;
+import cn.anydevelop.algorithm.interview.AlphanumericSort;
 import cn.anydevelop.algorithm.other.*;
 import cn.anydevelop.algorithm.search.*;
 import cn.anydevelop.algorithm.sort.internal.insertion.InsertionSort;
@@ -108,7 +109,9 @@ public class main {
         // 修路问题测试
         //mendRoadTest();
         // 公交站问题测试
-        BusStationTest();
+        //BusStationTest();
+        // 字符数字排序测试
+        AlphanumericSortTest();
     }
 
     // 稀疏矩阵测试
@@ -985,5 +988,13 @@ public class main {
         BusStation.BGraph graph = busStation.createGraph(nodes, matrix);
         graph.printGraph();
         busStation.kruskal(graph);
+    }
+
+    // 字符数字排序测试
+    public static void AlphanumericSortTest(){
+        String[] data = new String[]{"B3","D2","F1","A9","D12","A2","C1","Z0","B1"};
+        System.out.println("排序前："+Arrays.toString(data));
+        AlphanumericSort.alphanumericSort(data);
+        System.out.println("排序后："+Arrays.toString(data));
     }
 }
