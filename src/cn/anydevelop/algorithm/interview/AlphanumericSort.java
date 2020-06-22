@@ -1,3 +1,9 @@
+/*
+字母数字排序：给定一串字符串，里面包含字母和数字的组合，按数字优先，字母其次的排序顺序进行排序。
+主要思想：
+	1. 截取数字使用快排进行排序。
+	2. 在数字顺序不变的情况下，使用冒泡进行对字母的排序。
+*/
 package cn.anydevelop.algorithm.interview;
 
 public class AlphanumericSort {

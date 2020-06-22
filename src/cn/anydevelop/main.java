@@ -109,9 +109,11 @@ public class main {
         // 修路问题测试
         //mendRoadTest();
         // 公交站问题测试
-        //BusStationTest();
+        //busStationTest();
+        // Dijkstra测试
+        dijkstraAlgorithmTest();
         // 字符数字排序测试
-        AlphanumericSortTest();
+        //alphanumericSortTest();
     }
 
     // 稀疏矩阵测试
@@ -972,7 +974,7 @@ public class main {
     }
 
     // 公交站问题测试
-    public static void BusStationTest(){
+    public static void busStationTest(){
         int unConnect = Integer.MAX_VALUE;
         char[] nodes = new char[]{'A','B','C','D','E','F','G'};
         int[][] matrix = new int[][]{
@@ -991,10 +993,32 @@ public class main {
     }
 
     // 字符数字排序测试
-    public static void AlphanumericSortTest(){
+    public static void alphanumericSortTest(){
         String[] data = new String[]{"B3","D2","F1","A9","D12","A2","C1","Z0","B1"};
         System.out.println("排序前："+Arrays.toString(data));
         AlphanumericSort.alphanumericSort(data);
         System.out.println("排序后："+Arrays.toString(data));
+    }
+
+    // Dijkstra算法测试
+    public static void dijkstraAlgorithmTest(){
+        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+        int n = 65535;
+        int[][] matrix = new int[][]{
+                {n,5,7,n,n,n,2},
+                {5,n,n,9,n,n,3},
+                {7,n,n,n,8,n,n},
+                {n,9,n,n,n,4,n},
+                {n,n,8,n,n,5,4},
+                {n,n,n,4,5,n,6},
+                {2,3,n,n,4,6,n}
+        };
+        DijkstraAlgorithm dijkstraAlgorithm = new DijkstraAlgorithm();
+        DijkstraAlgorithm.DijkstraGraph dijkstraGraph = dijkstraAlgorithm.new DijkstraGraph(nodes,matrix);
+        System.out.println("显示图：");
+        dijkstraGraph.printGraph();
+        System.out.println("从G点出发计算：");
+        List<String> dijkstra = dijkstraAlgorithm.dijkstra(dijkstraGraph, 6);
+        System.out.println(Arrays.toString(dijkstra.toArray()));
     }
 }
