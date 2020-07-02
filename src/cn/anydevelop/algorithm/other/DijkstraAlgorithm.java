@@ -2,7 +2,7 @@
 Dijkstra算法：给定一组无相连通图，求出从出发节点到全部节点的最短路径。
 主要思想：
 	1. 创建一个结构体来保存出发节点所有可连接节点的连接距离，所有节点的访问情况，以及计算过程中的前置节点。
-	2. 扫描一个距离最短未被访问节点，设置它已被访问，计算该节点所有的连接距离并加上从出发节点到该节点的距离，如果小于已有的连接距离，则更新保存的路径距离。
+	2. 获取一个当前距离最短且未被访问节点访问，计算以此节点作为中转节点访问其他节点的距离，如果小于已有的访问距离，则更新新的距离访问距离。
 	3. 反复以上步骤，直至所有节点被访问。
 */
 package cn.anydevelop.algorithm.other;
@@ -106,15 +106,27 @@ public class DijkstraAlgorithm {
      * @return
      */
     public List<String> dijkstra(DijkstraGraph graph, int index){
-        List<String> minPath = new ArrayList<>();
+
         VisitedNode visitedNode = new VisitedNode(graph.getNodes().length,index);
         this.update(graph,visitedNode,index);
         for (int i = 1; i < graph.getNodes().length; i++){
-            int next = this.updateArray(visitedNode);
+            int next = this.getNextNode(visitedNode);
             this.update(graph,visitedNode,next);
         }
+        return getPath(visitedNode,graph,index);
+    }
+
+    /**
+     * 获取最短距离的路径
+     * @param visitedNode
+     * @param graph
+     * @param index
+     * @return
+     */
+    public List<String> getPath(VisitedNode visitedNode,DijkstraGraph graph,int index){
+        List<String> minPath = new ArrayList<>();
         int min = 65535;
-        int end = index;
+        int end = 0;
         for(int i = 0; i < visitedNode.getDis().length; i++){
             if(i != index && visitedNode.isVisited(i) && visitedNode.getDistance(i) < min){
                 min = visitedNode.getDistance(i);
@@ -151,7 +163,7 @@ public class DijkstraAlgorithm {
      * @param visitedNode
      * @return
      */
-    public int updateArray(VisitedNode visitedNode){
+    public int getNextNode(VisitedNode visitedNode){
         int min = 65535, index = 0;
         for (int i = 0; i < visitedNode.getVisit().length; i++){
             if(!visitedNode.isVisited(i) && visitedNode.getDistance(i) < min){

@@ -992,14 +992,6 @@ public class main {
         busStation.kruskal(graph);
     }
 
-    // 字符数字排序测试
-    public static void alphanumericSortTest(){
-        String[] data = new String[]{"B3","D2","F1","A9","D12","A2","C1","Z0","B1"};
-        System.out.println("排序前："+Arrays.toString(data));
-        AlphanumericSort.alphanumericSort(data);
-        System.out.println("排序后："+Arrays.toString(data));
-    }
-
     // Dijkstra算法测试
     public static void dijkstraAlgorithmTest(){
         char[] nodes = new char[]{'A','B','C','D','E','F','G'};
@@ -1017,8 +1009,16 @@ public class main {
         DijkstraAlgorithm.DijkstraGraph dijkstraGraph = dijkstraAlgorithm.new DijkstraGraph(nodes,matrix);
         System.out.println("显示图：");
         dijkstraGraph.printGraph();
-        System.out.println("从G点出发计算：");
+        System.out.println("从G点出发计算到达各点的最短路径：");
         List<String> dijkstra = dijkstraAlgorithm.dijkstra(dijkstraGraph, 6);
         System.out.println(Arrays.toString(dijkstra.toArray()));
+    }
+
+    // 字符数字排序测试
+    public static void alphanumericSortTest(){
+        String[] data = new String[]{"B3","D2","F1","A9","D12","A2","C1","Z0","B1"};
+        System.out.println("排序前："+Arrays.toString(data));
+        AlphanumericSort.alphanumericSort(data);
+        System.out.println("排序后："+Arrays.toString(data));
     }
 }
