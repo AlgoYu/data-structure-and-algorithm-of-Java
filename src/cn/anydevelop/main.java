@@ -111,7 +111,9 @@ public class main {
         // 公交站问题测试
         //busStationTest();
         // Dijkstra测试
-        dijkstraAlgorithmTest();
+        //dijkstraAlgorithmTest();
+        // Floyd算法测试
+        floydAlgorithmTest();
         // 字符数字排序测试
         //alphanumericSortTest();
     }
@@ -1012,6 +1014,27 @@ public class main {
         System.out.println("从G点出发计算到达各点的最短路径：");
         List<String> dijkstra = dijkstraAlgorithm.dijkstra(dijkstraGraph, 6);
         System.out.println(Arrays.toString(dijkstra.toArray()));
+    }
+
+    // Floyd算法测试
+    public static void floydAlgorithmTest(){
+        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+        int n = 65535;
+        int[][] matrix = new int[][]{
+                {0,5,7,n,n,n,2},
+                {5,0,n,9,n,n,3},
+                {7,n,0,n,8,n,n},
+                {n,9,n,0,n,4,n},
+                {n,n,8,n,0,5,4},
+                {n,n,n,4,5,0,6},
+                {2,3,n,n,4,6,0},
+        };
+        FloydAlgorithm floydAlgorithm = new FloydAlgorithm(nodes,matrix);
+        System.out.println("打印原始数组：");
+        floydAlgorithm.printGraph();
+        System.out.println("经过佛洛依德计算：");
+        floydAlgorithm.floyd();
+        floydAlgorithm.printGraph();
     }
 
     // 字符数字排序测试
