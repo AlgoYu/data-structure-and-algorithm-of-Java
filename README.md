@@ -64,8 +64,7 @@
 ### 图形结构-Graph Structure
 1. 无向图-Undirected Graph
 2. 有向图-Oriented Graph
-3. 完全图-Complete Graph
-4. 带权图-Weighted Graph
+3. 带权图-Weighted Graph
 ## 关于作者
 
 喜欢的话就**Star**一下吧！  

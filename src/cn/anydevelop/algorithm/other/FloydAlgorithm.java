@@ -24,6 +24,9 @@ public class FloydAlgorithm {
         }
     }
 
+    /**
+     * 打印图
+     */
     public void printGraph(){
         for (int i = 0; i < this.dis.length; i++){
             System.out.println(Arrays.toString(this.dis[i]));
@@ -34,6 +37,9 @@ public class FloydAlgorithm {
         }
     }
 
+    /**
+     * 使用三个指针遍历数组，考虑每一个节点作为中间节点时候，更新各个节点的最短距离。
+     */
     public void floyd(){
         int len = 0;
         for (int k = 0; k < this.dis.length; k++){

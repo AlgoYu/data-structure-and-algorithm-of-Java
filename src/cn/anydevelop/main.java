@@ -113,7 +113,9 @@ public class main {
         // Dijkstra测试
         //dijkstraAlgorithmTest();
         // Floyd算法测试
-        floydAlgorithmTest();
+        //floydAlgorithmTest();
+        // 骑士周游算法测试
+        knightTourProblemTest();
         // 字符数字排序测试
         //alphanumericSortTest();
     }
@@ -1030,11 +1032,25 @@ public class main {
                 {2,3,n,n,4,6,0},
         };
         FloydAlgorithm floydAlgorithm = new FloydAlgorithm(nodes,matrix);
-        System.out.println("打印原始数组：");
+        System.out.println("打印原始矩阵：");
         floydAlgorithm.printGraph();
         System.out.println("经过佛洛依德计算：");
         floydAlgorithm.floyd();
         floydAlgorithm.printGraph();
+    }
+
+    // 骑士周游算法测试
+    public static void knightTourProblemTest(){
+        int x = 8;
+        int y = 8;
+        int[][] chessboard = new int[y][x];
+        int row = 4;
+        int column = 1;
+        KnightTourProblem knightTourProblem = new KnightTourProblem(x,y);
+        knightTourProblem.traverseChessboard(chessboard,row-1,column-1,1);
+        for (int i = 0; i < chessboard.length; i++){
+            System.out.println(Arrays.toString(chessboard[i]));
+        }
     }
 
     // 字符数字排序测试
