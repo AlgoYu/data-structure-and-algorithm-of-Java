@@ -9,7 +9,6 @@
 */
 package cn.machine.geek.datastructure.tree;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 public class BinaryTree {
     private BinaryTreeNode root;

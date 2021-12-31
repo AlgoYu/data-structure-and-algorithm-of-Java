@@ -205,8 +205,6 @@ public class HuffmanCoding {
             objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(huffmanBytes);
             objectOutputStream.writeObject(this.huffmanCoding);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -244,11 +242,7 @@ public class HuffmanCoding {
             }
             fileOutputStream = new FileOutputStream(outputPath);
             fileOutputStream.write(sourceBytes);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {
@@ -265,6 +259,12 @@ public class HuffmanCoding {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        HuffmanCoding huffmanCoding = new HuffmanCoding();
+        huffmanCoding.huffmanCompressionFile("/Users/xiaoyu/Downloads/大型网站系统与JAVA中间件实践.zip", "/Users/xiaoyu/Downloads/压缩");
+        huffmanCoding.huffmanDecompressionFile("/Users/xiaoyu/Downloads/压缩", "/Users/xiaoyu/Downloads/还原.png");
     }
 
     // 打印哈夫曼编码
