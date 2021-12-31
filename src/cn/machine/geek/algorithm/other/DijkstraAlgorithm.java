@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class DijkstraAlgorithm {
-    public class DijkstraGraph{
+    public class DijkstraGraph {
         private char[] nodes;
         private int[][] matrix;
 
@@ -22,8 +22,8 @@ public class DijkstraAlgorithm {
             this.matrix = matrix;
         }
 
-        public void printGraph(){
-            for (int i = 0; i < this.nodes.length; i++){
+        public void printGraph() {
+            for (int i = 0; i < this.nodes.length; i++) {
                 System.out.println(Arrays.toString(this.matrix[i]));
             }
         }
@@ -44,33 +44,34 @@ public class DijkstraAlgorithm {
             this.matrix = matrix;
         }
     }
-    public class VisitedNode{
+
+    public class VisitedNode {
         private int[] visit;
         private int[] pre;
         private int[] dis;
 
-        public VisitedNode(int length,int index) {
+        public VisitedNode(int length, int index) {
             this.visit = new int[length];
             this.pre = new int[length];
             this.dis = new int[length];
-            Arrays.fill(this.dis,65535);
+            Arrays.fill(this.dis, 65535);
             this.visit[index] = 1;
             this.dis[index] = 0;
         }
 
-        public boolean isVisited(int index){
+        public boolean isVisited(int index) {
             return this.visit[index] == 1;
         }
 
-        public void updateDis(int index,int length){
+        public void updateDis(int index, int length) {
             this.dis[index] = length;
         }
 
-        public void updatePre(int current,int pre){
+        public void updatePre(int current, int pre) {
             this.pre[current] = pre;
         }
 
-        public int getDistance(int index){
+        public int getDistance(int index) {
             return this.dis[index];
         }
 
@@ -101,40 +102,42 @@ public class DijkstraAlgorithm {
 
     /**
      * Dijkstra算法
+     *
      * @param graph
      * @param index
      * @return
      */
-    public List<String> dijkstra(DijkstraGraph graph, int index){
+    public List<String> dijkstra(DijkstraGraph graph, int index) {
 
-        VisitedNode visitedNode = new VisitedNode(graph.getNodes().length,index);
-        this.update(graph,visitedNode,index);
-        for (int i = 1; i < graph.getNodes().length; i++){
+        VisitedNode visitedNode = new VisitedNode(graph.getNodes().length, index);
+        this.update(graph, visitedNode, index);
+        for (int i = 1; i < graph.getNodes().length; i++) {
             int next = this.getNextNode(visitedNode);
-            this.update(graph,visitedNode,next);
+            this.update(graph, visitedNode, next);
         }
-        return getPath(visitedNode,graph,index);
+        return getPath(visitedNode, graph, index);
     }
 
     /**
      * 获取最短距离的路径
+     *
      * @param visitedNode
      * @param graph
      * @param index
      * @return
      */
-    public List<String> getPath(VisitedNode visitedNode,DijkstraGraph graph,int index){
+    public List<String> getPath(VisitedNode visitedNode, DijkstraGraph graph, int index) {
         List<String> minPath = new ArrayList<>();
         int min = 65535;
         int end = 0;
-        for(int i = 0; i < visitedNode.getDis().length; i++){
-            if(i != index && visitedNode.isVisited(i) && visitedNode.getDistance(i) < min){
+        for (int i = 0; i < visitedNode.getDis().length; i++) {
+            if (i != index && visitedNode.isVisited(i) && visitedNode.getDistance(i) < min) {
                 min = visitedNode.getDistance(i);
                 end = i;
             }
         }
-        while (end!=index){
-            minPath.add("<"+graph.getNodes()[end]+","+visitedNode.getDistance(end)+">");
+        while (end != index) {
+            minPath.add("<" + graph.getNodes()[end] + "," + visitedNode.getDistance(end) + ">");
             end = visitedNode.getPre()[end];
         }
         Collections.reverse(minPath);
@@ -143,30 +146,32 @@ public class DijkstraAlgorithm {
 
     /**
      * 扫描目标节点中还未访问的连接节点的路径距离并加上从出发节点到当前节点路径距离，更新前置节点和路径。
+     *
      * @param graph
      * @param visitedNode
      * @param index
      */
-    public void update(DijkstraGraph graph,VisitedNode visitedNode,int index){
+    public void update(DijkstraGraph graph, VisitedNode visitedNode, int index) {
         int length;
-        for (int i = 0; i < graph.getMatrix()[index].length; i++){
+        for (int i = 0; i < graph.getMatrix()[index].length; i++) {
             length = visitedNode.getDistance(index) + graph.getMatrix()[index][i];
-            if(!visitedNode.isVisited(i) && length < visitedNode.getDistance(i)){
-                visitedNode.updatePre(i,index);
-                visitedNode.updateDis(i,length);
+            if (!visitedNode.isVisited(i) && length < visitedNode.getDistance(i)) {
+                visitedNode.updatePre(i, index);
+                visitedNode.updateDis(i, length);
             }
         }
     }
 
     /**
      * 扫描下一个可连通未被访问且距离最短的节点
+     *
      * @param visitedNode
      * @return
      */
-    public int getNextNode(VisitedNode visitedNode){
+    public int getNextNode(VisitedNode visitedNode) {
         int min = 65535, index = 0;
-        for (int i = 0; i < visitedNode.getVisit().length; i++){
-            if(!visitedNode.isVisited(i) && visitedNode.getDistance(i) < min){
+        for (int i = 0; i < visitedNode.getVisit().length; i++) {
+            if (!visitedNode.isVisited(i) && visitedNode.getDistance(i) < min) {
                 min = visitedNode.getDistance(i);
                 index = i;
             }

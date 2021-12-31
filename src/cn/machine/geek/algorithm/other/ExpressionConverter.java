@@ -21,73 +21,73 @@ public class ExpressionConverter {
     }
 
     // 转换表达式
-    public String conversionExpression(String expression){
+    public String conversionExpression(String expression) {
         String suffixExpression = "";
         String[] values = expression.split(" ");
         // 遍历数组
-        for (int i = 0; i < values.length; i++){
+        for (int i = 0; i < values.length; i++) {
             // 判断是否为操作符
-            if (this.isOperator(values[i])){
+            if (this.isOperator(values[i])) {
                 // 左括号直接推入st1
-                if(values[i].equals("(")){
+                if (values[i].equals("(")) {
                     this.st1.push(values[i].charAt(0));
                     // 右括号则一直取出st1的直到左括号为止的所有字符推入st2
-                }else if(values[i].equals(")")){
-                    while (!this.st1.isEmpty()&&this.st1.peek()!='('){
+                } else if (values[i].equals(")")) {
+                    while (!this.st1.isEmpty() && this.st1.peek() != '(') {
                         this.st2.push(this.st1.pop());
                     }
                     this.st1.pop();
                     // 操作符小于st1中的优先级则先取出st1的操作符推入st2再把当前操作符推入st1
-                }else if(!this.st1.isEmpty() && this.getPriority(values[i]) <= this.getPriority((char)this.st1.peek()+"")){
+                } else if (!this.st1.isEmpty() && this.getPriority(values[i]) <= this.getPriority((char) this.st1.peek() + "")) {
                     this.st2.push(this.st1.pop());
                     this.st1.push(values[i].charAt(0));
-                }else{
+                } else {
                     this.st1.push(values[i].charAt(0));
                 }
-            }else{
+            } else {
                 this.st2.push(Integer.parseInt(values[i]));
             }
         }
-        while (!this.st1.isEmpty()){
+        while (!this.st1.isEmpty()) {
             this.st2.push(this.st1.pop());
         }
-        while (!this.st2.isEmpty()){
+        while (!this.st2.isEmpty()) {
             int value = this.st2.pop();
-            if(this.isOperator((char)value+"")){
-                suffixExpression=(char)value+" "+suffixExpression;
-            }else{
-                suffixExpression=value+" "+suffixExpression;
+            if (this.isOperator((char) value + "")) {
+                suffixExpression = (char) value + " " + suffixExpression;
+            } else {
+                suffixExpression = value + " " + suffixExpression;
             }
         }
         return suffixExpression;
     }
 
     // 判断是否为操作符
-    public boolean isOperator(String value){
+    public boolean isOperator(String value) {
         return value.equals("+") || value.equals("-") || value.equals("*") || value.equals("/") || value.equals("(") || value.equals(")");
     }
 
     // 获取操作符优先级
-    public int getPriority(String operator){
-        if(operator.equals("*")||operator.equals("/")){
+    public int getPriority(String operator) {
+        if (operator.equals("*") || operator.equals("/")) {
             return 1;
-        }else if(operator.equals("+")||operator.equals("-")){
+        } else if (operator.equals("+") || operator.equals("-")) {
             return 0;
         }
         return -1;
     }
 
     // 计算数值
-    public int calculate(int num1,int num2,String operate){
+    public int calculate(int num1, int num2, String operate) {
         // 加法和乘法的顺序不影响计算结果，但是减法和除法的顺序会影响计算结果。
-        if(operate.equals("+")){
-            return num1+num2;
-        }else if(operate.equals("-")){
-            return num2-num1;
-        }else if(operate.equals("*")){
-            return num1*num2;
-        }else if(operate.equals("/")){
-            return num2/num1;
+        if (operate.equals("+")) {
+            return num1 + num2;
+        } else if (operate.equals("-")) {
+            return num2 - num1;
+        } else if (operate.equals("*")) {
+            return num1 * num2;
+        } else if (operate.equals("/")) {
+            return num2 / num1;
         }
         throw new RuntimeException("Operation mismatch.");
     }

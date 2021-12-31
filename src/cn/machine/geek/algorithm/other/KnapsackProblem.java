@@ -14,30 +14,30 @@ public class KnapsackProblem {
     public static void knapsackProblem(int[][] article, int capacity) {
         int[][] table = new int[article.length + 1][capacity + 1];
         int[][] count = new int[article.length + 1][capacity + 1];
-        for (int i = 1; i < table.length; i++){
-            for (int j = 1; j < table[i].length; j++){
-                if(article[i-1][0]>j){
-                    table[i][j] = table[i-1][j];
-                }else{
+        for (int i = 1; i < table.length; i++) {
+            for (int j = 1; j < table[i].length; j++) {
+                if (article[i - 1][0] > j) {
+                    table[i][j] = table[i - 1][j];
+                } else {
                     //table[i][j] = Math.max(table[i-1][j],article[i-1][1]+table[i-1][j-article[i-1][0]]);
-                    if(table[i-1][j]>article[i-1][1]+table[i-1][j-article[i-1][0]]){
-                        table[i][j] = table[i-1][j];
-                    }else{
-                        table[i][j] = article[i-1][1]+table[i-1][j-article[i-1][0]];
+                    if (table[i - 1][j] > article[i - 1][1] + table[i - 1][j - article[i - 1][0]]) {
+                        table[i][j] = table[i - 1][j];
+                    } else {
+                        table[i][j] = article[i - 1][1] + table[i - 1][j - article[i - 1][0]];
                         count[i][j] = 1;
                     }
                 }
             }
         }
-        for (int i = 0; i < table.length; i++){
+        for (int i = 0; i < table.length; i++) {
             System.out.println(Arrays.toString(table[i]));
         }
-        int row = count.length-1;
-        int column = count[row].length-1;
-        while (row > 0 && column >0){
-            if(count[row][column] == 1){
-                System.out.println("No."+row+" article to knapsack");
-                column -= article[row-1][0];
+        int row = count.length - 1;
+        int column = count[row].length - 1;
+        while (row > 0 && column > 0) {
+            if (count[row][column] == 1) {
+                System.out.println("No." + row + " article to knapsack");
+                column -= article[row - 1][0];
             }
             row--;
         }

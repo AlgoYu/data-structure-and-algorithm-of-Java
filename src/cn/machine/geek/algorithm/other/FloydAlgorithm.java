@@ -19,20 +19,20 @@ public class FloydAlgorithm {
         this.nodes = nodes;
         this.dis = dis;
         this.pre = new int[nodes.length][nodes.length];
-        for (int i = 0; i < this.pre.length; i++){
-            Arrays.fill(this.pre[i],i);
+        for (int i = 0; i < this.pre.length; i++) {
+            Arrays.fill(this.pre[i], i);
         }
     }
 
     /**
      * 打印图
      */
-    public void printGraph(){
-        for (int i = 0; i < this.dis.length; i++){
+    public void printGraph() {
+        for (int i = 0; i < this.dis.length; i++) {
             System.out.println(Arrays.toString(this.dis[i]));
         }
         System.out.println();
-        for (int i = 0; i < this.pre.length; i++){
+        for (int i = 0; i < this.pre.length; i++) {
             System.out.println(Arrays.toString(this.pre[i]));
         }
     }
@@ -40,13 +40,13 @@ public class FloydAlgorithm {
     /**
      * 使用三个指针遍历数组，考虑每一个节点作为中间节点时候，更新各个节点的最短距离。
      */
-    public void floyd(){
+    public void floyd() {
         int len = 0;
-        for (int k = 0; k < this.dis.length; k++){
-            for (int j = 0; j < this.dis.length; j++){
-                for (int i = 0; i < this.dis.length; i++){
+        for (int k = 0; k < this.dis.length; k++) {
+            for (int j = 0; j < this.dis.length; j++) {
+                for (int i = 0; i < this.dis.length; i++) {
                     len = this.dis[j][k] + this.dis[k][i];
-                    if(len < this.dis[j][i]){
+                    if (len < this.dis[j][i]) {
                         this.dis[j][i] = len;
                         this.dis[i][j] = len;
                         this.pre[j][i] = k;

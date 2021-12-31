@@ -10,14 +10,14 @@ package cn.machine.geek.algorithm.sort.internal.swap;
 
 public class BubbleSort {
     // 冒泡排序
-    public int[] bubbleSort(int[] array){
+    public int[] bubbleSort(int[] array) {
         int temp;
-        for (int i = 0; i < array.length-1; i++){
-            for (int j = 0; j < array.length -1 -i; j++){
-                if(array[j]>array[j+1]){
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
                     temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
@@ -25,21 +25,21 @@ public class BubbleSort {
     }
 
     // 冒泡排序优化
-    public int[] bubbleSortOptimize(int[] array){
+    public int[] bubbleSortOptimize(int[] array) {
         int temp;
         // 增加一个布尔值
         boolean existSwap = false;
-        for (int i = 0; i < array.length-1; i++){
-            for (int j = 0; j < array.length -1 -i; j++){
-                if(array[j]>array[j+1]){
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
                     temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                     existSwap = true;
                 }
             }
             // 如果一趟排序没有进行一次交换则退出循环
-            if(!existSwap){
+            if (!existSwap) {
                 break;
             }
             existSwap = false;

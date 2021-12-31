@@ -9,21 +9,21 @@
 package cn.machine.geek.algorithm.search;
 
 public class BruteForceMatch {
-    public static int bruteForceMatch(String source,String match){
+    public static int bruteForceMatch(String source, String match) {
         char[] sources = source.toCharArray();
         char[] matchs = match.toCharArray();
         int i = 0;
         int j = 0;
-        while (i < sources.length && j < matchs.length){
-            if(sources[i] == matchs[j]){
+        while (i < sources.length && j < matchs.length) {
+            if (sources[i] == matchs[j]) {
                 i++;
                 j++;
-            }else{
-                i = i - (j-1);
+            } else {
+                i = i - (j - 1);
                 j = 0;
             }
         }
-        if(j == matchs.length){
+        if (j == matchs.length) {
             j = i - j;
         }
         return j;

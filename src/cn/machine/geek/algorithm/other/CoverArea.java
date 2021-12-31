@@ -11,24 +11,24 @@ import java.util.HashSet;
 import java.util.List;
 
 public class CoverArea {
-    public static List<String> coverArea(List<String> allArea, HashMap<String, HashSet<String>> channel){
+    public static List<String> coverArea(List<String> allArea, HashMap<String, HashSet<String>> channel) {
         HashSet<String> temp = new HashSet<>();
         List<String> select = new ArrayList<>();
         String maxKey = null;
         int maxSize;
-        while (allArea.size() > 0){
+        while (allArea.size() > 0) {
             maxSize = 0;
-            for (String key : channel.keySet()){
+            for (String key : channel.keySet()) {
                 temp.clear();
                 HashSet<String> ch = channel.get(key);
                 temp.addAll(ch);
                 temp.retainAll(allArea);
-                if(temp.size() > maxSize){
+                if (temp.size() > maxSize) {
                     maxKey = key;
                     maxSize = temp.size();
                 }
             }
-            if(maxSize>0){
+            if (maxSize > 0) {
                 select.add(maxKey);
                 allArea.removeAll(channel.get(maxKey));
             }

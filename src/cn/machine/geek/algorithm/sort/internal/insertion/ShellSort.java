@@ -10,33 +10,34 @@ package cn.machine.geek.algorithm.sort.internal.insertion;
 
 public class ShellSort {
     // 希尔交换排序
-    public int[] shellSwapSort(int[] array){
+    public int[] shellSwapSort(int[] array) {
         int temp;
-        for (int half = array.length/2; half > 0; half /= 2){
-            for (int i = half; i < array.length; i++){
-                for (int j = i -half; j >= 0; j -= half){
-                    if(array[j] > array[j+half]){
+        for (int half = array.length / 2; half > 0; half /= 2) {
+            for (int i = half; i < array.length; i++) {
+                for (int j = i - half; j >= 0; j -= half) {
+                    if (array[j] > array[j + half]) {
                         temp = array[j];
-                        array[j] = array[j+half];
-                        array[j+half] = temp;
+                        array[j] = array[j + half];
+                        array[j + half] = temp;
                     }
                 }
             }
         }
         return array;
     }
+
     // 希尔移位排序
-    public int[] shellMoveSort(int[] array){
-        int temp,index;
-        for (int half = array.length/2; half > 0; half /= 2){
-            for (int i = half; i < array.length; i++){
+    public int[] shellMoveSort(int[] array) {
+        int temp, index;
+        for (int half = array.length / 2; half > 0; half /= 2) {
+            for (int i = half; i < array.length; i++) {
                 index = i - half;
                 temp = array[i];
-                while (index >= 0 && temp < array[index]){
-                    array[index+half] = array[index];
-                    index-=half;
+                while (index >= 0 && temp < array[index]) {
+                    array[index + half] = array[index];
+                    index -= half;
                 }
-                array[index+half] = temp;
+                array[index + half] = temp;
             }
         }
         return array;

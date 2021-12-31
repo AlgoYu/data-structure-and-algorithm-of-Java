@@ -12,47 +12,48 @@ import java.util.Arrays;
 
 public class FibonacciSearch {
     // 得到斐波那契数列
-    public int[] getFibonacciSequence(int size){
+    public int[] getFibonacciSequence(int size) {
         int[] fibonacciSequence = new int[size];
         fibonacciSequence[0] = 1;
         fibonacciSequence[1] = 1;
-        for (int i = 2; i < size; i++){
-            fibonacciSequence[i] = fibonacciSequence[i-1] + fibonacciSequence[i-2];
+        for (int i = 2; i < size; i++) {
+            fibonacciSequence[i] = fibonacciSequence[i - 1] + fibonacciSequence[i - 2];
         }
         return fibonacciSequence;
     }
+
     // 斐波那契查找
-    public int fibonacciSearch(int[] array,int value){
+    public int fibonacciSearch(int[] array, int value) {
         int low = 0;
-        int high = array.length-1;
+        int high = array.length - 1;
         // 黄金分割点
         int k = 0;
         // 获取斐波那契数列
         int[] fibonacciSequence = getFibonacciSequence(array.length);
         // 获取黄金分割点
-        while (high > fibonacciSequence[k]-1){
+        while (high > fibonacciSequence[k] - 1) {
             k++;
         }
         // 避免值越界
-        int[] temp = Arrays.copyOf(array,fibonacciSequence[k]);
+        int[] temp = Arrays.copyOf(array, fibonacciSequence[k]);
         // 以最后一个数值填充新的空间
-        for (int i = array.length; i < temp.length; i++){
-            temp[i] = temp[i-1];
+        for (int i = array.length; i < temp.length; i++) {
+            temp[i] = temp[i - 1];
         }
         // 使用黄金分割点查找数值
         int middle = 0;
-        while (high >= low){
-            middle = low + fibonacciSequence[k-1] - 1;
-            if (value > temp[middle]){
+        while (high >= low) {
+            middle = low + fibonacciSequence[k - 1] - 1;
+            if (value > temp[middle]) {
                 low = middle + 1;
                 k -= 2;
-            }else if(value < temp[middle]){
+            } else if (value < temp[middle]) {
                 high = middle - 1;
                 k--;
-            }else{
-                if(high >= middle){
+            } else {
+                if (high >= middle) {
                     return middle;
-                }else{
+                } else {
                     return high;
                 }
             }

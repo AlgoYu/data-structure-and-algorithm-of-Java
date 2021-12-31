@@ -10,24 +10,24 @@ package cn.machine.geek.algorithm.sort.internal.radix;
 
 public class RadixSort {
     // 基数排序
-    public int[] radixSort(int[] array){
+    public int[] radixSort(int[] array) {
         // 获取最大数位数
         int max = array[0];
-        for (int i = 1; i < array.length; i++){
-            if (max < array[i]){
+        for (int i = 1; i < array.length; i++) {
+            if (max < array[i]) {
                 max = array[i];
             }
         }
-        max = (max+"").length();
+        max = (max + "").length();
         // 初始化桶和其他计数
         int[][] barrel = new int[10][array.length];
         int[] count = new int[10];
         int divisor = 1;
         int index;
         int time = 0;
-        while (time <= max){
+        while (time <= max) {
             // 按位取出比较存入相应的捅
-            for (int i = 0; i < array.length; i++){
+            for (int i = 0; i < array.length; i++) {
                 index = array[i] / divisor % 10;
                 barrel[index][count[index]] = array[i];
                 count[index]++;
@@ -35,8 +35,8 @@ public class RadixSort {
             divisor *= 10;
             // 取出桶数据放回原始变量中
             index = 0;
-            for (int i = 0; i < count.length; i++){
-                for (int j = 0; j < count[i]; j++){
+            for (int i = 0; i < count.length; i++) {
+                for (int j = 0; j < count[i]; j++) {
                     array[index] = barrel[i][j];
                     index++;
                 }

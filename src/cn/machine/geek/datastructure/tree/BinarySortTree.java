@@ -10,7 +10,8 @@ package cn.machine.geek.datastructure.tree;
 
 public class BinarySortTree {
     private BinarySortTreeNode root;
-    public class BinarySortTreeNode{
+
+    public class BinarySortTreeNode {
         private int value;
         private BinarySortTreeNode left;
         private BinarySortTreeNode right;
@@ -45,19 +46,20 @@ public class BinarySortTree {
 
         /**
          * 添加节点
+         *
          * @param node 节点
          */
-        public void addNode(BinarySortTreeNode node){
-            if(this.value > node.value){
-                if(this.left==null){
+        public void addNode(BinarySortTreeNode node) {
+            if (this.value > node.value) {
+                if (this.left == null) {
                     this.left = node;
-                }else{
+                } else {
                     this.left.addNode(node);
                 }
-            }else{
-                if(this.right == null){
+            } else {
+                if (this.right == null) {
                     this.right = node;
-                }else{
+                } else {
                     this.right.addNode(node);
                 }
             }
@@ -66,46 +68,48 @@ public class BinarySortTree {
         /**
          * 中序遍历
          */
-        public void inorderTraversal(){
-            if(this.left!=null){
+        public void inorderTraversal() {
+            if (this.left != null) {
                 this.left.inorderTraversal();
             }
-            System.out.print(this.value+"=>");
-            if(this.right!=null){
+            System.out.print(this.value + "=>");
+            if (this.right != null) {
                 this.right.inorderTraversal();
             }
         }
 
         /**
          * 搜索节点
+         *
          * @param value
          * @return
          */
-        public BinarySortTreeNode searchNode(int value){
-            if(this.value == value){
+        public BinarySortTreeNode searchNode(int value) {
+            if (this.value == value) {
                 return this;
-            }else if(this.value > value && this.left!=null){
+            } else if (this.value > value && this.left != null) {
                 return this.left.searchNode(value);
-            }else if(this.value < value && this.right!=null){
+            } else if (this.value < value && this.right != null) {
                 return this.right.searchNode(value);
-            }else{
+            } else {
                 return null;
             }
         }
 
         /**
          * 搜索父节点
+         *
          * @param value
          * @return
          */
-        public BinarySortTreeNode searchParent(int value){
-            if(this.left!=null && this.left.value == value || this.right!=null && this.right.value == value){
+        public BinarySortTreeNode searchParent(int value) {
+            if (this.left != null && this.left.value == value || this.right != null && this.right.value == value) {
                 return this;
-            }else if(this.left!=null && this.value > value){
+            } else if (this.left != null && this.value > value) {
                 return this.left.searchParent(value);
-            }else if(this.right!=null && this.value < value){
+            } else if (this.right != null && this.value < value) {
                 return this.right.searchParent(value);
-            }else{
+            } else {
                 return null;
             }
         }
@@ -113,12 +117,13 @@ public class BinarySortTree {
 
     /**
      * 增加节点
+     *
      * @param node
      */
-    public void addNode(BinarySortTreeNode node){
-        if(this.root!=null){
+    public void addNode(BinarySortTreeNode node) {
+        if (this.root != null) {
             this.root.addNode(node);
-        }else{
+        } else {
             this.root = node;
         }
     }
@@ -126,18 +131,19 @@ public class BinarySortTree {
     /**
      * 中序遍历
      */
-    public void inorderTraversal(){
-        if(this.root!=null){
+    public void inorderTraversal() {
+        if (this.root != null) {
             this.root.inorderTraversal();
         }
     }
 
     /**
      * 搜索节点
+     *
      * @param value
      */
-    public BinarySortTreeNode searchNode(int value){
-        if(this.root!=null){
+    public BinarySortTreeNode searchNode(int value) {
+        if (this.root != null) {
             return this.root.searchNode(value);
         }
         return null;
@@ -145,11 +151,12 @@ public class BinarySortTree {
 
     /**
      * 搜索父节点
+     *
      * @param value
      * @return
      */
-    public BinarySortTreeNode searchParentNode(int value){
-        if(this.root!=null){
+    public BinarySortTreeNode searchParentNode(int value) {
+        if (this.root != null) {
             return this.root.searchParent(value);
         }
         return null;
@@ -157,45 +164,46 @@ public class BinarySortTree {
 
     /**
      * 删除节点
+     *
      * @param value
      */
-    public void deleteNode(int value){
+    public void deleteNode(int value) {
         BinarySortTreeNode targetNode = this.searchNode(value);
-        if(targetNode!=null){
-            if(targetNode == this.root && targetNode.getLeft()==null && targetNode.getRight()==null){
+        if (targetNode != null) {
+            if (targetNode == this.root && targetNode.getLeft() == null && targetNode.getRight() == null) {
                 this.root = null;
-            }else{
+            } else {
                 BinarySortTreeNode parentNode = this.searchParentNode(value);
-                if(targetNode.getLeft() == null && targetNode.getRight() == null){
-                    if(parentNode.getLeft()!=null && parentNode.getLeft() == targetNode){
+                if (targetNode.getLeft() == null && targetNode.getRight() == null) {
+                    if (parentNode.getLeft() != null && parentNode.getLeft() == targetNode) {
                         parentNode.setLeft(null);
-                    }else if(parentNode.getRight()!=null && parentNode.getRight()==targetNode){
+                    } else if (parentNode.getRight() != null && parentNode.getRight() == targetNode) {
                         parentNode.setRight(null);
                     }
-                }else if(targetNode.getLeft()!=null && targetNode.getRight()!=null){
+                } else if (targetNode.getLeft() != null && targetNode.getRight() != null) {
                     BinarySortTreeNode temp = targetNode.getRight();
-                    while (temp.getLeft()!=null){
+                    while (temp.getLeft() != null) {
                         temp = temp.getLeft();
                     }
                     this.deleteNode(temp.value);
                     targetNode.setValue(temp.getValue());
-                }else{
-                    if(parentNode==null){
-                        if(targetNode.getLeft()!=null){
+                } else {
+                    if (parentNode == null) {
+                        if (targetNode.getLeft() != null) {
                             this.root = targetNode.getLeft();
-                        }else{
+                        } else {
                             this.root = targetNode.getRight();
                         }
-                    }else if(targetNode.getLeft()!=null){
-                        if(parentNode.getLeft()==targetNode){
+                    } else if (targetNode.getLeft() != null) {
+                        if (parentNode.getLeft() == targetNode) {
                             parentNode.setLeft(targetNode.getLeft());
-                        }else{
+                        } else {
                             parentNode.setRight(targetNode.getLeft());
                         }
-                    }else{
-                        if(parentNode.getLeft()==targetNode){
+                    } else {
+                        if (parentNode.getLeft() == targetNode) {
                             parentNode.setLeft(targetNode.getRight());
-                        }else{
+                        } else {
                             parentNode.setRight(targetNode.getRight());
                         }
                     }

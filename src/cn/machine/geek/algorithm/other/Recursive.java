@@ -8,17 +8,17 @@ package cn.machine.geek.algorithm.other;
 
 public class Recursive {
     // 阶乘，计算一个非负整数内所有数的乘积。
-    public static long factorial(int num){
-        if(num == 1){
+    public static long factorial(int num) {
+        if (num == 1) {
             return 1;
         }
-        return num * factorial(num-1);
+        return num * factorial(num - 1);
     }
 
     // 顺序打印一个非负整数内的所有数。
-    public static void printAllNumOf(int num){
-        if(num > 1){
-            printAllNumOf(num-1);
+    public static void printAllNumOf(int num) {
+        if (num > 1) {
+            printAllNumOf(num - 1);
         }
         System.out.println(num);
     }

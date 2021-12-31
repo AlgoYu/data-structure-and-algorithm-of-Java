@@ -19,6 +19,7 @@ public class AdjacencyMatrix {
 
     /**
      * 初始化邻接矩阵
+     *
      * @param size
      */
     public AdjacencyMatrix(int size) {
@@ -30,54 +31,60 @@ public class AdjacencyMatrix {
 
     /**
      * 获取节点数量
+     *
      * @return
      */
-    public int getNodeSize(){
+    public int getNodeSize() {
         return this.nodes.size();
     }
 
     /**
      * 获取边的数量
+     *
      * @return
      */
-    public int getEdgeSize(){
+    public int getEdgeSize() {
         return this.edgeSize;
     }
 
     /**
      * 增加节点
+     *
      * @param node
      */
-    public void addNode(String node){
+    public void addNode(String node) {
         this.nodes.add(node);
     }
 
     /**
      * 获取节点
+     *
      * @param index
      * @return
      */
-    public String getNode(int index){
+    public String getNode(int index) {
         return this.nodes.get(index);
     }
 
     /**
      * 获取值
+     *
      * @param row
      * @param column
      * @return
      */
-    public int getValue(int row,int column){
+    public int getValue(int row, int column) {
         return this.matrix[row][column];
     }
 
     /**
      * 增加边
+     *
      * @param row
      * @param column
      * @param value
      */
-    public void addEdge(int row, int column, int value){
+    public void addEdge(int row, int column, int value) {
         this.matrix[row][column] = value;
         this.matrix[column][row] = value;
         this.edgeSize++;
@@ -86,21 +93,22 @@ public class AdjacencyMatrix {
     /**
      * 打印图
      */
-    public void printGraphic(){
-        for (int[] array:this.matrix){
+    public void printGraphic() {
+        for (int[] array : this.matrix) {
             System.out.println(Arrays.toString(array));
         }
     }
 
     /**
      * 深度优先遍历
+     *
      * @param row
      */
-    public void depthFirstTraversal(int row){
-        System.out.print(this.nodes.get(row)+"=>");
+    public void depthFirstTraversal(int row) {
+        System.out.print(this.nodes.get(row) + "=>");
         this.visit[row] = true;
-        for (int column = 0; column < this.matrix[row].length; column++){
-            if(this.matrix[row][column] != 0 && !this.visit[column]){
+        for (int column = 0; column < this.matrix[row].length; column++) {
+            if (this.matrix[row][column] != 0 && !this.visit[column]) {
                 this.depthFirstTraversal(column);
             }
         }
@@ -109,9 +117,9 @@ public class AdjacencyMatrix {
     /**
      * 深度优先全遍历
      */
-    public void dFS(){
-        for (int i = 0; i < this.nodes.size(); i++){
-            if(!this.visit[i]){
+    public void dFS() {
+        for (int i = 0; i < this.nodes.size(); i++) {
+            if (!this.visit[i]) {
                 this.depthFirstTraversal(i);
             }
         }
@@ -120,8 +128,8 @@ public class AdjacencyMatrix {
     /**
      * 清除访问
      */
-    public void cleanVisit(){
-        for (int i = 0; i < this.visit.length; i++){
+    public void cleanVisit() {
+        for (int i = 0; i < this.visit.length; i++) {
             this.visit[i] = false;
         }
     }
@@ -129,16 +137,16 @@ public class AdjacencyMatrix {
     /**
      * 广度优先遍历
      */
-    public void breadthFirstTraversal(int row){
+    public void breadthFirstTraversal(int row) {
         LinkedList<Integer> queue = new LinkedList<>();
-        System.out.print(this.nodes.get(row)+"=>");
+        System.out.print(this.nodes.get(row) + "=>");
         this.visit[row] = true;
         queue.add(row);
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             row = queue.pop();
-            for (int column = 0; column < this.matrix[row].length; column++){
-                if(this.matrix[row][column] != 0 && !this.visit[column]){
-                    System.out.print(this.nodes.get(column)+"=>");
+            for (int column = 0; column < this.matrix[row].length; column++) {
+                if (this.matrix[row][column] != 0 && !this.visit[column]) {
+                    System.out.print(this.nodes.get(column) + "=>");
                     this.visit[column] = true;
                     queue.add(column);
                 }
@@ -149,9 +157,9 @@ public class AdjacencyMatrix {
     /**
      * 广度优先全遍历
      */
-    public void bFS(){
-        for (int i = 0; i < this.nodes.size(); i++){
-            if(!this.visit[i]){
+    public void bFS() {
+        for (int i = 0; i < this.nodes.size(); i++) {
+            if (!this.visit[i]) {
                 this.breadthFirstTraversal(i);
             }
         }

@@ -11,7 +11,7 @@ package cn.machine.geek.algorithm.other;
 import java.util.Arrays;
 
 public class MendRoad {
-    public class RGraph{
+    public class RGraph {
         private int size;
         private int[][] matrix;
         private char[] nodes;
@@ -25,8 +25,8 @@ public class MendRoad {
         /**
          * 打印图
          */
-        public void printGraph(){
-            for (int i = 0; i < this.matrix.length; i++){
+        public void printGraph() {
+            for (int i = 0; i < this.matrix.length; i++) {
                 System.out.println(Arrays.toString(this.matrix[i]));
             }
         }
@@ -34,16 +34,17 @@ public class MendRoad {
 
     /**
      * 创建图
+     *
      * @param size
      * @param nodes
      * @param matrix
      */
-    public RGraph createGraph(int size,char[] nodes,int[][] matrix){
+    public RGraph createGraph(int size, char[] nodes, int[][] matrix) {
         RGraph rGraph = new RGraph(size);
         rGraph.size = size;
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             rGraph.nodes[i] = nodes[i];
-            for (int j = 0; j < size; j++){
+            for (int j = 0; j < size; j++) {
                 rGraph.matrix[i][j] = matrix[i][j];
             }
         }
@@ -52,26 +53,27 @@ public class MendRoad {
 
     /**
      * prim
+     *
      * @param graph
      * @param node
      */
-    public void prim(RGraph graph, int node){
+    public void prim(RGraph graph, int node) {
         int[] visited = new int[graph.size];
         visited[node] = 1;
         int minValue = 10000;
         int n1 = 0;
         int n2 = 0;
-        for(int i = 1; i < graph.size; i++){
-            for (int j = 0; j < graph.size; j++){
-                for (int k = 0; k < graph.size; k++){
-                    if(visited[j] == 1 && visited[k] == 0 && graph.matrix[j][k] < minValue){
+        for (int i = 1; i < graph.size; i++) {
+            for (int j = 0; j < graph.size; j++) {
+                for (int k = 0; k < graph.size; k++) {
+                    if (visited[j] == 1 && visited[k] == 0 && graph.matrix[j][k] < minValue) {
                         minValue = graph.matrix[j][k];
                         n1 = j;
                         n2 = k;
                     }
                 }
             }
-            System.out.println(graph.nodes[n1]+" to "+graph.nodes[n2]);
+            System.out.println(graph.nodes[n1] + " to " + graph.nodes[n2]);
             visited[n2] = 1;
             minValue = 10000;
         }

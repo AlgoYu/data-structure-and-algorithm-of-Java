@@ -21,28 +21,28 @@ public class Calculator {
     }
 
     // 计算并返回结果
-    public int calculateExpression(String expression){
+    public int calculateExpression(String expression) {
         // 扫描字符串存入相应的栈中
         char[] chars = expression.toCharArray();
         char temp;
-        for (int i = 0; i < chars.length; i++){
+        for (int i = 0; i < chars.length; i++) {
             temp = chars[i];
             // 判断是数值还是操作符
-            if(this.isOperator(temp)){
+            if (this.isOperator(temp)) {
                 // 如果栈中操作符等于或者大于当前操作符即从数值栈中取出两个值进行计算并推回数值栈
-                if(!this.operators.isEmpty() && this.getPriority(temp)<=this.getPriority(this.operators.peek())){
+                if (!this.operators.isEmpty() && this.getPriority(temp) <= this.getPriority(this.operators.peek())) {
                     int num1 = this.nums.pop();
                     int num2 = this.nums.pop();
                     int operator = this.operators.pop();
                     this.nums.push((this.calculate(num1, num2, operator)));
                 }
                 this.operators.push(temp);
-            }else{
-                this.nums.push(temp-48);
+            } else {
+                this.nums.push(temp - 48);
             }
         }
         // 反复取出操作符栈和数值栈的数据并计算
-        while (!this.operators.isEmpty()){
+        while (!this.operators.isEmpty()) {
             int num1 = this.nums.pop();
             int num2 = this.nums.pop();
             int operator = this.operators.pop();
@@ -52,13 +52,13 @@ public class Calculator {
     }
 
     // 判断是否为操作符
-    public boolean isOperator(int value){
+    public boolean isOperator(int value) {
         return value == '+' || value == '-' || value == '*' || value == '/';
     }
 
     // 获取优先级
-    public int getPriority(int operator){
-        switch (operator){
+    public int getPriority(int operator) {
+        switch (operator) {
             case '*':
             case '/':
                 return 1;
@@ -71,9 +71,9 @@ public class Calculator {
     }
 
     // 计算数值
-    public int calculate(int num1,int num2,int operate){
+    public int calculate(int num1, int num2, int operate) {
         // 加法和乘法的顺序不影响计算结果，但是减法和除法的顺序会影响计算结果。
-        switch (operate){
+        switch (operate) {
             case '+':
                 return num1 + num2;
             case '-':

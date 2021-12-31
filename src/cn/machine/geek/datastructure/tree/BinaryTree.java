@@ -23,69 +23,69 @@ public class BinaryTree {
     }
 
     // 删除节点
-    public void deleteNode(int id){
-        if(this.root==null){
+    public void deleteNode(int id) {
+        if (this.root == null) {
             System.out.println("This tree is empty!");
-        }else if(this.root.getId()==id){
-            this.root=null;
-        }else{
+        } else if (this.root.getId() == id) {
+            this.root = null;
+        } else {
             this.root.deleteNode(id);
         }
     }
 
     // 前序遍历
-    public void preorderTraversal(){
-        if(this.root==null){
+    public void preorderTraversal() {
+        if (this.root == null) {
             System.out.println("This tree is empty!");
-        }else{
+        } else {
             this.root.preorderTraversal();
         }
     }
 
     // 中序遍历
-    public void inorderTraversal(){
-        if(this.root==null){
+    public void inorderTraversal() {
+        if (this.root == null) {
             System.out.println("This tree is empty!");
-        }else{
+        } else {
             this.root.inorderTraversal();
         }
     }
 
     // 后序遍历
-    public void postOrderTraversal(){
-        if(this.root==null){
+    public void postOrderTraversal() {
+        if (this.root == null) {
             System.out.println("This tree is empty!");
-        }else{
+        } else {
             this.root.postOrderTraversal();
         }
     }
 
     // 前序搜索
-    public BinaryTreeNode preorderSearch(int id){
-        if(this.root==null){
+    public BinaryTreeNode preorderSearch(int id) {
+        if (this.root == null) {
             throw new RuntimeException("This tree is empty!");
         }
         return this.root.preorderSearch(id);
     }
 
     // 中序搜索
-    public BinaryTreeNode inorderSearch(int id){
-        if(this.root==null){
+    public BinaryTreeNode inorderSearch(int id) {
+        if (this.root == null) {
             throw new RuntimeException("This tree is empty!");
         }
         return this.root.inorderSearch(id);
     }
 
     // 后序搜索
-    public BinaryTreeNode postOrderSearch(int id){
-        if(this.root==null){
+    public BinaryTreeNode postOrderSearch(int id) {
+        if (this.root == null) {
             throw new RuntimeException("This tree is empty!");
         }
         return this.root.postOrderSearch(id);
     }
 
     // 二叉树节点
-    public class BinaryTreeNode{
+    public class BinaryTreeNode {
         private int id;
         private int data;
         private BinaryTreeNode left;
@@ -129,108 +129,108 @@ public class BinaryTree {
         }
 
         // 删除节点
-        public void deleteNode(int id){
-            if(this.left!=null && this.left.getId() == id){
+        public void deleteNode(int id) {
+            if (this.left != null && this.left.getId() == id) {
                 this.left = null;
                 return;
             }
-            if(this.right!=null && this.right.getId() == id){
+            if (this.right != null && this.right.getId() == id) {
                 this.right = null;
                 return;
             }
-            if(this.left!=null){
+            if (this.left != null) {
                 this.left.deleteNode(id);
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 this.right.deleteNode(id);
             }
         }
 
         // 前序遍历
-        public void preorderTraversal(){
-            System.out.print(this.id+"=>");
-            if (this.left!=null){
+        public void preorderTraversal() {
+            System.out.print(this.id + "=>");
+            if (this.left != null) {
                 this.left.preorderTraversal();
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 this.right.preorderTraversal();
             }
         }
 
         // 中序遍历
-        public void inorderTraversal(){
-            if(this.left!=null){
+        public void inorderTraversal() {
+            if (this.left != null) {
                 this.left.inorderTraversal();
             }
-            System.out.print(this.id+"=>");
-            if(this.right!=null){
+            System.out.print(this.id + "=>");
+            if (this.right != null) {
                 this.right.inorderTraversal();
             }
         }
 
         // 后序遍历
-        public void postOrderTraversal(){
-            if(this.left!=null){
+        public void postOrderTraversal() {
+            if (this.left != null) {
                 this.left.postOrderTraversal();
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 this.right.postOrderTraversal();
             }
-            System.out.print(this.id+"=>");
+            System.out.print(this.id + "=>");
         }
 
         // 前序搜索
-        public BinaryTreeNode preorderSearch(int id){
-            if (this.id == id){
+        public BinaryTreeNode preorderSearch(int id) {
+            if (this.id == id) {
                 return this;
             }
             BinaryTreeNode node = null;
-            if (this.left!=null){
+            if (this.left != null) {
                 node = this.left.preorderSearch(id);
             }
-            if(node!=null){
+            if (node != null) {
                 return node;
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 node = this.right.preorderSearch(id);
             }
             return node;
         }
 
         // 中序搜索
-        public BinaryTreeNode inorderSearch(int id){
+        public BinaryTreeNode inorderSearch(int id) {
             BinaryTreeNode node = null;
-            if(this.left!=null){
+            if (this.left != null) {
                 node = this.left.inorderSearch(id);
             }
-            if(node!=null){
+            if (node != null) {
                 return node;
             }
-            if(this.id == id){
+            if (this.id == id) {
                 return this;
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 node = this.right.inorderSearch(id);
             }
             return node;
         }
 
         // 后序搜索
-        public BinaryTreeNode postOrderSearch(int id){
+        public BinaryTreeNode postOrderSearch(int id) {
             BinaryTreeNode node = null;
-            if(this.left!=null){
+            if (this.left != null) {
                 node = this.left.postOrderSearch(id);
             }
-            if(node!=null){
+            if (node != null) {
                 return node;
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 node = this.right.postOrderSearch(id);
             }
-            if(node!=null){
+            if (node != null) {
                 return node;
             }
-            if(this.id == id){
+            if (this.id == id) {
                 return this;
             }
             return node;

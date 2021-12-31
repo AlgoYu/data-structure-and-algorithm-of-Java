@@ -10,49 +10,50 @@ package cn.machine.geek.algorithm.sort.internal.merge;
 
 public class MergeSort {
     // 归并排序
-    public void mergeSort(int[] array,int left,int right,int[] temp){
-        if(left < right){
-            int middle = (left+right)/2;
+    public void mergeSort(int[] array, int left, int right, int[] temp) {
+        if (left < right) {
+            int middle = (left + right) / 2;
             // 向左递归
-            this.mergeSort(array,left,middle,temp);
+            this.mergeSort(array, left, middle, temp);
             // 向右递归
-            this.mergeSort(array,middle+1,right,temp);
+            this.mergeSort(array, middle + 1, right, temp);
             // 合并
-            this.merge(array,left,middle,right,temp);
+            this.merge(array, left, middle, right, temp);
         }
     }
+
     // 合并方法
-    public void merge(int[] array,int left,int middle,int right,int[] temp){
+    public void merge(int[] array, int left, int middle, int right, int[] temp) {
         // 初始化左右序列的指针下标
         int l = left;
-        int r = middle+1;
+        int r = middle + 1;
         int index = 0;
         // 按排序规则合并
-        while (l <= middle && r <= right){
-            if(array[l]>array[r]){
+        while (l <= middle && r <= right) {
+            if (array[l] > array[r]) {
                 temp[index] = array[r];
                 r++;
-            }else{
+            } else {
                 temp[index] = array[l];
                 l++;
             }
             index++;
         }
         // 如果左边还有剩余则填充
-        while (l <= middle){
+        while (l <= middle) {
             temp[index] = array[l];
             l++;
             index++;
         }
         // 如果右边还有剩余则填充
-        while (r <= right){
+        while (r <= right) {
             temp[index] = array[r];
             r++;
             index++;
         }
         // 把所有数据拷贝回去
         index = 0;
-        while (left <= right){
+        while (left <= right) {
             array[left] = temp[index];
             left++;
             index++;

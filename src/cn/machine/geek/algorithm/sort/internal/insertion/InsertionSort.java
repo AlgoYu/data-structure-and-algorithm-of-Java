@@ -10,16 +10,16 @@ package cn.machine.geek.algorithm.sort.internal.insertion;
 
 public class InsertionSort {
     // 插入排序
-    public int[] insertionSort(int[] array){
-        int index,temp;
-        for (int i = 1; i < array.length; i++){
-            index = i-1;
+    public int[] insertionSort(int[] array) {
+        int index, temp;
+        for (int i = 1; i < array.length; i++) {
+            index = i - 1;
             temp = array[i];
-            while (index >= 0 && temp < array[index]){
-                array[index+1] = array[index];
+            while (index >= 0 && temp < array[index]) {
+                array[index + 1] = array[index];
                 index--;
             }
-            array[index+1] = temp;
+            array[index + 1] = temp;
         }
         return array;
     }

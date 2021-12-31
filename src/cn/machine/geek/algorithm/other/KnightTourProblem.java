@@ -27,60 +27,62 @@ public class KnightTourProblem {
 
     /**
      * 使用递归回溯的方式遍历整个棋盘走法
+     *
      * @param chessboard
      * @param row
      * @param column
      * @param step
      */
-    public void traverseChessboard(int[][] chessboard, int row, int column, int step){
+    public void traverseChessboard(int[][] chessboard, int row, int column, int step) {
         chessboard[row][column] = step;
         this.visited[this.x * row + column] = true;
         List<Point> next = this.getNext(new Point(column, row));
         this.nextSort(next);
-        while (!next.isEmpty()){
+        while (!next.isEmpty()) {
             Point point = next.remove(0);
-            if(!this.visited[point.y * this.x + point.x]){
-                this.traverseChessboard(chessboard,point.y,point.x,step+1);
+            if (!this.visited[point.y * this.x + point.x]) {
+                this.traverseChessboard(chessboard, point.y, point.x, step + 1);
             }
         }
-        if(step < this.x * this.y && !this.isFinished){
+        if (step < this.x * this.y && !this.isFinished) {
             chessboard[row][column] = 0;
             visited[this.x * row + column] = false;
-        }else{
+        } else {
             this.isFinished = true;
         }
     }
 
     /**
      * 获取当前点可以跳跃的下一步点集合
+     *
      * @param current
      * @return
      */
-    private List<Point> getNext(Point current){
+    private List<Point> getNext(Point current) {
         List<Point> next = new ArrayList<>();
         Point point = new Point();
-        if((point.x = current.x-2) >= 0 && (point.y = current.y-1) >= 0){
+        if ((point.x = current.x - 2) >= 0 && (point.y = current.y - 1) >= 0) {
             next.add(new Point(point));
         }
-        if((point.x = current.x-1) >= 0 && (point.y = current.y-2) >= 0){
+        if ((point.x = current.x - 1) >= 0 && (point.y = current.y - 2) >= 0) {
             next.add(new Point(point));
         }
-        if((point.x = current.x+2) < this.x && (point.y = current.y-1) >= 0){
+        if ((point.x = current.x + 2) < this.x && (point.y = current.y - 1) >= 0) {
             next.add(new Point(point));
         }
-        if((point.x = current.x+1) < this.x && (point.y = current.y-2) >= 0){
+        if ((point.x = current.x + 1) < this.x && (point.y = current.y - 2) >= 0) {
             next.add(new Point(point));
         }
-        if((point.x = current.x-2) >= 0 && (point.y = current.y+1) < this.y){
+        if ((point.x = current.x - 2) >= 0 && (point.y = current.y + 1) < this.y) {
             next.add(new Point(point));
         }
-        if((point.x = current.x-1) >= 0 && (point.y = current.y+2) < this.y){
+        if ((point.x = current.x - 1) >= 0 && (point.y = current.y + 2) < this.y) {
             next.add(new Point(point));
         }
-        if((point.x = current.x+1) < this.x && (point.y = current.y+2) < this.y){
+        if ((point.x = current.x + 1) < this.x && (point.y = current.y + 2) < this.y) {
             next.add(new Point(point));
         }
-        if((point.x = current.x+2) < this.x && (point.y = current.y+1) < this.y){
+        if ((point.x = current.x + 2) < this.x && (point.y = current.y + 1) < this.y) {
             next.add(new Point(point));
         }
         return next;
@@ -88,9 +90,10 @@ public class KnightTourProblem {
 
     /**
      * 对下一步可以跳跃的点进行排序
+     *
      * @param points
      */
-    private void nextSort(List<Point> points){
+    private void nextSort(List<Point> points) {
         points.sort(new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {

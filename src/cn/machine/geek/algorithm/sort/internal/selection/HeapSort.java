@@ -9,48 +9,50 @@ package cn.machine.geek.algorithm.sort.internal.selection;
 
 public class HeapSort {
     // 转换为最大堆
-    public void convertToMaxHeap(int[] array,int index,int length){
+    public void convertToMaxHeap(int[] array, int index, int length) {
         int temp = array[index];
-        for (int i = 2*index+1; i < length; i = i*2+1){
-            if(i+1 < length && array[i] < array[i+1]){
+        for (int i = 2 * index + 1; i < length; i = i * 2 + 1) {
+            if (i + 1 < length && array[i] < array[i + 1]) {
                 i++;
             }
-            if(array[i] > temp){
+            if (array[i] > temp) {
                 array[index] = array[i];
                 index = i;
-            }else{
+            } else {
                 break;
             }
         }
         array[index] = temp;
     }
+
     // 转换为最小堆
-    public void convertToMinHeap(int[] array,int index,int length){
+    public void convertToMinHeap(int[] array, int index, int length) {
         int temp = array[index];
-        for (int i = 2*index+1; i < length; i = i*2+1){
-            if(i+1 < length && array[i] > array[i+1]){
+        for (int i = 2 * index + 1; i < length; i = i * 2 + 1) {
+            if (i + 1 < length && array[i] > array[i + 1]) {
                 i++;
             }
-            if(array[i] < temp){
+            if (array[i] < temp) {
                 array[index] = array[i];
                 index = i;
-            }else{
+            } else {
                 break;
             }
         }
         array[index] = temp;
     }
+
     // 堆排序
-    public int[] heapSort(int[] array){
-        for (int i = array.length/2-1; i >=0; i--){
-            this.convertToMaxHeap(array,i,array.length);
+    public int[] heapSort(int[] array) {
+        for (int i = array.length / 2 - 1; i >= 0; i--) {
+            this.convertToMaxHeap(array, i, array.length);
         }
         int temp;
-        for (int i = array.length-1; i > 0; i--){
+        for (int i = array.length - 1; i > 0; i--) {
             temp = array[i];
             array[i] = array[0];
             array[0] = temp;
-            this.convertToMaxHeap(array,0,i);
+            this.convertToMaxHeap(array, 0, i);
         }
         return array;
     }

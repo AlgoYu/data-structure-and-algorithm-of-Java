@@ -125,7 +125,7 @@ public class main {
     }
 
     // 稀疏矩阵测试
-    public static void sparseMatrixTest(){
+    public static void sparseMatrixTest() {
         int[][] sourceMatrix = new int[10][10];
         sourceMatrix[3][4] = 3;
         sourceMatrix[2][5] = 5;
@@ -140,18 +140,18 @@ public class main {
     }
 
     // 队列测试
-    public static void arrayQueueTest(){
+    public static void arrayQueueTest() {
         Scanner scanner = new Scanner(System.in);
         ArrayQueue arrayQueue = new ArrayQueue(5);
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印队列");
             System.out.println("输入2为加入数据");
             System.out.println("输入3为取出数据");
             System.out.println("输入4为显示当前队列头部");
             System.out.println("输入5为退出");
             int input = scanner.nextInt();
-            switch (input){
+            switch (input) {
                 case 1:
                     arrayQueue.printQueue();
                     break;
@@ -171,18 +171,18 @@ public class main {
     }
 
     // 环形队列测试
-    public static void arrayCircularQueueTest(){
+    public static void arrayCircularQueueTest() {
         Scanner scanner = new Scanner(System.in);
         ArrayCircularQueue arrayCircularQueue = new ArrayCircularQueue(5);
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印队列");
             System.out.println("输入2为加入数据");
             System.out.println("输入3为取出数据");
             System.out.println("输入4为显示当前队列头部");
             System.out.println("输入5为退出");
             int input = scanner.nextInt();
-            switch (input){
+            switch (input) {
                 case 1:
                     arrayCircularQueue.printQueue();
                     break;
@@ -202,11 +202,11 @@ public class main {
     }
 
     // 单链表测试
-    public static void singleLinkedListTest(){
+    public static void singleLinkedListTest() {
         Scanner scanner = new Scanner(System.in);
         SingleLinkedList singleLinkedList = new SingleLinkedList();
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印链表");
             System.out.println("输入2为加入链表节点");
             System.out.println("输入3为加入链表有序节点");
@@ -217,26 +217,26 @@ public class main {
             System.out.println("输入8为退出");
             int input = scanner.nextInt();
             Random random = new Random();
-            switch (input){
+            switch (input) {
                 case 1:
                     singleLinkedList.printLinkedList();
                     break;
                 case 2:
-                    singleLinkedList.addNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    singleLinkedList.addNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 3:
-                    singleLinkedList.addOrderNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    singleLinkedList.addOrderNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 4:
                     singleLinkedList.deleteNode(scanner.nextInt());
                     break;
                 case 5:
-                    singleLinkedList.modifyNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    singleLinkedList.modifyNode(singleLinkedList.new SingleLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 6:
                     int id = scanner.nextInt();
                     SingleLinkedList.SingleLinkedListNode node = singleLinkedList.getNode(id);
-                    System.out.println(node==null?"没有找到这个节点":"id="+node.getId()+" data="+node.getData());
+                    System.out.println(node == null ? "没有找到这个节点" : "id=" + node.getId() + " data=" + node.getData());
                     break;
                 case 7:
                     System.out.println(singleLinkedList.getLength());
@@ -248,11 +248,11 @@ public class main {
     }
 
     // 双向链表测试
-    public static void twoWayLinkedListTest(){
+    public static void twoWayLinkedListTest() {
         Scanner scanner = new Scanner(System.in);
         TwoWayLinkedList twoWayLinkedList = new TwoWayLinkedList();
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印链表");
             System.out.println("输入2为加入链表节点");
             System.out.println("输入3为加入链表有序节点");
@@ -263,26 +263,26 @@ public class main {
             System.out.println("输入8为退出");
             int input = scanner.nextInt();
             Random random = new Random();
-            switch (input){
+            switch (input) {
                 case 1:
                     twoWayLinkedList.printLinkedList();
                     break;
                 case 2:
-                    twoWayLinkedList.addNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.addNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 3:
-                    twoWayLinkedList.addOrderNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.addOrderNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 4:
                     twoWayLinkedList.deleteNode(scanner.nextInt());
                     break;
                 case 5:
-                    twoWayLinkedList.modifyNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.modifyNode(twoWayLinkedList.new TwoWayLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 6:
                     int id = scanner.nextInt();
                     TwoWayLinkedList.TwoWayLinkedListNode node = twoWayLinkedList.getNode(id);
-                    System.out.println(node==null?"没有找到这个节点":"id="+node.getId()+" data="+node.getData());
+                    System.out.println(node == null ? "没有找到这个节点" : "id=" + node.getId() + " data=" + node.getData());
                     break;
                 case 7:
                     System.out.println(twoWayLinkedList.getLength());
@@ -294,11 +294,11 @@ public class main {
     }
 
     // 循环链表测试
-    public static void circularLinkedListTest(){
+    public static void circularLinkedListTest() {
         Scanner scanner = new Scanner(System.in);
         CircularLinkedList twoWayLinkedList = new CircularLinkedList();
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印链表");
             System.out.println("输入2为加入链表节点");
             System.out.println("输入3为加入链表有序节点");
@@ -309,26 +309,26 @@ public class main {
             System.out.println("输入8为退出");
             int input = scanner.nextInt();
             Random random = new Random();
-            switch (input){
+            switch (input) {
                 case 1:
                     twoWayLinkedList.printLinkedList();
                     break;
                 case 2:
-                    twoWayLinkedList.addNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.addNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 3:
-                    twoWayLinkedList.addOrderNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.addOrderNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 4:
                     twoWayLinkedList.deleteNode(scanner.nextInt());
                     break;
                 case 5:
-                    twoWayLinkedList.modifyNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(),random.nextInt()));
+                    twoWayLinkedList.modifyNode(twoWayLinkedList.new CircularLinkedListNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 6:
                     int id = scanner.nextInt();
                     CircularLinkedList.CircularLinkedListNode node = twoWayLinkedList.getNode(id);
-                    System.out.println(node==null?"没有找到这个节点":"id="+node.getId()+" data="+node.getData());
+                    System.out.println(node == null ? "没有找到这个节点" : "id=" + node.getId() + " data=" + node.getData());
                     break;
                 case 7:
                     System.out.println(twoWayLinkedList.getLength());
@@ -340,26 +340,26 @@ public class main {
     }
 
     // 约瑟夫环测试
-    public static void josephusTest(){
+    public static void josephusTest() {
         Scanner scanner = new Scanner(System.in);
         Josephus josephusCircular = new Josephus();
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印链表");
             System.out.println("输入2为加入链表节点");
             System.out.println("输入3为打印约瑟夫圆形");
             System.out.println("输入4为退出");
             int input = scanner.nextInt();
             Random random = new Random();
-            switch (input){
+            switch (input) {
                 case 1:
                     josephusCircular.printLinkedList();
                     break;
                 case 2:
-                    josephusCircular.addNode(josephusCircular.new People(scanner.nextInt(),random.nextInt()));
+                    josephusCircular.addNode(josephusCircular.new People(scanner.nextInt(), random.nextInt()));
                     break;
                 case 3:
-                    josephusCircular.printJosephusCircular(scanner.nextInt(),scanner.nextInt());
+                    josephusCircular.printJosephusCircular(scanner.nextInt(), scanner.nextInt());
                 case 4:
                     loop = false;
             }
@@ -367,17 +367,17 @@ public class main {
     }
 
     // 栈测试
-    public static void arrayStackTest(){
+    public static void arrayStackTest() {
         Scanner scanner = new Scanner(System.in);
         ArrayStack arrayStack = new ArrayStack(5);
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印栈");
             System.out.println("输入2为数据入栈");
             System.out.println("输入3为数据出栈");
             System.out.println("输入4为退出");
             int input = scanner.nextInt();
-            switch (input){
+            switch (input) {
                 case 1:
                     arrayStack.printStack();
                     break;
@@ -394,36 +394,36 @@ public class main {
     }
 
     // 中缀表达式计算器测试
-    public static void calculatorTest(){
+    public static void calculatorTest() {
         System.out.println(new Calculator().calculateExpression("3+5-2*4/4"));
     }
 
     // 后缀（逆波兰）表达式计算器测试
-    public static void reversePolishCalculatorTest(){
+    public static void reversePolishCalculatorTest() {
         System.out.println(new ReversePolishCalculator().calculateReversePolishExpression("72 2 - 2 / 5 / 2 *"));
     }
 
     // 中缀表达式转后缀表达式
-    public static void expressionConverterTest(){
+    public static void expressionConverterTest() {
         // 1 + ( ( 2 + 3 ) * 4 ) - 5
         System.out.println(new ExpressionConverter().conversionExpression("3 + 3 * ( 4 + 1 ) / 10"));
     }
 
     // 阶乘和打印测试
-    public static void recursiveTest(){
+    public static void recursiveTest() {
         System.out.println(Recursive.factorial(15));
         Recursive.printAllNumOf(15);
     }
 
     // 迷宫测试
-    public static void labyrinthTest(){
+    public static void labyrinthTest() {
         int[][] map = new int[8][9];
         Labyrinth labyrinth = new Labyrinth();
-        for (int i = 0; i < map[0].length; i++){
+        for (int i = 0; i < map[0].length; i++) {
             map[0][i] = 1;
             map[7][i] = 1;
         }
-        for (int i = 0; i < map.length;i++){
+        for (int i = 0; i < map.length; i++) {
             map[i][0] = 1;
             map[i][8] = 1;
         }
@@ -437,24 +437,24 @@ public class main {
         System.out.println("走迷宫前：");
         labyrinth.printLabyrinth(map);
         System.out.println("走迷宫后：");
-        if(labyrinth.detectRoad(map,1,1,6,7)){
+        if (labyrinth.detectRoad(map, 1, 1, 6, 7)) {
             labyrinth.printLabyrinth(map);
-        }else{
+        } else {
             labyrinth.printLabyrinth(map);
             System.out.println("迷宫是死路!");
         }
     }
 
     // 八皇后测试
-    public static void eightQueensTest(){
-        new EightQueen(8,8).putQueen(0);
+    public static void eightQueensTest() {
+        new EightQueen(8, 8).putQueen(0);
     }
 
     // 冒泡排序测试
-    public static void bubbleSortTest(){
+    public static void bubbleSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         BubbleSort bubbleSort = new BubbleSort();
         /*System.out.println("排序前：");
@@ -468,10 +468,10 @@ public class main {
     }
 
     // 选择排序测试
-    public static void selectionSortTest(){
+    public static void selectionSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         SelectionSort selectionSort = new SelectionSort();
         System.out.println("排序前：");
@@ -481,10 +481,10 @@ public class main {
     }
 
     // 插入排序测试
-    public static void insertionSortTest(){
+    public static void insertionSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         InsertionSort insertionSort = new InsertionSort();
         System.out.println("排序前：");
@@ -494,10 +494,10 @@ public class main {
     }
 
     // 希尔排序测试
-    public static void shellSortTest(){
+    public static void shellSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         ShellSort shellSort = new ShellSort();
         System.out.println("排序前：");
@@ -509,38 +509,38 @@ public class main {
     }
 
     // 快速排序测试
-    public static void quickSortTest(){
+    public static void quickSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         QuickSort quickSort = new QuickSort();
         System.out.println("排序前：");
         System.out.println(Arrays.toString(array));
         System.out.println("快速排序后：");
-        quickSort.quickSort(array,0,array.length-1);
+        quickSort.quickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
     }
 
     // 归并排序测试
-    public static void mergeSortTest(){
+    public static void mergeSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         MergeSort mergeSort = new MergeSort();
         System.out.println("排序前：");
         System.out.println(Arrays.toString(array));
         System.out.println("归并排序后：");
-        mergeSort.mergeSort(array,0,array.length-1,new int[array.length]);
+        mergeSort.mergeSort(array, 0, array.length - 1, new int[array.length]);
         System.out.println(Arrays.toString(array));
     }
 
     // 基数排序测试
-    public static void radixSortTest(){
+    public static void radixSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         RadixSort radixSort = new RadixSort();
         System.out.println("排序前：");
@@ -550,10 +550,10 @@ public class main {
     }
 
     // 堆排序测试
-    public static void heapSortTest(){
+    public static void heapSortTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*500);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 500);
         }
         HeapSort heapSort = new HeapSort();
         System.out.println("排序前：");
@@ -563,71 +563,71 @@ public class main {
     }
 
     // 线性查找测试
-    public static void seqSearchTest(){
+    public static void seqSearchTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*10);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 10);
         }
         SeqSearch seqSearch = new SeqSearch();
         System.out.println("数组：");
         System.out.println(Arrays.toString(array));
         System.out.println("线性搜索5下标");
-        System.out.println(seqSearch.seqSearch(array,5));
+        System.out.println(seqSearch.seqSearch(array, 5));
     }
 
     // 二分查找测试
-    public static void binarySearchTest(){
+    public static void binarySearchTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*10);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 10);
         }
         BinarySearch binarySearch = new BinarySearch();
         QuickSort quickSort = new QuickSort();
-        quickSort.quickSort(array,0,array.length-1);
+        quickSort.quickSort(array, 0, array.length - 1);
         System.out.println("数组：");
         System.out.println(Arrays.toString(array));
         System.out.println("二分搜索5下标");
-        System.out.println(binarySearch.binarySearch(array,5,0,array.length-1));
+        System.out.println(binarySearch.binarySearch(array, 5, 0, array.length - 1));
         System.out.println("二分非递归搜索5下标");
-        System.out.println(binarySearch.binarySearch(array,5));
+        System.out.println(binarySearch.binarySearch(array, 5));
     }
 
     // 插值查找测试
-    public static void interpolationSearchTest(){
+    public static void interpolationSearchTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*10);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 10);
         }
         InterpolationSearch interpolationSearch = new InterpolationSearch();
         QuickSort quickSort = new QuickSort();
-        quickSort.quickSort(array,0,array.length-1);
+        quickSort.quickSort(array, 0, array.length - 1);
         System.out.println("数组：");
         System.out.println(Arrays.toString(array));
         System.out.println("插值搜索5下标");
-        System.out.println(interpolationSearch.interpolationSearch(array,5,0,array.length-1));
+        System.out.println(interpolationSearch.interpolationSearch(array, 5, 0, array.length - 1));
     }
 
     // 斐波那契查找测试
-    public static void fibonacciSearchTest(){
+    public static void fibonacciSearchTest() {
         int[] array = new int[20];
-        for (int i = 0; i < array.length; i++){
-            array[i] = (int) (Math.random()*10);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 10);
         }
         FibonacciSearch fibonacciSearch = new FibonacciSearch();
         QuickSort quickSort = new QuickSort();
-        quickSort.quickSort(array,0,array.length-1);
+        quickSort.quickSort(array, 0, array.length - 1);
         System.out.println("数组：");
         System.out.println(Arrays.toString(array));
         System.out.println("斐波那契搜索5下标");
-        System.out.println(fibonacciSearch.fibonacciSearch(array,5));
+        System.out.println(fibonacciSearch.fibonacciSearch(array, 5));
     }
 
     // 散列表测试
-    public static void hashTableTest(){
+    public static void hashTableTest() {
         Scanner scanner = new Scanner(System.in);
         HashTable hashTable = new HashTable(20);
         boolean loop = true;
-        while (loop){
+        while (loop) {
             System.out.println("输入1为打印散列表");
             System.out.println("输入2为加入散列节点");
             System.out.println("输入3为加入散列有序节点");
@@ -637,26 +637,26 @@ public class main {
             System.out.println("输入7为退出");
             int input = scanner.nextInt();
             Random random = new Random();
-            switch (input){
+            switch (input) {
                 case 1:
                     hashTable.printHashTable();
                     break;
                 case 2:
-                    hashTable.addNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    hashTable.addNode(hashTable.new HashTableNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 3:
-                    hashTable.addOrderNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    hashTable.addOrderNode(hashTable.new HashTableNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 4:
                     hashTable.deleteNode(scanner.nextInt());
                     break;
                 case 5:
-                    hashTable.modifyNode(hashTable.new HashTableNode(scanner.nextInt(),random.nextInt()));
+                    hashTable.modifyNode(hashTable.new HashTableNode(scanner.nextInt(), random.nextInt()));
                     break;
                 case 6:
                     int id = scanner.nextInt();
                     HashTable.HashTableNode hashTableNode = hashTable.getNode(id);
-                    System.out.println(hashTableNode==null?"没有找到这个节点":"id="+hashTableNode.getId()+" data="+hashTableNode.getData());
+                    System.out.println(hashTableNode == null ? "没有找到这个节点" : "id=" + hashTableNode.getId() + " data=" + hashTableNode.getData());
                     break;
                 case 7:
                     loop = false;
@@ -666,14 +666,14 @@ public class main {
     }
 
     // 二叉树前中后序遍历测试
-    public static void binaryTreeTraversalTest(){
+    public static void binaryTreeTraversalTest() {
         BinaryTree binaryTree = new BinaryTree();
-        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
-        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
-        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
-        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
-        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
-        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1, 123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2, 123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3, 123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4, 123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5, 123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6, 123);
         root.setLeft(node1);
         node1.setLeft(node2);
         node1.setRight(node4);
@@ -689,14 +689,14 @@ public class main {
     }
 
     // 二叉树前中后序搜索测试
-    public static void binaryTreeSearchTest(){
+    public static void binaryTreeSearchTest() {
         BinaryTree binaryTree = new BinaryTree();
-        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
-        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
-        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
-        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
-        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
-        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1, 123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2, 123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3, 123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4, 123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5, 123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6, 123);
         root.setLeft(node1);
         node1.setLeft(node2);
         node1.setRight(node4);
@@ -712,14 +712,14 @@ public class main {
     }
 
     // 二叉树前中后序搜索测试
-    public static void binaryTreeDeleteTest(){
+    public static void binaryTreeDeleteTest() {
         BinaryTree binaryTree = new BinaryTree();
-        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1,123);
-        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2,123);
-        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3,123);
-        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4,123);
-        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5,123);
-        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6,123);
+        BinaryTree.BinaryTreeNode root = binaryTree.new BinaryTreeNode(1, 123);
+        BinaryTree.BinaryTreeNode node1 = binaryTree.new BinaryTreeNode(2, 123);
+        BinaryTree.BinaryTreeNode node2 = binaryTree.new BinaryTreeNode(3, 123);
+        BinaryTree.BinaryTreeNode node3 = binaryTree.new BinaryTreeNode(4, 123);
+        BinaryTree.BinaryTreeNode node4 = binaryTree.new BinaryTreeNode(5, 123);
+        BinaryTree.BinaryTreeNode node5 = binaryTree.new BinaryTreeNode(6, 123);
         root.setLeft(node1);
         node1.setLeft(node2);
         node1.setRight(node4);
@@ -735,8 +735,8 @@ public class main {
     }
 
     // 顺序二叉树前中后序遍历测试
-    public static void arrayBinaryTreeTraversalTest(){
-        int[] tree = new int[]{1,2,3,4,5,6,7};
+    public static void arrayBinaryTreeTraversalTest() {
+        int[] tree = new int[]{1, 2, 3, 4, 5, 6, 7};
         ArrayBinaryTree arrayBinaryTree = new ArrayBinaryTree(tree);
         System.out.println("前序遍历:");
         arrayBinaryTree.preorderTraversal(0);
@@ -749,14 +749,14 @@ public class main {
     }
 
     // 线索化二叉树测试
-    public static void threadedBinaryTreeTest(){
+    public static void threadedBinaryTreeTest() {
         ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
-        ThreadedBinaryTree.ThreadedBinaryTreeNode root = threadedBinaryTree.new ThreadedBinaryTreeNode(1,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node1 = threadedBinaryTree.new ThreadedBinaryTreeNode(2,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node2 = threadedBinaryTree.new ThreadedBinaryTreeNode(3,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node3 = threadedBinaryTree.new ThreadedBinaryTreeNode(4,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node4 = threadedBinaryTree.new ThreadedBinaryTreeNode(5,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node5 = threadedBinaryTree.new ThreadedBinaryTreeNode(6,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode root = threadedBinaryTree.new ThreadedBinaryTreeNode(1, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node1 = threadedBinaryTree.new ThreadedBinaryTreeNode(2, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node2 = threadedBinaryTree.new ThreadedBinaryTreeNode(3, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node3 = threadedBinaryTree.new ThreadedBinaryTreeNode(4, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node4 = threadedBinaryTree.new ThreadedBinaryTreeNode(5, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node5 = threadedBinaryTree.new ThreadedBinaryTreeNode(6, 123);
         root.setLeft(node1);
         node1.setLeft(node2);
         node1.setRight(node4);
@@ -794,14 +794,14 @@ public class main {
     }
 
     // 线索化二叉树遍历测试
-    public static void threadedBinaryTreeTraversalTest(){
+    public static void threadedBinaryTreeTraversalTest() {
         ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
-        ThreadedBinaryTree.ThreadedBinaryTreeNode root = threadedBinaryTree.new ThreadedBinaryTreeNode(1,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node1 = threadedBinaryTree.new ThreadedBinaryTreeNode(2,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node2 = threadedBinaryTree.new ThreadedBinaryTreeNode(3,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node3 = threadedBinaryTree.new ThreadedBinaryTreeNode(4,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node4 = threadedBinaryTree.new ThreadedBinaryTreeNode(5,123);
-        ThreadedBinaryTree.ThreadedBinaryTreeNode node5 = threadedBinaryTree.new ThreadedBinaryTreeNode(6,123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode root = threadedBinaryTree.new ThreadedBinaryTreeNode(1, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node1 = threadedBinaryTree.new ThreadedBinaryTreeNode(2, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node2 = threadedBinaryTree.new ThreadedBinaryTreeNode(3, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node3 = threadedBinaryTree.new ThreadedBinaryTreeNode(4, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node4 = threadedBinaryTree.new ThreadedBinaryTreeNode(5, 123);
+        ThreadedBinaryTree.ThreadedBinaryTreeNode node5 = threadedBinaryTree.new ThreadedBinaryTreeNode(6, 123);
         root.setLeft(node1);
         node1.setLeft(node2);
         node1.setRight(node4);
@@ -814,36 +814,36 @@ public class main {
     }
 
     // 哈弗曼树测试
-    public static void huffmanTreeTest(){
+    public static void huffmanTreeTest() {
         HuffmanTree huffmanTree = new HuffmanTree();
-        int[] array = {13,7,8,3,29,6,1};
+        int[] array = {13, 7, 8, 3, 29, 6, 1};
         huffmanTree.getHuffmanTree(array);
         huffmanTree.preorderTraversal();
     }
 
     // 哈夫曼编码测试
-    public static void huffmanCodingTest(){
+    public static void huffmanCodingTest() {
         String test = "would you want some?";
         HuffmanCoding huffmanCoding = new HuffmanCoding();
-        System.out.println("原始数据："+test);
+        System.out.println("原始数据：" + test);
         byte[] huffmanCode = huffmanCoding.huffmanCompression(test.getBytes());
-        System.out.println("哈夫曼编码："+Arrays.toString(huffmanCode)+"长度:"+huffmanCode.length);
+        System.out.println("哈夫曼编码：" + Arrays.toString(huffmanCode) + "长度:" + huffmanCode.length);
         String source = new String(huffmanCoding.huffmanDecompression(huffmanCode));
-        System.out.println("恢复数据："+source);
+        System.out.println("恢复数据：" + source);
         String inputPath = "/Users/anydev/Downloads/1.jpg";
         String outPath = "/Users/anydev/Downloads/huffman.zip";
-        System.out.println("哈夫曼压缩文件："+inputPath+" => "+outPath);
-        huffmanCoding.huffmanCompressionFile(inputPath,outPath);
+        System.out.println("哈夫曼压缩文件：" + inputPath + " => " + outPath);
+        huffmanCoding.huffmanCompressionFile(inputPath, outPath);
         String sourcePath = "/Users/anydev/Downloads/source.jpg";
-        System.out.println("哈夫曼解压文件："+outPath+" => "+ sourcePath);
-        huffmanCoding.huffmanDecompressionFile(outPath,sourcePath);
+        System.out.println("哈夫曼解压文件：" + outPath + " => " + sourcePath);
+        huffmanCoding.huffmanDecompressionFile(outPath, sourcePath);
     }
 
     // 二叉排序树测试
-    public static void binarySortTreeTest(){
+    public static void binarySortTreeTest() {
         BinarySortTree binarySortTree = new BinarySortTree();
-        int[] array = new int[]{3,5,9,1,2,7,6,9,4,11,15,23,31,-5,-1,-2,28,95,100,14};
-        for (int i = 0; i < array.length; i++){
+        int[] array = new int[]{3, 5, 9, 1, 2, 7, 6, 9, 4, 11, 15, 23, 31, -5, -1, -2, 28, 95, 100, 14};
+        for (int i = 0; i < array.length; i++) {
             binarySortTree.addNode(binarySortTree.new BinarySortTreeNode(array[i]));
         }
         System.out.println("中序遍历：");
@@ -863,32 +863,32 @@ public class main {
     }
 
     // ALV树测试
-    public static void alvTreeTest(){
+    public static void alvTreeTest() {
         ALVTree alvTree = new ALVTree();
-        int[] array = new int[]{10,11,7,6,8,9};
-        for (int i = 0; i < array.length; i++){
+        int[] array = new int[]{10, 11, 7, 6, 8, 9};
+        for (int i = 0; i < array.length; i++) {
             alvTree.addNode(alvTree.new ALVTreeNode(array[i]));
         }
         System.out.println("中序遍历：");
         alvTree.inorderTraversal();
         System.out.println("获取树的高度:");
-        System.out.println("左子树高度："+alvTree.getLeftHeight());
-        System.out.println("右子树高度："+alvTree.getRightHeight());
-        System.out.println("树的高度:"+alvTree.getHeight());
+        System.out.println("左子树高度：" + alvTree.getLeftHeight());
+        System.out.println("右子树高度：" + alvTree.getRightHeight());
+        System.out.println("树的高度:" + alvTree.getHeight());
     }
 
     // 邻接矩阵图测试
-    public static void adjacencyMatrixTest(){
-        String[] array = new String[]{"A","B","C","D","E"};
+    public static void adjacencyMatrixTest() {
+        String[] array = new String[]{"A", "B", "C", "D", "E"};
         AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(array.length);
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             adjacencyMatrix.addNode(array[i]);
         }
-        adjacencyMatrix.addEdge(0,1,1);
-        adjacencyMatrix.addEdge(0,2,1);
-        adjacencyMatrix.addEdge(1,2,1);
-        adjacencyMatrix.addEdge(1,3,1);
-        adjacencyMatrix.addEdge(1,4,1);
+        adjacencyMatrix.addEdge(0, 1, 1);
+        adjacencyMatrix.addEdge(0, 2, 1);
+        adjacencyMatrix.addEdge(1, 2, 1);
+        adjacencyMatrix.addEdge(1, 3, 1);
+        adjacencyMatrix.addEdge(1, 4, 1);
         adjacencyMatrix.printGraphic();
         System.out.println("深度优先遍历：");
         adjacencyMatrix.dFS();
@@ -898,12 +898,12 @@ public class main {
     }
 
     // 汉诺塔测试
-    public static void towerOfHanoiTest(){
-        TowerOfHanoi.towerOfHanoi(3,'A','B','C');
+    public static void towerOfHanoiTest() {
+        TowerOfHanoi.towerOfHanoi(3, 'A', 'B', 'C');
     }
 
     // 背包问题测试
-    public static void knapsackProblemTest(){
+    public static void knapsackProblemTest() {
         int[][] article = new int[3][2];
         article[0][0] = 1;
         article[0][1] = 1500;
@@ -911,45 +911,45 @@ public class main {
         article[1][1] = 3000;
         article[2][0] = 3;
         article[2][1] = 2000;
-        KnapsackProblem.knapsackProblem(article,4);
+        KnapsackProblem.knapsackProblem(article, 4);
     }
 
     // 暴力匹配测试
-    public static void bruteForceMatchTest(){
+    public static void bruteForceMatchTest() {
         String source = "I like Java";
         String match = "Java";
-        System.out.println(BruteForceMatch.bruteForceMatch(source,match));
+        System.out.println(BruteForceMatch.bruteForceMatch(source, match));
     }
 
     // KMP搜索测试
-    public static void kMPSearchTest(){
+    public static void kMPSearchTest() {
         String source = "AABCAAABBC";
         String match = "AABB";
-        System.out.println(KMPSearch.kMPSearch(source,match));
+        System.out.println(KMPSearch.kMPSearch(source, match));
     }
 
     // 覆盖地区测试
-    public static void coverAreaTest(){
+    public static void coverAreaTest() {
         HashMap<String, HashSet<String>> channel = new HashMap<>();
         HashSet<String> one = new HashSet<>();
         one.add("北京");
         one.add("上海");
         one.add("深圳");
-        channel.put("channel-1",one);
+        channel.put("channel-1", one);
         HashSet<String> two = new HashSet<>();
         two.add("杭州");
         two.add("深圳");
         two.add("大连");
-        channel.put("channel-2",two);
+        channel.put("channel-2", two);
         HashSet<String> three = new HashSet<>();
         three.add("大连");
         three.add("北京");
-        channel.put("channel-3",three);
+        channel.put("channel-3", three);
         HashSet<String> four = new HashSet<>();
         four.add("杭州");
         four.add("东莞");
         four.add("珠海");
-        channel.put("channel-4",four);
+        channel.put("channel-4", four);
         List<String> allArea = new ArrayList<>();
         allArea.add("北京");
         allArea.add("上海");
@@ -963,36 +963,36 @@ public class main {
     }
 
     // 修路问题测试
-    public static void mendRoadTest(){
-        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+    public static void mendRoadTest() {
+        char[] nodes = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
         int[][] matrix = new int[][]{
-                {10000,5,7,10000,10000,10000,2},
-                {5,10000,10000,9,10000,10000,3},
-                {7,10000,10000,10000,8,10000,10000},
-                {10000,9,10000,10000,10000,4,10000},
-                {10000,10000,8,10000,10000,5,4},
-                {10000,10000,10000,4,5,10000,6},
-                {2,3,10000,10000,4,5,10000},
+                {10000, 5, 7, 10000, 10000, 10000, 2},
+                {5, 10000, 10000, 9, 10000, 10000, 3},
+                {7, 10000, 10000, 10000, 8, 10000, 10000},
+                {10000, 9, 10000, 10000, 10000, 4, 10000},
+                {10000, 10000, 8, 10000, 10000, 5, 4},
+                {10000, 10000, 10000, 4, 5, 10000, 6},
+                {2, 3, 10000, 10000, 4, 5, 10000},
         };
         MendRoad mendRoad = new MendRoad();
         MendRoad.RGraph graph = mendRoad.createGraph(nodes.length, nodes, matrix);
         graph.printGraph();
         System.out.println("生成最小生成树");
-        mendRoad.prim(graph,0);
+        mendRoad.prim(graph, 0);
     }
 
     // 公交站问题测试
-    public static void busStationTest(){
+    public static void busStationTest() {
         int unConnect = Integer.MAX_VALUE;
-        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+        char[] nodes = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
         int[][] matrix = new int[][]{
-                {0,12,unConnect,unConnect,unConnect,16,14},
-                {12,0,10,unConnect,unConnect,7,unConnect},
-                {unConnect,10,0,3,5,6,unConnect},
-                {unConnect,unConnect,3,0,4,unConnect,unConnect},
-                {unConnect,unConnect,5,4,0,2,8},
-                {16,7,6,unConnect,2,0,9},
-                {14,unConnect,unConnect,unConnect,8,9,0}
+                {0, 12, unConnect, unConnect, unConnect, 16, 14},
+                {12, 0, 10, unConnect, unConnect, 7, unConnect},
+                {unConnect, 10, 0, 3, 5, 6, unConnect},
+                {unConnect, unConnect, 3, 0, 4, unConnect, unConnect},
+                {unConnect, unConnect, 5, 4, 0, 2, 8},
+                {16, 7, 6, unConnect, 2, 0, 9},
+                {14, unConnect, unConnect, unConnect, 8, 9, 0}
         };
         BusStation busStation = new BusStation();
         BusStation.BGraph graph = busStation.createGraph(nodes, matrix);
@@ -1001,20 +1001,20 @@ public class main {
     }
 
     // Dijkstra算法测试
-    public static void dijkstraAlgorithmTest(){
-        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+    public static void dijkstraAlgorithmTest() {
+        char[] nodes = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
         int n = 65535;
         int[][] matrix = new int[][]{
-                {n,5,7,n,n,n,2},
-                {5,n,n,9,n,n,3},
-                {7,n,n,n,8,n,n},
-                {n,9,n,n,n,4,n},
-                {n,n,8,n,n,5,4},
-                {n,n,n,4,5,n,6},
-                {2,3,n,n,4,6,n}
+                {n, 5, 7, n, n, n, 2},
+                {5, n, n, 9, n, n, 3},
+                {7, n, n, n, 8, n, n},
+                {n, 9, n, n, n, 4, n},
+                {n, n, 8, n, n, 5, 4},
+                {n, n, n, 4, 5, n, 6},
+                {2, 3, n, n, 4, 6, n}
         };
         DijkstraAlgorithm dijkstraAlgorithm = new DijkstraAlgorithm();
-        DijkstraAlgorithm.DijkstraGraph dijkstraGraph = dijkstraAlgorithm.new DijkstraGraph(nodes,matrix);
+        DijkstraAlgorithm.DijkstraGraph dijkstraGraph = dijkstraAlgorithm.new DijkstraGraph(nodes, matrix);
         System.out.println("显示图：");
         dijkstraGraph.printGraph();
         System.out.println("从G点出发计算到达各点的最短路径：");
@@ -1023,19 +1023,19 @@ public class main {
     }
 
     // Floyd算法测试
-    public static void floydAlgorithmTest(){
-        char[] nodes = new char[]{'A','B','C','D','E','F','G'};
+    public static void floydAlgorithmTest() {
+        char[] nodes = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
         int n = 65535;
         int[][] matrix = new int[][]{
-                {0,5,7,n,n,n,2},
-                {5,0,n,9,n,n,3},
-                {7,n,0,n,8,n,n},
-                {n,9,n,0,n,4,n},
-                {n,n,8,n,0,5,4},
-                {n,n,n,4,5,0,6},
-                {2,3,n,n,4,6,0},
+                {0, 5, 7, n, n, n, 2},
+                {5, 0, n, 9, n, n, 3},
+                {7, n, 0, n, 8, n, n},
+                {n, 9, n, 0, n, 4, n},
+                {n, n, 8, n, 0, 5, 4},
+                {n, n, n, 4, 5, 0, 6},
+                {2, 3, n, n, 4, 6, 0},
         };
-        FloydAlgorithm floydAlgorithm = new FloydAlgorithm(nodes,matrix);
+        FloydAlgorithm floydAlgorithm = new FloydAlgorithm(nodes, matrix);
         System.out.println("打印原始矩阵：");
         floydAlgorithm.printGraph();
         System.out.println("经过佛洛依德计算：");
@@ -1044,24 +1044,24 @@ public class main {
     }
 
     // 骑士周游算法测试
-    public static void knightTourProblemTest(){
+    public static void knightTourProblemTest() {
         int x = 8;
         int y = 8;
         int[][] chessboard = new int[y][x];
         int row = 4;
         int column = 1;
-        KnightTourProblem knightTourProblem = new KnightTourProblem(x,y);
-        knightTourProblem.traverseChessboard(chessboard,row-1,column-1,1);
-        for (int i = 0; i < chessboard.length; i++){
+        KnightTourProblem knightTourProblem = new KnightTourProblem(x, y);
+        knightTourProblem.traverseChessboard(chessboard, row - 1, column - 1, 1);
+        for (int i = 0; i < chessboard.length; i++) {
             System.out.println(Arrays.toString(chessboard[i]));
         }
     }
 
     // 字符数字排序测试
-    public static void alphanumericSortTest(){
-        String[] data = new String[]{"B3","D2","F1","A9","D12","A2","C1","Z0","B1"};
-        System.out.println("排序前："+Arrays.toString(data));
+    public static void alphanumericSortTest() {
+        String[] data = new String[]{"B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"};
+        System.out.println("排序前：" + Arrays.toString(data));
         AlphanumericSort.alphanumericSort(data);
-        System.out.println("排序后："+Arrays.toString(data));
+        System.out.println("排序后：" + Arrays.toString(data));
     }
 }

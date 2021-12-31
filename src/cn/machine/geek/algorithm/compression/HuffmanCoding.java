@@ -13,13 +13,13 @@ import java.io.*;
 import java.util.*;
 
 public class HuffmanCoding {
-    private Map<Byte,String> huffmanCoding;
+    private Map<Byte, String> huffmanCoding;
 
     public HuffmanCoding() {
         this.huffmanCoding = new HashMap<>();
     }
 
-    public class HuffmanCodingNode implements Comparable<HuffmanCodingNode>{
+    public class HuffmanCodingNode implements Comparable<HuffmanCodingNode> {
         private Byte data;
         private int weight;
         private HuffmanCodingNode left;
@@ -69,21 +69,21 @@ public class HuffmanCoding {
     }
 
     // Huffman变长字节编码
-    public byte[] huffmanCompression(byte[] data){
+    public byte[] huffmanCompression(byte[] data) {
         HuffmanCodingNode huffmanTree = this.createHuffmanTree(data);
-        this.createHuffmanCoding(huffmanTree,"",new StringBuilder());
+        this.createHuffmanCoding(huffmanTree, "", new StringBuilder());
         StringBuilder temp = new StringBuilder();
-        for (byte value : data){
+        for (byte value : data) {
             temp.append(this.huffmanCoding.get(value));
         }
-        byte[] huffmanCode = new byte[(temp.length()+15)/8];
+        byte[] huffmanCode = new byte[(temp.length() + 15) / 8];
         int index = 0;
-        for (int i = 0; i < temp.length(); i+=8){
-            if(i+8>temp.length()){
-                huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i),2);
-                huffmanCode[index+1] = (byte) temp.substring(i).length();
-            }else{
-                huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i,i+8),2);
+        for (int i = 0; i < temp.length(); i += 8) {
+            if (i + 8 > temp.length()) {
+                huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i), 2);
+                huffmanCode[index + 1] = (byte) temp.substring(i).length();
+            } else {
+                huffmanCode[index] = (byte) Integer.parseInt(temp.substring(i, i + 8), 2);
             }
             index++;
         }
@@ -91,27 +91,27 @@ public class HuffmanCoding {
     }
 
     // 创建哈夫曼编码
-    public void createHuffmanCoding(HuffmanCodingNode node,String code,StringBuilder stringBuilder){
-        if(node!=null){
+    public void createHuffmanCoding(HuffmanCodingNode node, String code, StringBuilder stringBuilder) {
+        if (node != null) {
             StringBuilder temp = new StringBuilder(stringBuilder);
             temp.append(code);
-            if(node.getData()!=null){
-                this.huffmanCoding.put(node.getData(),temp.toString());
-            }else{
-                this.createHuffmanCoding(node.getLeft(),"0",temp);
-                this.createHuffmanCoding(node.getRight(),"1",temp);
+            if (node.getData() != null) {
+                this.huffmanCoding.put(node.getData(), temp.toString());
+            } else {
+                this.createHuffmanCoding(node.getLeft(), "0", temp);
+                this.createHuffmanCoding(node.getRight(), "1", temp);
             }
         }
     }
 
     // 创建哈弗曼树
-    public HuffmanCodingNode createHuffmanTree(byte[] bytes){
+    public HuffmanCodingNode createHuffmanTree(byte[] bytes) {
         List<HuffmanCodingNode> nodes = this.createNode(bytes);
-        while (nodes.size() >1){
+        while (nodes.size() > 1) {
             Collections.sort(nodes);
             HuffmanCodingNode left = nodes.get(0);
             HuffmanCodingNode right = nodes.get(1);
-            HuffmanCodingNode parent = new HuffmanCodingNode(null,left.getWeight()+right.getWeight());
+            HuffmanCodingNode parent = new HuffmanCodingNode(null, left.getWeight() + right.getWeight());
             parent.setLeft(left);
             parent.setRight(right);
             nodes.remove(left);
@@ -122,56 +122,56 @@ public class HuffmanCoding {
     }
 
     // 获取字节节点
-    public List<HuffmanCodingNode> createNode(byte[] bytes){
-        Map<Byte,Integer> count = new HashMap<>();
+    public List<HuffmanCodingNode> createNode(byte[] bytes) {
+        Map<Byte, Integer> count = new HashMap<>();
         List<HuffmanCodingNode> nodes = new ArrayList<>();
-        for (byte value: bytes){
+        for (byte value : bytes) {
             Integer total = count.get(value);
-            if(total==null){
-                count.put(value,1);
-            }else{
-                count.put(value,total+1);
+            if (total == null) {
+                count.put(value, 1);
+            } else {
+                count.put(value, total + 1);
             }
         }
-        for (Map.Entry<Byte,Integer> map : count.entrySet()){
-            nodes.add(new HuffmanCodingNode(map.getKey(),map.getValue()));
+        for (Map.Entry<Byte, Integer> map : count.entrySet()) {
+            nodes.add(new HuffmanCodingNode(map.getKey(), map.getValue()));
         }
         return nodes;
     }
 
     // 字节转换为字符串
-    public String byteConvertToString(byte data,boolean flag,int count){
+    public String byteConvertToString(byte data, boolean flag, int count) {
         int temp = data;
         temp |= 256;
         String str = Integer.toBinaryString(temp);
-        if(flag){
-            return str.substring(str.length()-8);
-        }else{
-            return str.substring(str.length()-count);
+        if (flag) {
+            return str.substring(str.length() - 8);
+        } else {
+            return str.substring(str.length() - count);
         }
     }
 
     // Huffman变长字节解码
-    public byte[] huffmanDecompression(byte[] bytes){
+    public byte[] huffmanDecompression(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < bytes.length-1; i++){
-            if(i == bytes.length-2){
-                stringBuilder.append(this.byteConvertToString(bytes[i],i < bytes.length-2,bytes[bytes.length-1]));
+        for (int i = 0; i < bytes.length - 1; i++) {
+            if (i == bytes.length - 2) {
+                stringBuilder.append(this.byteConvertToString(bytes[i], i < bytes.length - 2, bytes[bytes.length - 1]));
                 break;
             }
-            stringBuilder.append(this.byteConvertToString(bytes[i],i < bytes.length-2,0));
+            stringBuilder.append(this.byteConvertToString(bytes[i], i < bytes.length - 2, 0));
         }
-        Map<String,Byte> deHuffmanCoding = new HashMap<>();
-        for (Map.Entry<Byte,String> map : this.huffmanCoding.entrySet()){
-            deHuffmanCoding.put(map.getValue(),map.getKey());
+        Map<String, Byte> deHuffmanCoding = new HashMap<>();
+        for (Map.Entry<Byte, String> map : this.huffmanCoding.entrySet()) {
+            deHuffmanCoding.put(map.getValue(), map.getKey());
         }
         List<Byte> byteList = new ArrayList<>();
-        for (int i = 0; i < stringBuilder.length(); ){
+        for (int i = 0; i < stringBuilder.length(); ) {
             int count = 1;
-            while (true){
-                String key = stringBuilder.substring(i,i+count);
+            while (true) {
+                String key = stringBuilder.substring(i, i + count);
                 Byte data = deHuffmanCoding.get(key);
-                if(data!=null){
+                if (data != null) {
                     byteList.add(data);
                     break;
                 }
@@ -180,14 +180,14 @@ public class HuffmanCoding {
             i += count;
         }
         byte[] data = new byte[byteList.size()];
-        for(int i = 0; i < byteList.size(); i++){
+        for (int i = 0; i < byteList.size(); i++) {
             data[i] = byteList.get(i);
         }
         return data;
     }
 
     // 哈夫曼压缩文件
-    public void huffmanCompressionFile(String inputPath,String outputPath){
+    public void huffmanCompressionFile(String inputPath, String outputPath) {
         FileInputStream fileInputStream = null;
         OutputStream outputStream = null;
         ObjectOutputStream objectOutputStream = null;
@@ -197,7 +197,7 @@ public class HuffmanCoding {
             fileInputStream.read(data);
             byte[] huffmanBytes = this.huffmanCompression(data);
             File file = new File(outputPath);
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
             }
@@ -227,7 +227,7 @@ public class HuffmanCoding {
     }
 
     // 哈夫曼解压文件
-    public void huffmanDecompressionFile(String inputPath,String outputPath){
+    public void huffmanDecompressionFile(String inputPath, String outputPath) {
         InputStream inputStream = null;
         ObjectInputStream objectInputStream = null;
         FileOutputStream fileOutputStream = null;
@@ -238,7 +238,7 @@ public class HuffmanCoding {
             this.huffmanCoding = (Map<Byte, String>) objectInputStream.readObject();
             byte[] sourceBytes = this.huffmanDecompression(huffmanBytes);
             File file = new File(outputPath);
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.getParentFile().mkdirs();
                 file.createNewFile();
             }
@@ -268,9 +268,9 @@ public class HuffmanCoding {
     }
 
     // 打印哈夫曼编码
-    public void printHuffmanCoding(){
-        for (Map.Entry<Byte,String> map : this.huffmanCoding.entrySet()){
-            System.out.println("key="+map.getKey()+" value="+map.getValue());
+    public void printHuffmanCoding() {
+        for (Map.Entry<Byte, String> map : this.huffmanCoding.entrySet()) {
+            System.out.println("key=" + map.getKey() + " value=" + map.getValue());
         }
     }
 }

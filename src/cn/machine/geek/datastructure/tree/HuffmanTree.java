@@ -16,10 +16,10 @@ public class HuffmanTree {
     private HuffmanTreeNode root;
 
     // 前序遍历
-    public void preorderTraversal(){
-        if(this.root==null){
+    public void preorderTraversal() {
+        if (this.root == null) {
             System.out.println("This tree is empty!");
-        }else{
+        } else {
             this.root.preorderTraversal();
         }
     }
@@ -33,7 +33,7 @@ public class HuffmanTree {
     }
 
     // 哈弗曼树节点
-    public class HuffmanTreeNode{
+    public class HuffmanTreeNode {
         private int id;
         private int data;
         private HuffmanTreeNode left;
@@ -45,12 +45,12 @@ public class HuffmanTree {
         }
 
         // 前序遍历
-        public void preorderTraversal(){
-            System.out.print(this.data+"=>");
-            if (this.left!=null){
+        public void preorderTraversal() {
+            System.out.print(this.data + "=>");
+            if (this.left != null) {
                 this.left.preorderTraversal();
             }
-            if(this.right!=null){
+            if (this.right != null) {
                 this.right.preorderTraversal();
             }
         }
@@ -89,16 +89,16 @@ public class HuffmanTree {
     }
 
     // 获取哈弗曼树
-    public HuffmanTreeNode getHuffmanTree(int[] array){
+    public HuffmanTreeNode getHuffmanTree(int[] array) {
         List<HuffmanTreeNode> huffmanTreeNodes = new ArrayList<>();
-        for (int data : array){
-            huffmanTreeNodes.add(new HuffmanTreeNode(data,data));
+        for (int data : array) {
+            huffmanTreeNodes.add(new HuffmanTreeNode(data, data));
         }
-        while (huffmanTreeNodes.size()>1){
+        while (huffmanTreeNodes.size() > 1) {
             this.nodeSort(huffmanTreeNodes);
             HuffmanTreeNode left = huffmanTreeNodes.get(0);
             HuffmanTreeNode right = huffmanTreeNodes.get(1);
-            HuffmanTreeNode parent = new HuffmanTreeNode(left.getId()+right.getId(),left.getData()+right.getData());
+            HuffmanTreeNode parent = new HuffmanTreeNode(left.getId() + right.getId(), left.getData() + right.getData());
             parent.setLeft(left);
             parent.setRight(right);
             huffmanTreeNodes.remove(left);
@@ -110,16 +110,16 @@ public class HuffmanTree {
     }
 
     // 排序
-    public void nodeSort(List<HuffmanTreeNode> huffmanTreeNodes){
+    public void nodeSort(List<HuffmanTreeNode> huffmanTreeNodes) {
         HuffmanTreeNode temp;
-        for (int i = 1; i < huffmanTreeNodes.size(); i++){
-            int index = i-1;
+        for (int i = 1; i < huffmanTreeNodes.size(); i++) {
+            int index = i - 1;
             temp = huffmanTreeNodes.get(i);
-            while (index >= 0 && huffmanTreeNodes.get(index).getId() > temp.getId()){
-                huffmanTreeNodes.set(index+1,huffmanTreeNodes.get(index));
+            while (index >= 0 && huffmanTreeNodes.get(index).getId() > temp.getId()) {
+                huffmanTreeNodes.set(index + 1, huffmanTreeNodes.get(index));
                 index--;
             }
-            huffmanTreeNodes.set(index+1,temp);
+            huffmanTreeNodes.set(index + 1, temp);
         }
     }
 }

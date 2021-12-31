@@ -50,15 +50,15 @@ public class Josephus {
     }
 
     // 增加加点
-    public void addNode(People node){
-        if(this.next==null){
+    public void addNode(People node) {
+        if (this.next == null) {
             this.next = node;
             this.next.setNext(this.next);
             this.length++;
             return;
         }
         People temp = this.next;
-        while (temp.getNext()!=this.next){
+        while (temp.getNext() != this.next) {
             temp = temp.getNext();
         }
         node.setNext(temp.getNext());
@@ -67,15 +67,15 @@ public class Josephus {
     }
 
     // 打印链表
-    public void printLinkedList(){
-        if(this.length <= 0){
+    public void printLinkedList() {
+        if (this.length <= 0) {
             System.out.println("LinkedList is empty!");
             return;
         }
         People temp = this.next;
         int count = this.length;
-        while (count>0){
-            System.out.print("["+temp.getId()+"]="+temp.getData()+" ");
+        while (count > 0) {
+            System.out.print("[" + temp.getId() + "]=" + temp.getData() + " ");
             temp = temp.getNext();
             count--;
         }
@@ -83,36 +83,36 @@ public class Josephus {
     }
 
     // 打印约瑟夫圆
-    public void printJosephusCircular(int start,int count) {
-        if(this.length <= 1){
+    public void printJosephusCircular(int start, int count) {
+        if (this.length <= 1) {
             return;
         }
         // 辅助指针先指向环形指针尾部
         People helper = this.next;
-        while (helper.getNext()!=this.next){
+        while (helper.getNext() != this.next) {
             helper = helper.getNext();
         }
         // 当前指针指向起始节点，辅助指针跟随在后。
         People current = this.next;
-        for (int i = 0; i < start-1; i++){
+        for (int i = 0; i < start - 1; i++) {
             current = current.getNext();
             helper = helper.getNext();
         }
         // 只要辅助指针不等于当前指针说明数据节点大于2
-        while (helper!=current){
+        while (helper != current) {
             // 当前指针指向需要出链表的节点，辅助指针跟随在后。
-            for (int i = 0; i < count-1; i++){
+            for (int i = 0; i < count - 1; i++) {
                 current = current.getNext();
                 helper = helper.getNext();
             }
             // 打印当前节点
-            System.out.print("["+current.getId()+"]="+current.getData());
+            System.out.print("[" + current.getId() + "]=" + current.getData());
             // 当前指针指向下一个节点
             current = current.getNext();
             // 辅助指针指向当前节点
             helper.setNext(current);
         }
         System.out.println();
-        System.out.println("存活:["+current.getId()+"]="+current.getData());
+        System.out.println("存活:[" + current.getId() + "]=" + current.getData());
     }
 }

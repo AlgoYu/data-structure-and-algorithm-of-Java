@@ -26,45 +26,45 @@ public class ArrayQueue {
     }
 
     // 判断队列是否为空
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.front == this.tail;
     }
 
     // 判断队列是否已满
-    public boolean isFull(){
-        return this.tail+1 == this.size;
+    public boolean isFull() {
+        return this.tail + 1 == this.size;
     }
 
     // 数据加入队列尾部
-    public void addQueue(int data){
-        if(this.isFull()){
+    public void addQueue(int data) {
+        if (this.isFull()) {
             throw new RuntimeException("Can't add queue because queue is full");
         }
         this.queue[++this.tail] = data;
     }
 
     // 队列头部数据出队列
-    public int outQueue(){
-        if(this.isEmpty()){
+    public int outQueue() {
+        if (this.isEmpty()) {
             throw new RuntimeException("Can't add queue because queue is empty");
         }
         return this.queue[++this.front];
     }
 
     // 打印队列
-    public void printQueue(){
-        for (int value : this.queue){
-            System.out.print(value+" ");
+    public void printQueue() {
+        for (int value : this.queue) {
+            System.out.print(value + " ");
         }
         System.out.println();
     }
 
     // 打印当前队列头部
-    public void printCurrentQueueHead(){
-        if(this.isEmpty()){
+    public void printCurrentQueueHead() {
+        if (this.isEmpty()) {
             System.out.println("Current have not data");
-        }else{
-            System.out.println(this.queue[this.front+1]);
+        } else {
+            System.out.println(this.queue[this.front + 1]);
         }
     }
 }

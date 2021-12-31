@@ -10,15 +10,15 @@ package cn.machine.geek.algorithm.search;
 
 public class InterpolationSearch {
     // 插值算法
-    public int interpolationSearch(int[] array,int value,int left,int right){
+    public int interpolationSearch(int[] array, int value, int left, int right) {
         // 查找值必须在数据范围内
-        if(left <= right && value >= array[0] && value <= array[array.length-1]){
+        if (left <= right && value >= array[0] && value <= array[array.length - 1]) {
             int middle = left + (right - left) * (value - array[left]) / (array[right] - array[left]);
-            if(array[middle] > value){
-                return this.interpolationSearch(array,value,left,middle-1);
-            }else if(array[middle] < value){
-                return this.interpolationSearch(array,value,middle+1,right);
-            }else{
+            if (array[middle] > value) {
+                return this.interpolationSearch(array, value, left, middle - 1);
+            } else if (array[middle] < value) {
+                return this.interpolationSearch(array, value, middle + 1, right);
+            } else {
                 return middle;
             }
         }

@@ -20,18 +20,18 @@ public class ArrayStack {
     }
 
     // 判断栈是否已满
-    public boolean isFull(){
-        return this.top >= this.size-1;
+    public boolean isFull() {
+        return this.top >= this.size - 1;
     }
 
     // 判断栈是否为空
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return this.top == -1;
     }
 
     // 入栈
-    public void push(int data){
-        if(this.isFull()){
+    public void push(int data) {
+        if (this.isFull()) {
             System.out.println("Stack is full.");
             return;
         }
@@ -40,8 +40,8 @@ public class ArrayStack {
     }
 
     // 出栈
-    public int pop(){
-        if(this.isEmpty()){
+    public int pop() {
+        if (this.isEmpty()) {
             throw new RuntimeException("Stack is empty.");
         }
         int data = this.stack[this.top];
@@ -50,21 +50,21 @@ public class ArrayStack {
     }
 
     // 返回当前栈顶但不出栈
-    public int peek(){
-        if(this.isEmpty()){
+    public int peek() {
+        if (this.isEmpty()) {
             throw new RuntimeException("Stack is empty.");
         }
         return this.stack[this.top];
     }
 
     // 打印栈
-    public void printStack(){
-        if(this.isEmpty()){
+    public void printStack() {
+        if (this.isEmpty()) {
             System.out.println("Stack is empty.");
             return;
         }
-        for (int i = this.top; i >= 0; i--){
-            System.out.print(this.stack[i]+" ");
+        for (int i = this.top; i >= 0; i--) {
+            System.out.print(this.stack[i] + " ");
         }
         System.out.println();
     }

@@ -9,19 +9,19 @@ package cn.machine.geek.datastructure.linear;
 
 public class SparseMatrix {
     /* 把原始矩阵转换为稀疏矩阵 */
-    public static int[][] convertToSparseMatrix(int[][] sourceMatrix){
+    public static int[][] convertToSparseMatrix(int[][] sourceMatrix) {
         // validData记录矩阵的有效数据个数
         int validData = 0;
         // 遍历矩阵获取有效数据的个数
-        for(int i = 0; i < sourceMatrix.length; i++){
-            for (int j = 0; j < sourceMatrix[i].length; j++){
-                if(sourceMatrix[i][j]!=0){
+        for (int i = 0; i < sourceMatrix.length; i++) {
+            for (int j = 0; j < sourceMatrix[i].length; j++) {
+                if (sourceMatrix[i][j] != 0) {
                     validData++;
                 }
             }
         }
         // 初始化行数为validData+1，列为3的矩阵。
-        int[][] sparseMatrix = new int[validData+1][3];
+        int[][] sparseMatrix = new int[validData + 1][3];
         // 记录行数
         sparseMatrix[0][0] = sourceMatrix.length;
         // 记录列数
@@ -30,9 +30,9 @@ public class SparseMatrix {
         sparseMatrix[0][2] = validData;
         // 往稀疏矩阵存入有效值的行和列及值
         int row = 0;
-        for(int i = 0; i < sourceMatrix.length; i++){
-            for (int j = 0; j < sourceMatrix[i].length; j++){
-                if(sourceMatrix[i][j]!=0){
+        for (int i = 0; i < sourceMatrix.length; i++) {
+            for (int j = 0; j < sourceMatrix[i].length; j++) {
+                if (sourceMatrix[i][j] != 0) {
                     row++;
                     // 记录有效数据行数
                     sparseMatrix[row][0] = i;
@@ -47,11 +47,11 @@ public class SparseMatrix {
     }
 
     /* 从稀疏矩阵中恢复到原始矩阵 */
-    public static int[][] restoreMatrixFromSparseMatrix(int[][] sparseMatrix){
+    public static int[][] restoreMatrixFromSparseMatrix(int[][] sparseMatrix) {
         // 从稀疏矩阵中获取原始矩阵的行列数
         int[][] sourceMatrix = new int[sparseMatrix[0][0]][sparseMatrix[0][1]];
         // 从稀疏矩阵中获取有效数据行和列并赋值到原始矩阵
-        for (int i = 0; i < sparseMatrix[0][2];){
+        for (int i = 0; i < sparseMatrix[0][2]; ) {
             i++;
             sourceMatrix[sparseMatrix[i][0]][sparseMatrix[i][1]] = sparseMatrix[i][2];
         }
@@ -59,10 +59,10 @@ public class SparseMatrix {
     }
 
     /* 打印矩阵 */
-    public static void printMatrix(int[][] matrix){
-        for(int i = 0; i < matrix.length; i++){
-            for (int j = 0; j < matrix[i].length; j++){
-                System.out.print(matrix[i][j]+" ");
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }

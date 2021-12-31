@@ -10,29 +10,29 @@ KMP搜索算法：现在有两个字符串：s1和s2，现在要你输出s2在s1
 package cn.machine.geek.algorithm.search;
 
 public class KMPSearch {
-    public static int kMPSearch(String source,String match){
+    public static int kMPSearch(String source, String match) {
         int[] matchTable = KMPSearch.kMPMatchTable(match);
-        for (int i = 0,j = 0; i < source.length(); i++){
-            while (j>0 && source.charAt(i) != match.charAt(j)){
-                j = matchTable[j-1];
+        for (int i = 0, j = 0; i < source.length(); i++) {
+            while (j > 0 && source.charAt(i) != match.charAt(j)) {
+                j = matchTable[j - 1];
             }
-            if(source.charAt(i) == match.charAt(j)){
+            if (source.charAt(i) == match.charAt(j)) {
                 j++;
             }
-            if(j==match.length()){
+            if (j == match.length()) {
                 return i - j + 1;
             }
         }
         return -1;
     }
 
-    public static int[] kMPMatchTable(String str){
+    public static int[] kMPMatchTable(String str) {
         int[] matchTable = new int[str.length()];
-        for (int i = 1,j = 0; i < str.length(); i++){
-            while (j > 0 && str.charAt(i) != str.charAt(j)){
-                j = matchTable[j-1];
+        for (int i = 1, j = 0; i < str.length(); i++) {
+            while (j > 0 && str.charAt(i) != str.charAt(j)) {
+                j = matchTable[j - 1];
             }
-            if(str.charAt(i) == str.charAt(j)){
+            if (str.charAt(i) == str.charAt(j)) {
                 j++;
             }
             matchTable[i] = j;

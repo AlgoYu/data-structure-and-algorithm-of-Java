@@ -9,9 +9,9 @@ package cn.machine.geek.algorithm.search;
 
 public class SeqSearch {
     // 线性查找
-    public int seqSearch(int[] array,int value){
-        for (int i = 0; i<array.length; i++){
-            if(array[i] == value){
+    public int seqSearch(int[] array, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
                 return i;
             }
         }

@@ -10,23 +10,23 @@ package cn.machine.geek.algorithm.sort.internal.swap;
 
 public class QuickSort {
     // 快速排序
-    public void quickSort(int[] array,int left,int right){
+    public void quickSort(int[] array, int left, int right) {
         int l = left;
         int r = right;
         // 选择中间值作为基数
-        int base = array[(left+right)/2] ;
+        int base = array[(left + right) / 2];
         int temp;
-        while (l < r){
+        while (l < r) {
             // 从左往右寻找大于等于基数的值
-            while (l <= right && array[l] < base){
+            while (l <= right && array[l] < base) {
                 l++;
             }
             // 从右往左寻找小于等于基数的值
-            while (r >= left && array[r] > base){
+            while (r >= left && array[r] > base) {
                 r--;
             }
             // 如果左指针大于等于右指针则退出
-            if(l>=r){
+            if (l >= r) {
                 break;
             }
             // 交换数据
@@ -34,25 +34,25 @@ public class QuickSort {
             array[l] = array[r];
             array[r] = temp;
             // 避免交换的数据与基数相同而造成死循环
-            if(array[l] == base){
+            if (array[l] == base) {
                 l++;
             }
-            if(array[r] == base){
+            if (array[r] == base) {
                 r--;
             }
         }
         // 避免交换位置相等重复递归造成的栈溢出
-        if(l ==  r){
+        if (l == r) {
             l++;
             r--;
         }
         // 向左递归
-        if(left < r){
-            this.quickSort(array,left,r);
+        if (left < r) {
+            this.quickSort(array, left, r);
         }
         // 向右递归
-        if(right > l){
-            this.quickSort(array,l,right);
+        if (right > l) {
+            this.quickSort(array, l, right);
         }
     }
 }

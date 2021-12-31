@@ -18,19 +18,19 @@ public class ReversePolishCalculator {
     }
 
     // 计算并返回结果
-    public int calculateReversePolishExpression(String expression){
+    public int calculateReversePolishExpression(String expression) {
         // 以空格分割
         String[] values = expression.split(" ");
         // 遍历数组判断是操作符还是数值
-        for(int i = 0; i < values.length; i++){
+        for (int i = 0; i < values.length; i++) {
             // 数值入栈
-            if(values[i].matches("\\d+")){
+            if (values[i].matches("\\d+")) {
                 this.nums.push(Integer.parseInt(values[i]));
-            }else{
+            } else {
                 // 如果是操作符即从数值栈中取出两个值进行计算并推回数值栈
                 int num1 = this.nums.pop();
                 int num2 = this.nums.pop();
-                this.nums.push(this.calculate(num1,num2,values[i]));
+                this.nums.push(this.calculate(num1, num2, values[i]));
             }
         }
         // 返回结果
@@ -38,16 +38,16 @@ public class ReversePolishCalculator {
     }
 
     // 计算数值
-    public int calculate(int num1,int num2,String operate){
+    public int calculate(int num1, int num2, String operate) {
         // 加法和乘法的顺序不影响计算结果，但是减法和除法的顺序会影响计算结果。
-        if(operate.equals("+")){
-            return num1+num2;
-        }else if(operate.equals("-")){
-            return num2-num1;
-        }else if(operate.equals("*")){
-            return num1*num2;
-        }else if(operate.equals("/")){
-            return num2/num1;
+        if (operate.equals("+")) {
+            return num1 + num2;
+        } else if (operate.equals("-")) {
+            return num2 - num1;
+        } else if (operate.equals("*")) {
+            return num1 * num2;
+        } else if (operate.equals("/")) {
+            return num2 / num1;
         }
         throw new RuntimeException("Operation mismatch.");
     }

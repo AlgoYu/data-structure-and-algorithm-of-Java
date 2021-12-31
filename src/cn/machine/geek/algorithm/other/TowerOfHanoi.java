@@ -8,13 +8,13 @@
 package cn.machine.geek.algorithm.other;
 
 public class TowerOfHanoi {
-    public static void towerOfHanoi(int num, char a, char b, char c){
-        if(num==1){
-            System.out.println(num+" "+a+" to "+c);
-        }else{
-            TowerOfHanoi.towerOfHanoi(num-1,a,c,b);
-            System.out.println(num+" "+a+" to "+c);
-            TowerOfHanoi.towerOfHanoi(num-1,b,a,c);
+    public static void towerOfHanoi(int num, char a, char b, char c) {
+        if (num == 1) {
+            System.out.println(num + " " + a + " to " + c);
+        } else {
+            TowerOfHanoi.towerOfHanoi(num - 1, a, c, b);
+            System.out.println(num + " " + a + " to " + c);
+            TowerOfHanoi.towerOfHanoi(num - 1, b, a, c);
         }
     }
 }

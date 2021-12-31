@@ -10,20 +10,20 @@ package cn.machine.geek.algorithm.sort.internal.selection;
 
 public class SelectionSort {
     // 选择排序
-    public int[] selectionSort(int[] array){
+    public int[] selectionSort(int[] array) {
         int temp;
         int index;
-        for (int i = 0; i < array.length-1;i++){
+        for (int i = 0; i < array.length - 1; i++) {
             temp = array[i];
             index = i;
-            for (int j = i+1; j < array.length; j++){
-                if(temp>array[j]){
+            for (int j = i + 1; j < array.length; j++) {
+                if (temp > array[j]) {
                     temp = array[j];
                     index = j;
                 }
             }
             // 如果指向的下标发生了变化则替换值
-            if(index!=i){
+            if (index != i) {
                 array[index] = array[i];
                 array[i] = temp;
             }

@@ -18,53 +18,53 @@ public class ArrayBinaryTree {
     }
 
     // 前序遍历
-    public void preorderTraversal(int index){
-        if(this.binaryTree == null || this.binaryTree.length ==0){
+    public void preorderTraversal(int index) {
+        if (this.binaryTree == null || this.binaryTree.length == 0) {
             System.out.println("This tree is empty!");
             return;
         }
-        System.out.print(this.binaryTree[index]+"=>");
+        System.out.print(this.binaryTree[index] + "=>");
         // 向左遍历
-        if(this.binaryTree.length > 2*index+1){
-            this.preorderTraversal(2*index+1);
+        if (this.binaryTree.length > 2 * index + 1) {
+            this.preorderTraversal(2 * index + 1);
         }
         // 向右遍历
-        if(this.binaryTree.length > 2*index+2){
-            this.preorderTraversal(2*index+2);
+        if (this.binaryTree.length > 2 * index + 2) {
+            this.preorderTraversal(2 * index + 2);
         }
     }
 
     // 中序遍历
-    public void inorderTraversal(int index){
-        if(this.binaryTree == null || this.binaryTree.length ==0){
+    public void inorderTraversal(int index) {
+        if (this.binaryTree == null || this.binaryTree.length == 0) {
             System.out.println("This tree is empty!");
             return;
         }
         // 向左遍历
-        if(this.binaryTree.length > 2*index+1){
-            this.inorderTraversal(2*index+1);
+        if (this.binaryTree.length > 2 * index + 1) {
+            this.inorderTraversal(2 * index + 1);
         }
-        System.out.print(this.binaryTree[index]+"=>");
+        System.out.print(this.binaryTree[index] + "=>");
         // 向右遍历
-        if(this.binaryTree.length > 2*index+2){
-            this.inorderTraversal(2*index+2);
+        if (this.binaryTree.length > 2 * index + 2) {
+            this.inorderTraversal(2 * index + 2);
         }
     }
 
     // 后序遍历
-    public void postOrderTraversal(int index){
-        if(this.binaryTree == null || this.binaryTree.length ==0){
+    public void postOrderTraversal(int index) {
+        if (this.binaryTree == null || this.binaryTree.length == 0) {
             System.out.println("This tree is empty!");
             return;
         }
         // 向左遍历
-        if(this.binaryTree.length > 2*index+1){
-            this.postOrderTraversal(2*index+1);
+        if (this.binaryTree.length > 2 * index + 1) {
+            this.postOrderTraversal(2 * index + 1);
         }
         // 向右遍历
-        if(this.binaryTree.length > 2*index+2){
-            this.postOrderTraversal(2*index+2);
+        if (this.binaryTree.length > 2 * index + 2) {
+            this.postOrderTraversal(2 * index + 2);
         }
-        System.out.print(this.binaryTree[index]+"=>");
+        System.out.print(this.binaryTree[index] + "=>");
     }
 }

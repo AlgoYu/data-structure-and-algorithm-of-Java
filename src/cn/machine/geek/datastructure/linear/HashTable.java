@@ -19,12 +19,12 @@ public class HashTable {
     }
 
     // 散列函数
-    public int hashFunction(int key){
+    public int hashFunction(int key) {
         return key % size;
     }
 
     // 散列表节点
-    public class HashTableNode{
+    public class HashTableNode {
         private int id;
         private int data;
         private HashTableNode next;
@@ -60,17 +60,17 @@ public class HashTable {
     }
 
     // 增加节点
-    public void addNode(HashTableNode hashTableNode){
-        if(this.getNode(hashTableNode.getId())!=null){
+    public void addNode(HashTableNode hashTableNode) {
+        if (this.getNode(hashTableNode.getId()) != null) {
             System.out.print("The node already exist!");
             return;
         }
         int index = this.hashFunction(hashTableNode.getId());
-        if(this.hashTable[index] == null){
+        if (this.hashTable[index] == null) {
             this.hashTable[index] = hashTableNode;
-        }else{
+        } else {
             HashTableNode temp = this.hashTable[index];
-            while (temp.getNext() != null){
+            while (temp.getNext() != null) {
                 temp = temp.getNext();
             }
             temp.setNext(hashTableNode);
@@ -78,21 +78,21 @@ public class HashTable {
     }
 
     // 增加有序节点
-    public void addOrderNode(HashTableNode hashTableNode){
-        if(this.getNode(hashTableNode.getId())!=null){
+    public void addOrderNode(HashTableNode hashTableNode) {
+        if (this.getNode(hashTableNode.getId()) != null) {
             System.out.print("The node already exist!");
             return;
         }
         int index = this.hashFunction(hashTableNode.getId());
-        if(this.hashTable[index] == null){
+        if (this.hashTable[index] == null) {
             this.hashTable[index] = hashTableNode;
-        }else{
+        } else {
             HashTableNode temp = this.hashTable[index];
-            if(temp.getId() > hashTableNode.getId()){
+            if (temp.getId() > hashTableNode.getId()) {
                 hashTableNode.setNext(temp);
                 this.hashTable[index] = hashTableNode;
-            }else{
-                while (temp.getNext() != null && temp.getNext().getId() < hashTableNode.getId()){
+            } else {
+                while (temp.getNext() != null && temp.getNext().getId() < hashTableNode.getId()) {
                     temp = temp.getNext();
                 }
                 hashTableNode.setNext(temp.getNext());
@@ -102,19 +102,19 @@ public class HashTable {
     }
 
     // 删除节点
-    public void deleteNode(int id){
+    public void deleteNode(int id) {
         int index = this.hashFunction(id);
-        if(this.hashTable[index] == null){
+        if (this.hashTable[index] == null) {
             throw new RuntimeException("LinkedList is empty!");
-        }else{
+        } else {
             HashTableNode temp = this.hashTable[index];
-            if(temp.getId() == id){
+            if (temp.getId() == id) {
                 this.hashTable[index] = temp.getNext();
-            }else{
-                while (temp.next != null && temp.getId() != id){
+            } else {
+                while (temp.next != null && temp.getId() != id) {
                     temp = temp.getNext();
                 }
-                if(temp.getNext() != null){
+                if (temp.getNext() != null) {
                     temp.setNext(temp.getNext().getNext());
                 }
             }
@@ -122,30 +122,30 @@ public class HashTable {
     }
 
     // 修改节点
-    public void modifyNode(HashTableNode hashTableNode){
+    public void modifyNode(HashTableNode hashTableNode) {
         HashTableNode node = this.getNode(hashTableNode.getId());
-        if(node!=null){
+        if (node != null) {
             node.setData(hashTableNode.getData());
         }
     }
 
     // 查询节点
-    public HashTableNode getNode(int id){
+    public HashTableNode getNode(int id) {
         int index = this.hashFunction(id);
         HashTableNode temp = this.hashTable[index];
-        while (temp!=null && temp.getId()!=id){
+        while (temp != null && temp.getId() != id) {
             temp = temp.getNext();
         }
         return temp;
     }
 
     // 打印散列表
-    public void printHashTable(){
-        for (int i = 0; i < size; i++){
+    public void printHashTable() {
+        for (int i = 0; i < size; i++) {
             HashTableNode temp = this.hashTable[i];
-            System.out.print("The "+i+" linked list:");
-            while (temp!=null){
-                System.out.print("id="+temp.getId()+"data="+temp.getData()+"=>");
+            System.out.print("The " + i + " linked list:");
+            while (temp != null) {
+                System.out.print("id=" + temp.getId() + "data=" + temp.getData() + "=>");
                 temp = temp.getNext();
             }
             System.out.println();

@@ -10,32 +10,33 @@ package cn.machine.geek.algorithm.search;
 
 public class BinarySearch {
     // 二分查找
-    public int binarySearch(int[] array,int value,int left,int right){
-        if(left <= right){
-            int middle = (left + right)/2;
-            if(array[middle] > value){
-                return this.binarySearch(array,value,left,middle-1);
-            }else if(array[middle] < value){
-                return this.binarySearch(array,value,middle+1,right);
-            }else{
+    public int binarySearch(int[] array, int value, int left, int right) {
+        if (left <= right) {
+            int middle = (left + right) / 2;
+            if (array[middle] > value) {
+                return this.binarySearch(array, value, left, middle - 1);
+            } else if (array[middle] < value) {
+                return this.binarySearch(array, value, middle + 1, right);
+            } else {
                 return middle;
             }
         }
         return -1;
     }
+
     // 二分查找非递归实现
-    public int binarySearch(int[] array,int target){
+    public int binarySearch(int[] array, int target) {
         int left = 0;
-        int right = array.length-1;
+        int right = array.length - 1;
         int middle;
-        while (left <= right){
-            middle = (left+right)/2;
-            if(array[middle]==target){
+        while (left <= right) {
+            middle = (left + right) / 2;
+            if (array[middle] == target) {
                 return middle;
-            }else if(array[middle]>target){
-                right = middle-1;
-            }else{
-                left = middle+1;
+            } else if (array[middle] > target) {
+                right = middle - 1;
+            } else {
+                left = middle + 1;
             }
         }
         return -1;
